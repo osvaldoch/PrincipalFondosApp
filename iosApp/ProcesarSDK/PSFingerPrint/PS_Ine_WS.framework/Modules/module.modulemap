@@ -1,0 +1,4 @@
+framework module PS_Ine_WS {
+  header "PS_Ine_WS-Swift.h"
+  requires objc
+}

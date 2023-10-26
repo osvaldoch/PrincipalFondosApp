@@ -1,0 +1,11 @@
+framework module PS_Notification {
+  umbrella header "PS_Notification.h"
+
+  export *
+  module * { export * }
+}
+
+module PS_Notification.Swift {
+    header "PS_Notification-Swift.h"
+    requires objc
+}

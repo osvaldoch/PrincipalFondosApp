@@ -1,0 +1,842 @@
+// swift-interface-format-version: 1.0
+// swift-compiler-version: Apple Swift version 5.8 (swiftlang-5.8.0.124.2 clang-1403.0.22.11.100)
+// swift-module-flags: -target arm64-apple-ios11.4 -enable-objc-interop -enable-library-evolution -swift-version 5 -enforce-exclusivity=checked -Onone -module-name PS_Facial_Engine
+// swift-module-flags-ignorable: -enable-bare-slash-regex
+import AVFoundation
+import AudioToolbox
+import CommonCrypto
+import Foundation
+import LocalAuthentication
+@_exported import PS_Facial_Engine
+import Swift
+import UIKit
+import _Concurrency
+import _StringProcessing
+import os
+public struct PSFEResultModel {
+  public var hasAcceptableQuality: Swift.Bool
+  public var isDeviceUpright: Swift.Bool
+  public var isTrackingFace: Swift.Bool
+  public var bestImageScore: Swift.Float
+  public var image: UIKit.UIImage
+  public var isNod: Swift.Bool
+  public var isBlink: Swift.Bool
+  public var isPassive: Swift.Bool
+  public var isShake: Swift.Bool
+  public var spoofDetected: Swift.Bool
+  public init(hasAcceptableQuality: Swift.Bool?, isDeviceUpright: Swift.Bool?, isTrackingFace: Swift.Bool?, bestImageScore: Swift.Float?, image: UIKit.UIImage?, isNod: Swift.Bool?, isBlink: Swift.Bool?, isPassive: Swift.Bool?, isShake: Swift.Bool?, spoofDetected: Swift.Bool?)
+}
+public protocol PSFacialEngineRegistrationFlowDelegate {
+  func onDocumentCaptured(capturedImagesBase64: [Swift.String?], documentType: PS_Facial_Engine.PSFEDocumentType?)
+  func onRegistrarionFlowFinished(capturedImagesBase64: [Swift.String?], documentType: PS_Facial_Engine.PSFEDocumentType?, psfeImageResult: PS_Facial_Engine.PSFEImageResult?, error: PS_Facial_Engine.PSFEError?)
+}
+@objc @_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers public class PSFacialEngine : ObjectiveC.NSObject {
+  public var psfeFacialInfo: PS_Facial_Engine.PSFEFacialInfo?
+  public var psFacialEngineDelegate: (any PS_Facial_Engine.PSFacialEngineDelegate)?
+  public var psFacialEngineCaptureManagerDelegate: (any PS_Facial_Engine.PSFacialEngineCaptureManagerDelegate)?
+  public var psFacialEngineLogsDelegate: (any PS_Facial_Engine.PSFacialEngineLogsDelegate)?
+  public var psFacialEngineRegistrationFlowDelegate: (any PS_Facial_Engine.PSFacialEngineRegistrationFlowDelegate)?
+  public var psFacialEnginePSFacialServicesDelegate: (any PS_Facial_Engine.PSFacialEnginePSFacialServicesDelegate)?
+  public var psFacialEnginePSFacialUIDelegate: (any PS_Facial_Engine.PSFacialEnginePSFacialUIDelegate)?
+  public var psFacialEngineDaonSDKDelegate: (any PS_Facial_Engine.PSFacialEngineDaonSDKDelegate)?
+  public var psFacialEnginePSFacialAnalitycsDelegate: (any PS_Facial_Engine.PSFacialEngineAnalitycsDelegate)?
+  public var psFacialEngineMainAppDelegate: (any PS_Facial_Engine.PSFacialEngineMainAppDelegate)?
+  final public let psfeUrlEnrollmentManager: PS_Facial_Engine.PSFEURLEnrollmentManager
+  final public let psfeLiveness3DManager: PS_Facial_Engine.PSFELiveness3DManager
+  final public let documentsFlow: PS_Facial_Engine.PSFEDocumentsFlowManager
+  public var psfeProcesarFlow: PS_Facial_Engine.PSFEProcesarFlowManager
+  public enum StageReached : Swift.Int {
+    case tutorial
+    case preRegistration
+    case userIdEntered
+    case registrationChallengeCreated
+    case fidoRegistrationComplete
+    case documentRegistrationComplete
+    case evaluationComplete
+    case evaluationCheckFailed
+    public init?(rawValue: Swift.Int)
+    public typealias RawValue = Swift.Int
+    public var rawValue: Swift.Int {
+      get
+    }
+  }
+  public class func getInstance() -> PS_Facial_Engine.PSFacialEngine
+  public func initialize(appName: Swift.String, psfeRegistrationMode: PS_Facial_Engine.PSFERegistrationMode, completion: @escaping (Foundation.NSError?, Swift.Bool) -> ())
+  public func setUpWith(info: PS_Facial_Engine.PSFEFacialInfo, facialMode: PS_Facial_Engine.PSFEFacialMode, psFacialEngineRegistrationFlowDelegate: (any PS_Facial_Engine.PSFacialEngineRegistrationFlowDelegate)?)
+  public func setUpWith(info: PS_Facial_Engine.PSFEFacialInfo, facialMode: PS_Facial_Engine.PSFEFacialMode)
+  public func getDasErrorsDict(errorCode: Swift.String) -> Swift.String?
+  public func setAppName(_ appName: Swift.String)
+  public func getAppName() -> Swift.String?
+  public func getGenre(curp: Swift.String) -> PS_Facial_Engine.PSFEGenreType
+  public func getStageReached() -> PS_Facial_Engine.PSFacialEngine.StageReached
+  public func setStageReached(_ stageReached: PS_Facial_Engine.PSFacialEngine.StageReached)
+  public func getUserId() -> Swift.String
+  public func setUserId(_ userId: Swift.String)
+  public func setFirstName(_ firstName: Swift.String)
+  public func getFirstName() -> Swift.String
+  public func setLastName(_ lastName: Swift.String)
+  public func getLastName() -> Swift.String
+  public func setMinorId(_ minorId: Swift.String)
+  public func getMinorId() -> Swift.String
+  public func setExpedientType(_ expedientType: Swift.String)
+  public func getExpedientType() -> Swift.String?
+  public func setFlowId(_ flowId: Swift.String)
+  public func getFlowId() -> Swift.String?
+  public func setFacialMode(facialMode: PS_Facial_Engine.PSFEFacialMode)
+  public func getFacialMode() -> PS_Facial_Engine.PSFEFacialMode?
+  public func setRegistrationMode(registrationMode: PS_Facial_Engine.PSFERegistrationMode)
+  public func getRegistrationMode() -> PS_Facial_Engine.PSFERegistrationMode?
+  public func getIdxUserId() -> Swift.String
+  public func setIdxUserId(_ idxUserId: Swift.String)
+  public func getIdCheckId() -> Swift.String
+  public func setIdCheckId(_ idCheckId: Swift.String)
+  public func getLivenessChallengesJson() -> Swift.String?
+  public func setLivenessChallengesJson(_ livenessChallengesJson: Swift.String)
+  public func getFaceImage() -> UIKit.UIImage?
+  public func setFaceImage(_ faceImage: UIKit.UIImage)
+  public func getLivenessProofBestFrameImage() -> UIKit.UIImage
+  public func setLivenessProofBestFrameImage(_ livenessBestFrame: UIKit.UIImage)
+  public func setDocumentImage(_ documentImage: UIKit.UIImage)
+  public func getDocumentImage() -> UIKit.UIImage?
+  public func setUnprocessedDocumentImage(_ documentImage: UIKit.UIImage)
+  public func getUnprocessedDocumentImage() -> UIKit.UIImage?
+  public func setDocumentImageBack(_ documentImage: UIKit.UIImage)
+  public func getDocumentImageBack() -> UIKit.UIImage?
+  public func setUnprocessedDocImageBack(_ documentImage: UIKit.UIImage)
+  public func getUnprocessedDocumentImageBack() -> UIKit.UIImage?
+  public func setFrontCapturedTime(_ frontCapturedTime: Foundation.Date)
+  public func getFrontCapturedTime() -> Foundation.Date?
+  public func setBackCapturedTime(_ backCapturedTime: Foundation.Date)
+  public func getBackCapturedTime() -> Foundation.Date?
+  public func setDocumentType(psfeDocumentType: PS_Facial_Engine.PSFEDocumentType)
+  public func getDocumentType() -> PS_Facial_Engine.PSFEDocumentType?
+  public func setDocumentSide(psfeImageDocumentType: PS_Facial_Engine.PSFEImageDocument.DocumentType)
+  public func getDocumentSide() -> PS_Facial_Engine.PSFEImageDocument.DocumentType?
+  public func getDocumentIds() -> [Swift.String]?
+  public func setDocumentIds(_ documentIds: [Swift.String])
+  public func getLivenessVideoIds() -> [Swift.String]?
+  public func setLivenessVideoIds(_ videoIds: [Swift.String])
+  public func getAppId() -> Swift.String?
+  public func setAppId(_ appId: Swift.String)
+  public func setDocumentImageQuality(_ quality: Swift.Float)
+  public func getDocumentImageQuality() -> Swift.Float
+  public func setSkipTutorial(skipTutorial: Swift.Bool)
+  public func getSkipTutorial() -> Swift.Bool?
+  public func setImageResult(psfeImageResult: PS_Facial_Engine.PSFEImageResult)
+  public func getImageResult() -> PS_Facial_Engine.PSFEImageResult?
+  public func setWasReviewExecuted(wasExecuted: Swift.Bool)
+  public func getWasExecutedReviewExecuted() -> Swift.Bool
+  public func getSettingsString(_ key: PS_Facial_Engine.PSFESettingsKey) -> Swift.String?
+  public func getSettingsFacialMode(_ key: PS_Facial_Engine.PSFESettingsKey) -> PS_Facial_Engine.PSFEFacialMode?
+  public func getSettingsRegistrationMode(_ key: PS_Facial_Engine.PSFESettingsKey) -> PS_Facial_Engine.PSFERegistrationMode?
+  public func getSettingsDocumentType(_ key: PS_Facial_Engine.PSFESettingsKey) -> PS_Facial_Engine.PSFEDocumentType?
+  public func getSettingsDocumentSide(_ key: PS_Facial_Engine.PSFESettingsKey) -> PS_Facial_Engine.PSFEImageDocument.DocumentType
+  public func getSettingsInt(_ key: PS_Facial_Engine.PSFESettingsKey) -> Swift.Int
+  public func getSettingsBool(_ key: PS_Facial_Engine.PSFESettingsKey) -> Swift.Bool
+  public func getSettingsDate(_ key: PS_Facial_Engine.PSFESettingsKey) -> Foundation.Date?
+  public func getSettingsImageResult() -> PS_Facial_Engine.PSFEImageResult?
+  public func getSettingsFloat(_ key: PS_Facial_Engine.PSFESettingsKey) -> Swift.Float
+  public func getSettingsData(_ key: PS_Facial_Engine.PSFESettingsKey) -> Foundation.Data?
+  public func getSettingsImage(_ key: PS_Facial_Engine.PSFESettingsKey) -> UIKit.UIImage?
+  public func setSetting(key: PS_Facial_Engine.PSFESettingsKey, value: Any)
+  public func removeSetting(_ key: PS_Facial_Engine.PSFESettingsKey)
+  public func getGdprConsentId() -> Swift.String?
+  public func setGdprConsentId(_ gdprConsentId: Swift.String)
+  public func deleteGdprConsentId()
+  public func getServerUrl() -> Swift.String
+  public func reset(resetFido: Swift.Bool)
+  @objc deinit
+}
+public protocol PSFacialEngineAuthFlowDelegate {
+  func onAuthenticationFlowFinished(_ selfie: UIKit.UIImage?, error: PS_Facial_Engine.PSFEError?)
+}
+public protocol PSFEURLEnrollmentManagerServicesDelegate {
+  func setupServices(daonServerUrl: Swift.String, registerByUrlHostName: Swift.String, serverUser: Swift.String, serverPassword: Swift.String)
+  func beSureUserIsSignedOut(curp: Swift.String, completion: @escaping (Swift.Bool?, Foundation.NSError?) -> ())
+  func generateToken(curp: Swift.String, encryptedPassword: Swift.String, completion: @escaping (Swift.String?, Foundation.NSError?) -> ())
+  func enrollUserWithSelfieAndDocs(token: Swift.String?, userData: PS_Facial_Engine.PSFEURLEnrollmentManager.UserDataToEnrollAnUser, selfieAndDocs: [Foundation.Data], completion: @escaping (Foundation.NSError?) -> ())
+  func giveMeUserIdxId(curp: Swift.String, completion: @escaping (_ userIdxId: Swift.String?, Foundation.NSError?) -> ())
+  func createIdCheckForUser(userIdxId: Swift.String, livenessPolicyName: Swift.String, idCheckReferenceId: Swift.String, completion: @escaping (_ idCheck: Swift.String?, Foundation.NSError?) -> ())
+  func uploadDocsToIdCheck(userIdIdx: Swift.String, idCheck: Swift.String, documents: [Foundation.Data], capturedTime: Foundation.Date, completion: @escaping (Foundation.NSError?) -> ())
+  func doAlreadyExistsTheBestFrame(userIdxId: Swift.String, idCheck: Swift.String, completion: @escaping (_ exists: Swift.Bool, Foundation.NSError?) -> ())
+  func uploadBestFrameToIdCheck(userIdxId: Swift.String, idCheck: Swift.String, completion: @escaping (Foundation.NSError?) -> ())
+  func checkDocumentsProcessed(userIdxId: Swift.String, idCheck: Swift.String, completion: @escaping (_ isProcessing: Swift.Bool, Foundation.NSError?) -> ())
+  func executeEvaluation(userIdxId: Swift.String, idCheck: Swift.String, evaluationPolicyName: Swift.String, selectedDocumentType: Swift.String, completion: @escaping (_ psfeImageResult: PS_Facial_Engine.PSFEImageResult?, Foundation.NSError?) -> ())
+  func verifyFacialAuthWithSelfie(token: Swift.String?, userData: PS_Facial_Engine.PSFEURLEnrollmentManager.UserDataToVerifyAnUser, selfie: [Foundation.Data], completion: @escaping (Foundation.NSError?) -> ())
+}
+public protocol PSFEURLEnrollmentManagerEventsDelegate {
+  func giveMeUserDataToEnrollIt() -> PS_Facial_Engine.PSFEURLEnrollmentManager.UserDataToEnrollAnUser.UserDataToEnrollAnUserBuild
+  func giveMeUserDataToVerifyAuth() -> PS_Facial_Engine.PSFEURLEnrollmentManager.UserDataToVerifyAnUser.UserDataToVerifyAnUserBuild
+  func giveMeUserPassword() -> Swift.String
+  func giveMeDocumentType() -> PS_Facial_Engine.PSFEDocumentType
+  func handleError(error: Foundation.NSError)
+  func userEnrolledSuccess()
+  func onEvaluationSuccess()
+  func onAuthSuccess()
+}
+public protocol PSFEURLEnrollmentManagerUIDelegate {
+  func giveMeUserSelfieAndDocs(completion: @escaping ([Foundation.Data]) -> ())
+  func giveMeUserSelfieForAuth(completion: @escaping ([Foundation.Data]) -> ())
+  func shouldOpenWaitForReviewUI()
+}
+@_hasMissingDesignatedInitializers public class PSFEURLEnrollmentManager {
+  public class UserDataToEnrollAnUser {
+    public class UserDataToEnrollAnUserBuild {
+      public init(userDataToEnrollAnUser: PS_Facial_Engine.PSFEURLEnrollmentManager.UserDataToEnrollAnUser)
+      public func getUserDataToEnrollAnUser() -> PS_Facial_Engine.PSFEURLEnrollmentManager.UserDataToEnrollAnUser?
+      @objc deinit
+    }
+    public var curp: Swift.String
+    public var nombre: Swift.String
+    public var apellidoPaterno: Swift.String
+    public var apellidoMaterno: Swift.String
+    public var cveAfore: Swift.String
+    public var cveImagen: [Swift.String]
+    public var enrolar: Swift.String
+    public var operacion: Swift.String
+    public init()
+    public func withCurp(curp: Swift.String) -> PS_Facial_Engine.PSFEURLEnrollmentManager.UserDataToEnrollAnUser
+    public func withNombre(nombre: Swift.String) -> PS_Facial_Engine.PSFEURLEnrollmentManager.UserDataToEnrollAnUser
+    public func withApellidoPaterno(apellidoPaterno: Swift.String) -> PS_Facial_Engine.PSFEURLEnrollmentManager.UserDataToEnrollAnUser
+    public func withApellidoMaterno(apellidoMaterno: Swift.String) -> PS_Facial_Engine.PSFEURLEnrollmentManager.UserDataToEnrollAnUser
+    public func withCveAfore(cveAfore: Swift.String) -> PS_Facial_Engine.PSFEURLEnrollmentManager.UserDataToEnrollAnUser
+    public func withCveImage(cveImagen: [Swift.String]) -> PS_Facial_Engine.PSFEURLEnrollmentManager.UserDataToEnrollAnUser
+    public func withEnrrolar(enrolar: Swift.String) -> PS_Facial_Engine.PSFEURLEnrollmentManager.UserDataToEnrollAnUser
+    public func withOperacion(operacion: Swift.String) -> PS_Facial_Engine.PSFEURLEnrollmentManager.UserDataToEnrollAnUser
+    public func build() -> PS_Facial_Engine.PSFEURLEnrollmentManager.UserDataToEnrollAnUser.UserDataToEnrollAnUserBuild?
+    @objc deinit
+  }
+  public class UserDataToVerifyAnUser {
+    public class UserDataToVerifyAnUserBuild {
+      public init(userDataToVerifyAnUser: PS_Facial_Engine.PSFEURLEnrollmentManager.UserDataToVerifyAnUser)
+      public func getUserDataToVerifyAnUser() -> PS_Facial_Engine.PSFEURLEnrollmentManager.UserDataToVerifyAnUser?
+      @objc deinit
+    }
+    public var curp: Swift.String
+    public var cveAfore: Swift.String
+    public var cveImagen: [Swift.String]
+    public var enrolar: Swift.String
+    public var operacion: Swift.String
+    public init()
+    public func withCurp(curp: Swift.String) -> PS_Facial_Engine.PSFEURLEnrollmentManager.UserDataToVerifyAnUser
+    public func withCveAfore(cveAfore: Swift.String) -> PS_Facial_Engine.PSFEURLEnrollmentManager.UserDataToVerifyAnUser
+    public func withCveImage(cveImagen: [Swift.String]) -> PS_Facial_Engine.PSFEURLEnrollmentManager.UserDataToVerifyAnUser
+    public func withEnrrolar(enrolar: Swift.String) -> PS_Facial_Engine.PSFEURLEnrollmentManager.UserDataToVerifyAnUser
+    public func withOperacion(operacion: Swift.String) -> PS_Facial_Engine.PSFEURLEnrollmentManager.UserDataToVerifyAnUser
+    public func build() -> PS_Facial_Engine.PSFEURLEnrollmentManager.UserDataToVerifyAnUser.UserDataToVerifyAnUserBuild?
+    @objc deinit
+  }
+  public static let instance: PS_Facial_Engine.PSFEURLEnrollmentManager
+  public func startWithRegistrationMode()
+  public func startWithAuthMode()
+  public func setDelegates(servicesDelegate: any PS_Facial_Engine.PSFEURLEnrollmentManagerServicesDelegate, enventsDelegate: any PS_Facial_Engine.PSFEURLEnrollmentManagerEventsDelegate, uiDelegates: any PS_Facial_Engine.PSFEURLEnrollmentManagerUIDelegate) -> PS_Facial_Engine.PSFEURLEnrollmentManager
+  @objc deinit
+}
+public enum PSFESettingsKey : Swift.String, Swift.CaseIterable {
+  case appId
+  case stageReached
+  case facialMode
+  case registrationMode
+  case userId
+  case firstName
+  case lastName
+  case idxUserId
+  case minorId
+  case expedientType
+  case flowId
+  case gdprServiceUrl
+  case gdprConsentId
+  case onboardingServerUrl
+  case onboardingServerPort
+  case onboardingServerSecure
+  case onboardingServerUsername
+  case onboardingServerPassword
+  case registerByUrlHostName
+  case fidoApplicationId
+  case fidoRegistrationPolicyName
+  case fidoLoginPolicyName
+  case faceLivenessPolicyName
+  case faceEvaluationPolicyName
+  case faceImage
+  case documentImage
+  case unprocessedDocumentImage
+  case documentImageBack
+  case unprocessedDocImageBack
+  case frontCapturedTime
+  case backCapturedTime
+  case livenessProofBestFrame
+  case documentImageQuality
+  case documentIds
+  case idCheckId
+  case livenessChallengeJson
+  case livenessVideoIds
+  case documentType
+  case imageDocumentType
+  case skipTutorial
+  case imageResult
+  case lastLivenessVideo
+  case wasExecutedReivew
+  public init?(rawValue: Swift.String)
+  public typealias AllCases = [PS_Facial_Engine.PSFESettingsKey]
+  public typealias RawValue = Swift.String
+  public static var allCases: [PS_Facial_Engine.PSFESettingsKey] {
+    get
+  }
+  public var rawValue: Swift.String {
+    get
+  }
+}
+@objc public class PSFEImageDocument : ObjectiveC.NSObject {
+  public enum DocumentType : Swift.String {
+    case Front
+    case Back
+    public init?(rawValue: Swift.String)
+    public typealias RawValue = Swift.String
+    public var rawValue: Swift.String {
+      get
+    }
+  }
+  public var imageFormat: Swift.String
+  public var base64: Swift.String
+  public var type: PS_Facial_Engine.PSFEImageDocument.DocumentType
+  public init(imageFormat: Swift.String, base64: Swift.String, type: PS_Facial_Engine.PSFEImageDocument.DocumentType)
+  @objc deinit
+}
+extension PS_Facial_Engine.PSFacialEngine {
+  public func handleUICapturedDocuments()
+}
+public typealias ProgressHandler = (Swift.Int64, Swift.Int64) -> (Swift.Void)
+public typealias ResponseHandler = (PS_Facial_Engine.PSFEError?, Swift.String?) -> (Swift.Void)
+@objc public class PSFEImageResult : ObjectiveC.NSObject, Foundation.NSCoding {
+  public init(fmr: Swift.Float?, result: Swift.String?, score: Swift.Float?, threshold: Swift.Float?)
+  @objc public func encode(with coder: Foundation.NSCoder)
+  @objc required convenience public init?(coder: Foundation.NSCoder)
+  public func getFmr() -> Swift.Float?
+  public func getResult() -> Swift.String?
+  public func getScore() -> Swift.Float?
+  public func getThreshold() -> Swift.Float?
+  @objc deinit
+}
+public protocol PSFacialEngineLogsDelegate {
+  func performSendLogsFacial(curp: Swift.String, idLog: Swift.String?, statusLog: Swift.String?, responseLog: Swift.String?, operatingSystem: Swift.String, typeProcess: Swift.Int)
+}
+extension Swift.String {
+  public func sha256() -> Swift.String
+}
+public struct PSFEFacialInfo {
+  public struct AnyDocInfo {
+    public var documentSide: PS_Facial_Engine.PSFEImageDocument.DocumentType?
+    public var anyDocImageResource: UIKit.UIImage?
+    public var tutorialTitle: Swift.String?
+    public var titleForCaptureDoc: Swift.String?
+    public var messageAfterCapture: Foundation.NSMutableAttributedString?
+    public var scanningDescriptionText: Foundation.NSMutableAttributedString?
+    public var couldNotScanDocText: Swift.String?
+    public var separatelyDocSideScan: Swift.Bool
+    public init(documentSide: PS_Facial_Engine.PSFEImageDocument.DocumentType?, anyDocImageResource: UIKit.UIImage? = nil, anyDocTutorialTitle: Swift.String? = nil, anyDocTitleForCaptureDoc: Swift.String? = nil, anyDocMessageAfterCapture: Foundation.NSMutableAttributedString? = nil, anyDocScanningDescriptionText: Foundation.NSMutableAttributedString? = nil, anyDocCouldNotScanText: Swift.String? = nil, separatelyDocSideScan: Swift.Bool = false)
+  }
+  public var userId: Swift.String!
+  public var firstName: Swift.String!
+  public var lastName: Swift.String!
+  public var expedientType: Swift.String!
+  public var minorId: Swift.String!
+  public var anyDocInfo: PS_Facial_Engine.PSFEFacialInfo.AnyDocInfo?
+  public var documentType: PS_Facial_Engine.PSFEDocumentType?
+  public var scanDocumentScreenSize: PS_Facial_Engine.PSFEScanDocumentScreenSize?
+  public var customTextScannigFront: Foundation.NSMutableAttributedString?
+  public var customTextScanningBack: Foundation.NSMutableAttributedString?
+  public var customTextDocumentScannedFront: Foundation.NSMutableAttributedString?
+  public var customTextDocumentScannedBack: Foundation.NSMutableAttributedString?
+  public var info: [Swift.String : Any]?
+  public init(userId: Swift.String, firstName: Swift.String?, lastName: Swift.String?, expedientType: Swift.String?, minorId: Swift.String?, anyDocInfo: PS_Facial_Engine.PSFEFacialInfo.AnyDocInfo? = nil, documentType: PS_Facial_Engine.PSFEDocumentType? = nil, scanDocumentScreenSize: PS_Facial_Engine.PSFEScanDocumentScreenSize? = .Normal, customTextScanningFront: Foundation.NSMutableAttributedString? = nil, customTextScanningBack: Foundation.NSMutableAttributedString? = nil, customTextDocumentScannedFront: Foundation.NSMutableAttributedString? = nil, customTextDocumentScannedBack: Foundation.NSMutableAttributedString? = nil, info: [Swift.String : Any]? = nil)
+}
+public enum PSFEFacialMode : Swift.String {
+  case Register
+  case Validation
+  case Recapture
+  case Minor
+  case ScanADoc
+  case Enroll
+  case ScanDocWithTutorial
+  case ShowCarousel
+  case Timer
+  public init?(rawValue: Swift.String)
+  public typealias RawValue = Swift.String
+  public var rawValue: Swift.String {
+    get
+  }
+}
+public enum PSFERegistrationMode : Swift.String {
+  case ThreeDAndSelfie
+  case OnlySelfie
+  public init?(rawValue: Swift.String)
+  public typealias RawValue = Swift.String
+  public var rawValue: Swift.String {
+    get
+  }
+}
+public enum PSFEDocumentType : Swift.String {
+  case IFE
+  case Pasaporte
+  case MatriculaConsular
+  case FM2
+  case BirthCertificate
+  case AnyDoc
+  public init?(rawValue: Swift.String)
+  public typealias RawValue = Swift.String
+  public var rawValue: Swift.String {
+    get
+  }
+}
+public enum PSFEScanDocumentScreenSize : Swift.String {
+  case Normal
+  case Large
+  public init?(rawValue: Swift.String)
+  public typealias RawValue = Swift.String
+  public var rawValue: Swift.String {
+    get
+  }
+}
+public enum PSFEDirection {
+  case fade
+  case toTop
+  case toBottom
+  case toLeft
+  case toRight
+  public static func == (a: PS_Facial_Engine.PSFEDirection, b: PS_Facial_Engine.PSFEDirection) -> Swift.Bool
+  public func hash(into hasher: inout Swift.Hasher)
+  public var hashValue: Swift.Int {
+    get
+  }
+}
+public enum PSFEFlow {
+  case Liveness3D
+  case StartTutorial
+  case RestartFlow
+  public static func == (a: PS_Facial_Engine.PSFEFlow, b: PS_Facial_Engine.PSFEFlow) -> Swift.Bool
+  public func hash(into hasher: inout Swift.Hasher)
+  public var hashValue: Swift.Int {
+    get
+  }
+}
+public enum PSFEGenreType : Swift.String {
+  case Women
+  case Man
+  public init?(rawValue: Swift.String)
+  public typealias RawValue = Swift.String
+  public var rawValue: Swift.String {
+    get
+  }
+}
+public enum PSFEAnalitycsEvent : Swift.Int {
+  case StartWelcome
+  case ContinueWelcome
+  case StartMainTutorial
+  case ContinueMainTutorial
+  case StartLiveness3D
+  case ClickHelpLiveness3D
+  case Liveness3DNearOk
+  case SelfiePreview
+  case ClickContinueSelfie
+  case SelectDocument
+  case ClickContinueFrontDoc
+  case StartFrontDoc
+  case ClickContinueBackDoc
+  case StartActaDoc
+  case ClickContinueActa
+  case ClickHelpRandom
+  case StartRandom
+  case RandomOk
+  case StartLivenessValidation
+  case FacialSelfieValidation
+  case DocumentsRegister
+  case FacialSelfieAttempt
+  case DocumentAttempt
+  case LifeTestAttempt
+  case Default
+  public var idScreen: Swift.Int {
+    get
+  }
+  public var titleScreen: Swift.String {
+    get
+  }
+  public var idAction: Swift.Int {
+    get
+  }
+  public var titleAction: Swift.String {
+    get
+  }
+  public init?(rawValue: Swift.Int)
+  public typealias RawValue = Swift.Int
+  public var rawValue: Swift.Int {
+    get
+  }
+}
+extension Dispatch.DispatchQueue {
+  public static func psfeMainAsync(_ complete: @escaping () -> Swift.Void)
+  public static func psfeMainAsyncAfterTime(_ time: Foundation.TimeInterval, _ complete: @escaping () -> Swift.Void)
+}
+public enum IUafServerResponseCodes : Swift.Int {
+  case OPERATION_COMPLETED
+  case INTERNAL_SERVER_ERROR
+  public init?(rawValue: Swift.Int)
+  public typealias RawValue = Swift.Int
+  public var rawValue: Swift.Int {
+    get
+  }
+}
+@objc @_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers public class PSFELiveness3DManager : ObjectiveC.NSObject {
+  public enum PSFEFaceLivenessEvent : Swift.Int {
+    case DASFaceLivenessEventNone
+    case DASFaceLivenessEventReset
+    case DASFaceLivenessEventPassive
+    case DASFaceLivenessEventBlink
+    case DASFaceLivenessEventSpoof
+    case DASFaceLivenessEventThreeDFaceInitializing
+    case DASFaceLivenessEventThreeDFaceStarted
+    case DASFaceLivenessEventThreeDFaceTracking
+    case DASFaceLivenessEventThreeDFaceAnalyzing
+    case DASFaceLivenessEventThreeDFaceCompleted
+    public init?(rawValue: Swift.Int)
+    public typealias RawValue = Swift.Int
+    public var rawValue: Swift.Int {
+      get
+    }
+  }
+  public static var instance: PS_Facial_Engine.PSFELiveness3DManager
+  public var capturedImage: UIKit.UIImage?
+  public var isRegistrationContext: Swift.Bool?
+  public func start3DLiveness(threeDViewController: UIKit.UIViewController, userId: Swift.String, firstName: Swift.String, lastName: Swift.String, forceRegister: Swift.Bool = false, completionWithError: @escaping ((any Swift.Error)?) -> ())
+  @objc deinit
+}
+extension PS_Facial_Engine.PSFELiveness3DManager {
+  public func handle3DViewWillAppear(viewToShow3DCamera: UIKit.UIView) -> Swift.Float
+  public func handle3DViewDidAppear()
+  public func handleOn3DVCViewWillDisappear()
+  public func handleOnEnrollPressed(image: UIKit.UIImage)
+  public func isReadyFor3D() -> Swift.Bool
+  public func handleOnTakeSelfieImage() -> UIKit.UIImage?
+  public func handleOnViewDidAppear3D()
+  public func handleOrientationChange()
+  public func handleOnRetakePhotoPressed()
+  public func handleOnOpen3DTutorialPressed()
+}
+extension PS_Facial_Engine.PSFELiveness3DManager {
+  public func handleFaceControllerStartedAnalysis(hasRequiredLivenessEvents: Swift.Bool)
+  public func handleFaceControllerCapturedImage(_ image: UIKit.UIImage?)
+  public func handleFaceControllerProcessedFrame(withResult imageQualityPassed: Swift.Bool, imageQualityIssues qualityIssues: [Foundation.NSNumber]?, isCancelling: Swift.Bool)
+  public func handleFaceControllerDetectedLivenessEvent(_ event: PS_Facial_Engine.PSFELiveness3DManager.PSFEFaceLivenessEvent, for image: UIKit.UIImage?, allRequiredLivenessEventsDetected: Swift.Bool)
+  public func handleFaceControllerCompletedSuccessfully()
+}
+@_hasMissingDesignatedInitializers public class PSFEIdDocument {
+  public var id: Swift.String
+  public var country: PS_Facial_Engine.PSFECountry
+  public var name: Swift.String
+  public var front: PS_Facial_Engine.PSFEDocumentPage
+  public var back: PS_Facial_Engine.PSFEDocumentPage?
+  @objc deinit
+}
+public protocol PSFacialEngineDelegate {
+  func getScanningFront() -> Swift.Bool
+  func dmdsUtilitiesEncodeBase64Jpeg(image: UIKit.UIImage, imageQuality: Swift.Float) -> Swift.String
+  func setScannedDocumentsInPSFacialEngine()
+}
+@_hasMissingDesignatedInitializers public class PSFEConstants {
+  public static let authenticators: [Swift.String]
+  @objc deinit
+}
+@_hasMissingDesignatedInitializers public class PSFEDocumentsFlowManager {
+  public static var instance: PS_Facial_Engine.PSFEDocumentsFlowManager
+  public func startDocumentsFlow(transitionDirection: PS_Facial_Engine.PSFEDirection)
+  public func handleContinueBtnOfFirstView(transitionDirection: PS_Facial_Engine.PSFEDirection)
+  public func handleBackBtnOfFirstView()
+  public func handleIneSelected()
+  public func handleConsularSelected()
+  public func handlePassportSelected()
+  public func handleImmigrationSelected()
+  public func handleActaSelected()
+  public func handleOnActivateCamera()
+  public func handleCancelScann(transitionDirection: PS_Facial_Engine.PSFEDirection)
+  public func handleReescann()
+  public func handleContinue() -> Swift.Bool
+  public func handleAllDocumentsScanned()
+  public func getPSFEIdDocument(psfeDocumentType: PS_Facial_Engine.PSFEDocumentType) -> PS_Facial_Engine.PSFEIdDocument
+  @objc deinit
+}
+open class PSFEError {
+  public enum PSFEErrorType : Swift.Int {
+    case SpoofLivenessProofDetected
+    case Spoof3dDetected
+    case DocumentFaceNoMatch
+    case LivenessProofFailed
+    case LivenessServerProofFailed
+    case NetworkFailed
+    case StartAuthFido
+    case RequestError
+    case RequestDecodeError
+    case InvalidApplicationState
+    case LivenessNoChallenges
+    case LivenessCouldNotStartCamera
+    case FailedToCreateVideoDigest
+    case LivenessVideoCaptureTimeout
+    case CurpEmpty
+    case GenericTypeError
+    case NoPasscodeEnabled
+    public init?(rawValue: Swift.Int)
+    public typealias RawValue = Swift.Int
+    public var rawValue: Swift.Int {
+      get
+    }
+  }
+  public var message: Swift.String
+  public var nsError: Foundation.NSError
+  public var errorType: PS_Facial_Engine.PSFEError.PSFEErrorType?
+  public init()
+  public init(error: any Swift.Error)
+  public init(errorType: PS_Facial_Engine.PSFEError.PSFEErrorType)
+  @objc deinit
+}
+extension UIKit.UIImage {
+  public func psfeResizeImage() -> Foundation.Data
+}
+@objc @_inheritsConvenienceInitializers open class PSFEProcesarFlowManager : ObjectiveC.NSObject {
+  public var viewController: UIKit.UIViewController!
+  public var psFacialEngineAuthFlowDelegate: (any PS_Facial_Engine.PSFacialEngineAuthFlowDelegate)?
+  public var psFacialEngineRegistrationFlowDelegate: (any PS_Facial_Engine.PSFacialEngineRegistrationFlowDelegate)?
+  public var facialMode: PS_Facial_Engine.PSFEFacialMode!
+  public var psfeFacialInfo: PS_Facial_Engine.PSFEFacialInfo!
+  public var showErrorAlert: Swift.Bool
+  public var closeFacialAutomatically: Swift.Bool
+  open func start(viewController: UIKit.UIViewController, psfeFacialInfo: PS_Facial_Engine.PSFEFacialInfo?, mode: PS_Facial_Engine.PSFEFacialMode, showAlertError: Swift.Bool = true, closeFacialAutomatically: Swift.Bool = true, psFacialEngineRegistrationFlowDelegate: (any PS_Facial_Engine.PSFacialEngineRegistrationFlowDelegate)? = nil, psFacialEngineAuthFlowDelegate: (any PS_Facial_Engine.PSFacialEngineAuthFlowDelegate)? = nil)
+  open func handleWelcomeContinue(skipTutorial: Swift.Bool)
+  open func handleCurrentStepReached(skipTutorial: Swift.Bool)
+  open func handleRegistrationOrRecaptureMode()
+  open func restartRegistrationOrRecaptureFlow()
+  open func openTimerView()
+  open func handleOnTimerCompleted()
+  open func handleOnTimerCanceled()
+  open func start3DLiveness(threeDViewController: UIKit.UIViewController, forceRegister: Swift.Bool = false)
+  open func validationsBeforeFlow(completion: @escaping (_ error: PS_Facial_Engine.PSFEError?) -> (Swift.Void))
+  open func handleOn3DSuccess()
+  open func handleOn3DError(error: any Swift.Error)
+  open func handleOn3DAuthCancelled()
+  open func handleOnDocumentsCapturedSuccess()
+  open func handleOnDocumentsError(_ error: any Swift.Error)
+  open func handleOnRandomLivenessError(error: PS_Facial_Engine.PSFEError)
+  open func handleOnRandomLivenessSucces()
+  open func handleOnReviewSuccess()
+  open func handleOnTimer()
+  open func handleOnReviewError(_ error: any Swift.Error)
+  open func handleOn3DTutorialContinue()
+  open func handleFinishMainTutorial()
+  open func handleCaptureDocsTutorial1ContinueBtnEvent(transitionDirection: PS_Facial_Engine.PSFEDirection)
+  public func setupEngine(facialMode: PS_Facial_Engine.PSFEFacialMode)
+  open func handleOnWelcomeBackButtonPressed()
+  open func handleOnDocumentsTutorialBackButtonPressed()
+  open func handleOnDocumentsCancelButtonPressed()
+  open func notifiyUserCancelError()
+  open func handleOnDocumentScannedFromUI()
+  @objc override dynamic public init()
+  @objc deinit
+}
+public protocol PSFacialEngineCaptureManagerDelegate {
+  func documentScanned(image: UIKit.UIImage)
+  func mrzDetected(upperLeft: CoreFoundation.CGPoint, upperRight: CoreFoundation.CGPoint, lowerLeft: CoreFoundation.CGPoint, lowerRight: CoreFoundation.CGPoint)
+  func documentDetected(upperLeft: CoreFoundation.CGPoint, upperRight: CoreFoundation.CGPoint, lowerLeft: CoreFoundation.CGPoint, lowerRight: CoreFoundation.CGPoint, documentFillsScanningArea: Swift.Bool)
+}
+@objc @_inheritsConvenienceInitializers public class DobsLogUtils : ObjectiveC.NSObject {
+  public class func isEnabled() -> Swift.Bool
+  public class func setEnabled(_ enabled: Swift.Bool)
+  public class func logInfo(_ message: Swift.String)
+  public class func logDebug(_ message: Swift.String)
+  public class func logError(_ message: Swift.String)
+  public class func logError(_ appError: PS_Facial_Engine.PSFEAppErrorCodes)
+  public class func logInfo(tag: Swift.String, message: Swift.String)
+  public class func logDebug(tag: Swift.String, message: Swift.String)
+  public class func logError(tag: Swift.String, message: Swift.String)
+  @objc override dynamic public init()
+  @objc deinit
+}
+@_hasMissingDesignatedInitializers public class PSFECountry {
+  public var name: Swift.String
+  public var documents: [PS_Facial_Engine.PSFEIdDocument]
+  @objc deinit
+}
+public protocol PSFacialEnginePSFacialUIDelegate {
+  func open3DLiveness()
+  func onFaceControllerStartedAnalysis(hasRequiredLivenessEvents: Swift.Bool)
+  func onFaceControllerCapturedImage(_ image: UIKit.UIImage?)
+  func onFaceControllerProcessedFrame(withResult: Swift.Bool, imageQualityIssues: [Foundation.NSNumber]?, isCancelling: Swift.Bool)
+  func onFaceControllerDetectedLivenessEvent(_ event: PS_Facial_Engine.PSFELiveness3DManager.PSFEFaceLivenessEvent, for image: UIKit.UIImage!, allRequiredLivenessEventsDetected: Swift.Bool)
+  func onFaceControllerCompletedSuccessfully()
+  func onRegistrationContext(isRegistrationContext: Swift.Bool)
+  func get3DViewController() -> UIKit.UIViewController
+  func open3DTutorial()
+  func openDocumentCaptureFirstView(transitionDirection: PS_Facial_Engine.PSFEDirection)
+  func openChooseDocumentInstructions(transitionDirection: PS_Facial_Engine.PSFEDirection)
+  func openDocumentTutorial()
+  func openDocumentCameraScanner()
+  func openWelcomeScreen(transitionDirection: PS_Facial_Engine.PSFEDirection)
+  func openLoading()
+  func closeUI(animated: Swift.Bool)
+  func openReview()
+  func closeUI(completion: (() -> Swift.Void)?)
+  func showWaitCarousel()
+  func closeWaitCarousel()
+  func openMainTutorial()
+  func openTimer()
+  func showError(error: any Swift.Error, completion: ((Swift.Int, Swift.String) -> Swift.Void)?)
+  func showErrorCancel(error: any Swift.Error, completion: ((Swift.Int, Swift.String) -> Swift.Void)?)
+  func closeUI()
+}
+extension PS_Facial_Engine.PSFacialEngine {
+  public func executeReview()
+}
+public protocol PSFacialEngineDaonSDKDelegate {
+  func existsDeviceAuthenticator(authenticatorAaid: Swift.String, completion: @escaping (Foundation.NSError?, Swift.Bool) -> ())
+  func show3dCameraInView(view: UIKit.UIView)
+  func start3dFaceController()
+  func resumeFaceController(image: UIKit.UIImage)
+  func startRegistration3DLiveness(threeDViewController: UIKit.UIViewController, userId: Swift.String, firstName: Swift.String, lastName: Swift.String)
+  func startAuth3DLiveness(threeDViewController: UIKit.UIViewController, userId: Swift.String)
+  func getLivenessTrackingDuration() -> Swift.Float
+  func isReadyFor3D(psFacialEngine: PS_Facial_Engine.PSFacialEngine) -> Swift.Bool
+  func takeSelfieImage(psFacialEngine: PS_Facial_Engine.PSFacialEngine) -> UIKit.UIImage?
+  func setFaceControllerToNil()
+  func startFaceController()
+  func handleOrientationChange(psFacialEngine: PS_Facial_Engine.PSFacialEngine)
+  func restartFaceController()
+  func cancelFaceController()
+  func resetDocumentScan()
+  func setCustomCaptureOverlay()
+  func getKMexicoFrontVoterID() -> Swift.String
+  func getKMrz() -> Swift.String
+  func getKEdgeDetection() -> Swift.String
+  func getKPassport() -> Swift.String
+  func reescann()
+  func checkAllDocumentsScanned() -> Swift.Bool
+  func cleanDaonDocumentsManager()
+  func initialize(psfeRegistrationMode: PS_Facial_Engine.PSFERegistrationMode, completion: @escaping (Foundation.NSError?, Swift.Bool) -> ())
+  func removeFidoAuthenticatorAndDeleteUserIfNeeded(userId: Swift.String, completion: @escaping (_ userFound: Swift.Bool, _ userDeleted: Swift.Bool, PS_Facial_Engine.PSFEError?) -> (Swift.Void))
+  func rotateImage(_ image: UIKit.UIImage, to: UIKit.UIImage.Orientation) -> UIKit.UIImage?
+  func resetFido()
+}
+public enum PSFEAppErrorCodes : Foundation.LocalizedError {
+  case none
+  case invalidApplicationState
+  case cannotBuildUrl
+  case getRequestNoResponse
+  case getRequestCannotDecode
+  case getRequestInvalidResponse
+  case postRequestCannotDecode
+  case postRequestNoResponse
+  case postRequestInvalidResponse
+  case postBytesError
+  case documentPayloadCreationError
+  case videoPayloadCreationError
+  case createRegistrationChallengeServerError
+  case updateRegistrationChallengeCantDecode
+  case updateRegistrationChallengeCantCreate
+  case updateRegistrationChallengeServerError
+  case createAuthenticationRequestDecodeError
+  case createAuthenticationRequestError
+  case updateAuthenticationRequestDecodeError
+  case updateAuthenticationRequestCreationError
+  case updateAuthenticationRequestServerError
+  case deleteError
+  case fidoRegistrationServerError
+  case fidoAuthenticationServerError
+  case livenessSpoofDetected
+  case failedToCreateVideoDigest
+  case livenessVideoCaptureTimeout
+  case livenessNoChallenges
+  case livenessNoChallengesJsonAvailable
+  case livenessCouldNotDecodeChallengesJson
+  case livenessCouldNotStartCamera
+  case couldNotStartDocumentCapture
+  case preEvaluateTimedOut
+  public var errorDescription: Swift.String? {
+    get
+  }
+  public static func == (a: PS_Facial_Engine.PSFEAppErrorCodes, b: PS_Facial_Engine.PSFEAppErrorCodes) -> Swift.Bool
+  public func hash(into hasher: inout Swift.Hasher)
+  public var hashValue: Swift.Int {
+    get
+  }
+}
+public protocol PSFacialEngineAnalitycsDelegate {
+  func eventAnalitycs(flow: Swift.String, event: PS_Facial_Engine.PSFEAnalitycsEvent, error: (any Swift.Error)?, cveDoc: Swift.String?)
+}
+@_hasMissingDesignatedInitializers public class PSFEDocumentPage {
+  public var document: PS_Facial_Engine.PSFEIdDocument?
+  public var docType: Swift.String
+  public var docName: Swift.String
+  @objc deinit
+}
+public protocol PSFacialEnginePSFacialServicesDelegate {
+  func searchUserAndDelete(userId: Swift.String, completion: @escaping (_ userFound: Swift.Bool, _ userDeleted: Swift.Bool, (any Swift.Error)?) -> (Swift.Void))
+  func uploadDocument(userId: Swift.String, idCheck: Swift.String, docBase64: Swift.String, capturedTime: Foundation.Date, completion: @escaping (_ error: (any Swift.Error)?) -> ())
+  func uploadDocuments(userId: Swift.String, idCheck: Swift.String, psfeImageDocuments: [PS_Facial_Engine.PSFEImageDocument], capturedTime: Foundation.Date, completion: @escaping (_ error: (any Swift.Error)?) -> ())
+  func uploadTwoSidedDocuments(userId: Swift.String, idCheck: Swift.String, captureType: Swift.String, capturedTime: Foundation.Date, imagesBase64: [Swift.String], sides: Swift.Int, completion: @escaping (_ error: (any Swift.Error)?) -> ())
+  func createIdCheck(userIdxId: Swift.String, livenessPolicyName: Swift.String, idCheckReferenceId: Swift.String, completion: @escaping (_ idCheckId: Swift.String?, _ error: (any Swift.Error)?) -> (Swift.Void))
+  func getUserIdxId(userId: Swift.String, completion: @escaping (_ userIdxId: Swift.String?, _ error: (any Swift.Error)?) -> (Swift.Void))
+  func checkIfBestFrameExists(completion: @escaping (Swift.Bool, (any Swift.Error)?) -> ())
+  func checkDocumentsStatus(userId: Swift.String, idCheckId: Swift.String, responseHandler: @escaping (Swift.Bool?, (any Swift.Error)?) -> (Swift.Void))
+  func getLivenessChallenges(userId: Swift.String, idCheckId: Swift.String, responseHandler: @escaping (PS_Facial_Engine.PSFEError?, Swift.String?) -> (Swift.Void))
+  func createEvaluation(userId: Swift.String, idCheckId: Swift.String, evaluationPolicyName: Swift.String, responseHandler: @escaping ((any Swift.Error)?) -> (Swift.Void))
+}
+public protocol PSFacialEngineMainAppDelegate {
+  func on3DAuthFailed(_ error: PS_Facial_Engine.PSFEError)
+  func on3DAuthSuccess()
+  func on3DAuthCancelled()
+  func on3DRegistrationSuccess()
+  func on3DRegistrationFailed(_ error: PS_Facial_Engine.PSFEError)
+  func onDocumentsCapturedSuccess()
+  func onDocumentsError(_ error: PS_Facial_Engine.PSFEError)
+  func onRandomLivenessSuccess()
+  func onRandomLivenessFailed(error: PS_Facial_Engine.PSFEError)
+  func onReviewFailed(_ error: any Swift.Error)
+  func onReviewSuccess()
+}
+extension PS_Facial_Engine.PSFacialEngine.StageReached : Swift.Equatable {}
+extension PS_Facial_Engine.PSFacialEngine.StageReached : Swift.Hashable {}
+extension PS_Facial_Engine.PSFacialEngine.StageReached : Swift.RawRepresentable {}
+extension PS_Facial_Engine.PSFESettingsKey : Swift.Equatable {}
+extension PS_Facial_Engine.PSFESettingsKey : Swift.Hashable {}
+extension PS_Facial_Engine.PSFESettingsKey : Swift.RawRepresentable {}
+extension PS_Facial_Engine.PSFEImageDocument.DocumentType : Swift.Equatable {}
+extension PS_Facial_Engine.PSFEImageDocument.DocumentType : Swift.Hashable {}
+extension PS_Facial_Engine.PSFEImageDocument.DocumentType : Swift.RawRepresentable {}
+extension PS_Facial_Engine.PSFEFacialMode : Swift.Equatable {}
+extension PS_Facial_Engine.PSFEFacialMode : Swift.Hashable {}
+extension PS_Facial_Engine.PSFEFacialMode : Swift.RawRepresentable {}
+extension PS_Facial_Engine.PSFERegistrationMode : Swift.Equatable {}
+extension PS_Facial_Engine.PSFERegistrationMode : Swift.Hashable {}
+extension PS_Facial_Engine.PSFERegistrationMode : Swift.RawRepresentable {}
+extension PS_Facial_Engine.PSFEDocumentType : Swift.Equatable {}
+extension PS_Facial_Engine.PSFEDocumentType : Swift.Hashable {}
+extension PS_Facial_Engine.PSFEDocumentType : Swift.RawRepresentable {}
+extension PS_Facial_Engine.PSFEScanDocumentScreenSize : Swift.Equatable {}
+extension PS_Facial_Engine.PSFEScanDocumentScreenSize : Swift.Hashable {}
+extension PS_Facial_Engine.PSFEScanDocumentScreenSize : Swift.RawRepresentable {}
+extension PS_Facial_Engine.PSFEDirection : Swift.Equatable {}
+extension PS_Facial_Engine.PSFEDirection : Swift.Hashable {}
+extension PS_Facial_Engine.PSFEFlow : Swift.Equatable {}
+extension PS_Facial_Engine.PSFEFlow : Swift.Hashable {}
+extension PS_Facial_Engine.PSFEGenreType : Swift.Equatable {}
+extension PS_Facial_Engine.PSFEGenreType : Swift.Hashable {}
+extension PS_Facial_Engine.PSFEGenreType : Swift.RawRepresentable {}
+extension PS_Facial_Engine.PSFEAnalitycsEvent : Swift.Equatable {}
+extension PS_Facial_Engine.PSFEAnalitycsEvent : Swift.Hashable {}
+extension PS_Facial_Engine.PSFEAnalitycsEvent : Swift.RawRepresentable {}
+extension PS_Facial_Engine.IUafServerResponseCodes : Swift.Equatable {}
+extension PS_Facial_Engine.IUafServerResponseCodes : Swift.Hashable {}
+extension PS_Facial_Engine.IUafServerResponseCodes : Swift.RawRepresentable {}
+extension PS_Facial_Engine.PSFELiveness3DManager.PSFEFaceLivenessEvent : Swift.Equatable {}
+extension PS_Facial_Engine.PSFELiveness3DManager.PSFEFaceLivenessEvent : Swift.Hashable {}
+extension PS_Facial_Engine.PSFELiveness3DManager.PSFEFaceLivenessEvent : Swift.RawRepresentable {}
+extension PS_Facial_Engine.PSFEError.PSFEErrorType : Swift.Equatable {}
+extension PS_Facial_Engine.PSFEError.PSFEErrorType : Swift.Hashable {}
+extension PS_Facial_Engine.PSFEError.PSFEErrorType : Swift.RawRepresentable {}
+extension PS_Facial_Engine.PSFEAppErrorCodes : Swift.Equatable {}
+extension PS_Facial_Engine.PSFEAppErrorCodes : Swift.Hashable {}

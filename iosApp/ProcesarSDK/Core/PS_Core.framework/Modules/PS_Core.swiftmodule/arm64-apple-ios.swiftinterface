@@ -1,0 +1,813 @@
+// swift-interface-format-version: 1.0
+// swift-compiler-version: Apple Swift version 5.7.2 (swiftlang-5.7.2.135.5 clang-1400.0.29.51)
+// swift-module-flags: -target arm64-apple-ios11.4 -enable-objc-interop -enable-library-evolution -swift-version 5 -enforce-exclusivity=checked -Onone -module-name PS_Core
+// swift-module-flags-ignorable: -enable-bare-slash-regex
+import CommonCrypto
+import CoreLocation
+import Foundation
+import MapKit
+@_exported import PS_Core
+import Security
+import Swift
+import UIKit
+import _Concurrency
+import _StringProcessing
+public enum PSContract : Swift.String {
+  case PersonalDataProtection
+  case MobileRegistration
+  case AutoLinking
+  case MinorRegister
+  case CreateDomiciliation
+  case CancelDomiciliation
+  case UpdateDomiciliation
+  case MobileRegistrationCoppel
+  case AutoLinkingCoppel
+  case MinorRegisterCoppel
+  case TextoContratoTraspasoAfore
+  case NoticeRABanorte
+  case ContractRABanorte
+  public init?(rawValue: Swift.String)
+  public typealias RawValue = Swift.String
+  public var rawValue: Swift.String {
+    get
+  }
+}
+@_hasMissingDesignatedInitializers open class PSServerUtils {
+  public static func request<Request, Response>(context: PS_Core.PSServerConstants.ContextURL, requestName: PS_Core.PSServerConstants.RequestName, modelRequest: Request, modelResponse: Response.Type, secure: Swift.Bool, completion: @escaping (_ error: PS_Core.PSError?, _ response: Response?) -> Swift.Void) where Request : PS_Core.PSBaseRequestModel, Response : PS_Core.PSBaseResponseModel
+  public static func request<Request, Response>(context: PS_Core.PSServerConstants.ContextURL, requestName: Swift.String, modelRequest: Request, modelResponse: Response.Type, secure: Swift.Bool, completion: @escaping (_ error: PS_Core.PSError?, _ response: Response?) -> Swift.Void) where Request : PS_Core.PSBaseRequestModel, Response : PS_Core.PSBaseResponseModel
+  public static func request<Request, Response>(url: Swift.String, modelRequest: Request, modelResponse: Response.Type, secure: Swift.Bool, completion: @escaping (_ error: PS_Core.PSError?, _ response: Response?) -> Swift.Void) where Request : PS_Core.PSBaseRequestModel, Response : PS_Core.PSBaseResponseModel
+  public static func requestMultipart<Request, Response>(context: PS_Core.PSServerConstants.ContextURL, requestName: Swift.String, modelRequest: Request, modelResponse: Response.Type, secure: Swift.Bool, imageData: [[Swift.String : Foundation.Data]], multipartFiles: [PS_Core.PSMultipartFiles]? = nil, contentType: Swift.String? = "multipart/mixed", boundary: Swift.String? = generateBoundaryString(), completion: @escaping (_ error: PS_Core.PSError?, _ response: Response?) -> Swift.Void) where Request : PS_Core.PSBaseRequestModel, Response : PS_Core.PSBaseResponseModel
+  @objc deinit
+}
+open class PSContractResponseModel : PS_Core.PSBaseResponseModel {
+  public var content: Swift.String
+  public var title: Swift.String
+  required public init(from decoder: Swift.Decoder) throws
+  @objc deinit
+}
+open class PSDiagnosticoEntityModel : Swift.Decodable {
+  public var id: Swift.String
+  public var descripcion: Swift.String
+  public var campos: Swift.String
+  public var claveDiagnostico: Swift.String
+  public var codigoRechazo: Swift.String
+  public var leyenda: Swift.String
+  public var nombreServicio: Swift.String
+  public var bundleId: Swift.String
+  required public init(from decoder: Swift.Decoder) throws
+  @objc deinit
+}
+open class PSAforeBranchOfficeEntityModel : Swift.Decodable {
+  public var id: Swift.String
+  public var nameBranchOffice: Swift.String
+  public var description: Swift.String
+  public var status: Swift.Bool
+  public var city: Swift.String
+  public var colony: Swift.String
+  public var latitude: Swift.String
+  public var longitude: Swift.String
+  public var phone: Swift.String
+  public var distance: Swift.Double
+  public var cveAfore: Swift.String
+  public var cveEstablishment: Swift.String
+  public var typeEstablishment: Swift.String
+  public var zoneEstablishment: Swift.String
+  public var federalEntity: Swift.String
+  public var delegation: Swift.String
+  public var postalCode: Swift.String
+  public var daysOfAttention: Swift.String
+  public var scheduleOfAttention: Swift.String
+  public var scheduleAttWeekend: Swift.String
+  public var street: Swift.String
+  public var extNum: Swift.String
+  required public init(from decoder: Swift.Decoder) throws
+  @objc deinit
+}
+public enum enumOriginAPP : Swift.String {
+  case generic
+  case custom
+  case asssited
+  public init?(rawValue: PS_Core.enumOriginAPP.RawValue)
+  public init()
+  public typealias RawValue = Swift.String
+  public var rawValue: Swift.String {
+    get
+  }
+}
+open class PSBaseViewModel {
+  public var showLoading: (() -> ())?
+  public var hideLoading: (() -> ())?
+  public var onFormatError: ((_ message: Swift.String) -> ())?
+  public var onServiceError: ((_ error: PS_Core.PSError) -> ())?
+  public init()
+  public func onServiceError(error: PS_Core.PSError?)
+  public func genericvalidCurpFormat(curp: Swift.String) -> Swift.Bool
+  public func genericValidEmailFormat(email: Swift.String) -> Swift.Bool
+  public func genericvalidPhoneFormat(phone: Swift.String) -> Swift.Bool
+  public func genericvalidCodeFormat(securityCode: Swift.String) -> Swift.Bool
+  public func genericvalidPasswordFormat(password: Swift.String) -> Swift.Bool
+  public func genericvalidNSSFormat(nss: Swift.String) -> Swift.Bool
+  public func genericvalidcveAfore(cve: Swift.String) -> Swift.Bool
+  @objc deinit
+}
+open class PSCountryEntityModel : Swift.Decodable {
+  public var id: Swift.String
+  public var cve: Swift.String
+  public var name: Swift.String
+  public var code: Swift.String
+  public var minDigits: Swift.Int
+  public var maxDigits: Swift.Int
+  required public init(from decoder: Swift.Decoder) throws
+  public func getNameWithFlag() -> Swift.String
+  public func getCodeWithFlag() -> Swift.String
+  public func getCodeWithoutFlag() -> Swift.String
+  public func getOnlyCode() -> Swift.String
+  @objc deinit
+}
+open class PSCamposGenericEntityModel : Swift.Decodable {
+  public var descripCategory: Swift.String
+  public var idCategory: Swift.Int
+  public var orden: Swift.String
+  required public init(from decoder: Swift.Decoder) throws
+  @objc deinit
+}
+@_inheritsConvenienceInitializers open class PSCatalogViewModel : PS_Core.PSBaseViewModel {
+  public var onSuccessPostalCode: ((_ response: [PS_Core.PSPostalCodeEntityModel]) -> ())?
+  public var onSuccessCommercialNetwork: ((_ response: [PS_Core.PSCommercialNetworkEntityModel]) -> ())?
+  public var onSuccessAforeBranchOffices: ((_ response: [PS_Core.PSAforeBranchOfficeEntityModel]) -> ())?
+  public var onSuccessGetContract: ((_ response: PS_Core.PSContractResponseModel) -> ())?
+  public var onSuccessGetInitialization: ((_ response: PS_Core.PSCheckInitializationResponseModel) -> ())?
+  public var onSuccessGetFederalEntities: ((_ response: [PS_Core.PSFederalEntitiesEntityModel]) -> ())?
+  public func getInitialization(showContent: Swift.Bool = true, skipSDK: Swift.Bool = false, skipHashCatalog: Swift.Bool = false, context: PS_Core.PSServerConstants.ContextURL = .Transverse)
+  public func getNeighborhoodsPostalCode(postalCode: Swift.String)
+  public func getCommercialNetworks()
+  public func getAforeBranchOffices(cveAfore: Swift.Int)
+  public func getContract(cveAfore: Swift.Int, type: PS_Core.PSContract, extraParameter: Swift.String = "")
+  public func getFederalEntities(idPais: Swift.String, clave: Swift.String)
+  override public init()
+  @objc deinit
+}
+extension Swift.String {
+  public func aes128Encrypt(value: Swift.String? = nil) -> Swift.String
+  public func aesDecrypt(data: Foundation.NSData, keyData: Foundation.NSData) -> (CommonCrypto.CCCryptorStatus, Darwin.size_t, Foundation.NSMutableData)
+  public func aes128Decrypt(value: Swift.String? = nil) -> Swift.String
+  public func sha256() -> Swift.String
+  public func getSelfMatch() -> Swift.String
+  public func regexCURP() -> Swift.Bool
+  public func regexEmail() -> Swift.Bool
+  public func regexMatchesNumber(numberCharacters: Swift.String) -> Swift.Bool
+  public func regexMatchesPassword() -> Swift.Bool
+  public func validIsEmpty() -> Swift.Bool
+  public func isSequential() -> Swift.Bool
+}
+@_inheritsConvenienceInitializers open class PSVariousViewModel : PS_Core.PSBaseViewModel {
+  public var onSuccessGetInfoCurpRenapo: ((_ response: PS_Core.PSInfoCurpResponseModel) -> ())?
+  public var onSuccessGenerateSecurityCode: ((_ response: PS_Core.PSGenerateCodeResponseModel) -> ())?
+  public var onSuccessUpdatePassword: ((_ response: PS_Core.PSBaseResponseModel) -> ())?
+  override public init()
+  public func getInfoCurpRenapo(curp: Swift.String)
+  public func generateSecurityCode(curp: Swift.String, phone: Swift.String? = nil, idCountryCode: Swift.String? = nil, email: Swift.String? = nil, tipoEnvio: Swift.String? = nil)
+  public func executeUpdatePassword(curp: Swift.String, password: Swift.String, code: Swift.String)
+  @objc deinit
+}
+open class PSMasterCatalogResponseModel : PS_Core.PSMasterCatalogBase {
+  public var hashCatalogs: Swift.String
+  public var resultRequest: Swift.String
+  required public init(from decoder: Swift.Decoder) throws
+  @objc deinit
+}
+open class PSEmploymentEntityModel : Swift.Decodable {
+  public var id: Swift.String
+  public var name: Swift.String
+  public var key: Swift.String
+  public var descrip: Swift.String
+  required public init(from decoder: Swift.Decoder) throws
+  @objc deinit
+}
+open class PSAforeInfoEntityModel : Swift.Decodable {
+  public var id: Swift.String
+  public var name: Swift.String
+  public var descrip: Swift.String
+  public var status: Swift.String
+  public var cve: Swift.String
+  public var phone: Swift.String
+  public var urlDes: Swift.String
+  public var urlFull: Swift.String
+  required public init(from decoder: Swift.Decoder) throws
+  @objc deinit
+}
+open class PSGenerateCodeResponseModel : PS_Core.PSBaseResponseModel {
+  public var resultadoEnvio: Swift.String
+  public var tipoEnvio: Swift.String
+  public var idCodigoSeguridad: Swift.String
+  required public init(from decoder: Swift.Decoder) throws
+  override public func encode(to encoder: Swift.Encoder) throws
+  @objc deinit
+}
+open class PSGroupProceduresEntityModel : Swift.Decodable {
+  public var id: Swift.String
+  public var name: Swift.String
+  public var descrip: Swift.String
+  public var status: Swift.String
+  public var icon: Swift.String
+  public var procedures: [Swift.String]
+  required public init(from decoder: Swift.Decoder) throws
+  @objc deinit
+}
+open class PSProceduresEntityModel : Swift.Decodable {
+  public var id: Swift.String
+  public var name: Swift.String
+  public var descrip: Swift.String
+  public var status: Swift.String
+  public var groupDocument: [Swift.String]
+  required public init(from decoder: Swift.Decoder) throws
+  @objc deinit
+}
+@_hasMissingDesignatedInitializers open class PSEncryptDecript {
+  public static func decrypt(data: Swift.String, keyDataString: Swift.String) -> Swift.String?
+  public static func encrypt(data: Swift.String, keyDataString: Swift.String) -> Swift.String?
+  public static func encrypt(data: Foundation.Data, keyDataString: Swift.String) -> Foundation.Data?
+  @objc deinit
+}
+open class PSGestoPagoPersonalDataEntityModel : Swift.Decodable {
+  public var id: Swift.Int
+  public var name: Swift.String
+  public var descrip: Swift.String
+  public var status: Swift.String
+  public var content: Swift.String
+  required public init(from decoder: Swift.Decoder) throws
+  @objc deinit
+}
+open class PSDegreeStudiesEntityModel : Swift.Decodable {
+  public var id: Swift.String
+  public var name: Swift.String
+  public var descrip: Swift.String
+  public var status: Swift.String
+  public var key: Swift.String
+  required public init(from decoder: Swift.Decoder) throws
+  @objc deinit
+}
+open class PSBaseResponseModel : Swift.Codable {
+  public var cveDiagnostic: Swift.String
+  public var code: Swift.String
+  public var stackTrace: Swift.String
+  public var message: Swift.String
+  public var dateTime: Swift.String
+  public var exception: Swift.String
+  public init()
+  public enum CodingKeys : Swift.String, Swift.CodingKey {
+    case cveDiagnostic
+    case code
+    case stackTrace
+    case message
+    case dateTime
+    case exception
+    public init?(rawValue: Swift.String)
+    public init?(stringValue: Swift.String)
+    public init?(intValue: Swift.Int)
+    public typealias RawValue = Swift.String
+    public var intValue: Swift.Int? {
+      get
+    }
+    public var rawValue: Swift.String {
+      get
+    }
+    public var stringValue: Swift.String {
+      get
+    }
+  }
+  required public init(from decoder: Swift.Decoder) throws
+  @objc deinit
+  open func encode(to encoder: Swift.Encoder) throws
+}
+open class PSCURPRequestModel : PS_Core.PSBaseRequestModel {
+  public init(curp: Swift.String)
+  override public func encode(to encoder: Swift.Encoder) throws
+  @objc deinit
+}
+open class PSBeneficiariesParamsEntityModel : Swift.Decodable {
+  public var id: Swift.String
+  public var name: Swift.String
+  public var campos: Swift.String
+  public var valor: Swift.String
+  public var titulo: Swift.String
+  required public init(from decoder: Swift.Decoder) throws
+  @objc deinit
+}
+@_inheritsConvenienceInitializers open class PSMasterCatalogBase : PS_Core.PSBaseResponseModel {
+  public var countries: [PS_Core.PSCountryEntityModel]
+  public var relationships: [PS_Core.PSGenericEntityModel]
+  public var banks: [PS_Core.PSBankEntityModel]
+  public var periodicities: [PS_Core.PSPeriodicityEntityModel]
+  public var economicActivity: [PS_Core.PSGenericEntityModel]
+  public var partners: [PS_Core.PSPartnersEntityModel]
+  public var amounts: [PS_Core.PSLimitAmountsEntityModel]
+  public var commercialNetwork: [PS_Core.PSCommercialNetworksEntityModel]
+  public var aforeContact: [PS_Core.PSAforeInfoEntityModel]
+  public var degreeStudies: [PS_Core.PSDegreeStudiesEntityModel]
+  public var employment: [PS_Core.PSEmploymentEntityModel]
+  public var relationshipsBeneficiary: [PS_Core.PSGenericEntityModel]
+  public var shortRelationshipsBeneficiary: [PS_Core.PSGenericEntityModel]
+  public var frequentQuestions: [PS_Core.PSGenericEntityModel]
+  public var groupProcedures: [PS_Core.PSGroupProceduresEntityModel]
+  public var procedures: [PS_Core.PSProceduresEntityModel]
+  public var groupDocuments: [PS_Core.PSGroupDocuementsEntityModel]
+  public var documents: [PS_Core.PSDocumentEntityModel]
+  public var procedureFile: [PS_Core.PSProceduresEntityModel]
+  public var gestopagoPersonalData: [PS_Core.PSGestoPagoPersonalDataEntityModel]
+  public var gestopagoWarningLeave: [PS_Core.PSGestoPagoWarningLeaveEntityModel]
+  public var gestopagoPartner: [PS_Core.PSGestoPagoPartnerEntityModel]
+  public var beneficiariesParameters: [PS_Core.PSBeneficiariesParamsEntityModel]
+  public var diagnostico: [PS_Core.PSDiagnosticoEntityModel]
+  public var identificacionDaon: [PS_Core.PSIdentificacionDaonEntityModel]
+  override public init()
+  required public init(from decoder: Swift.Decoder) throws
+  @objc deinit
+}
+open class PSSdksEntityModel : Swift.Decodable {
+  public var id: Swift.String
+  public var name: Swift.String
+  public var description: Swift.String
+  public var platform: Swift.String
+  public var version: Swift.String
+  required public init(from decoder: Swift.Decoder) throws
+  @objc deinit
+}
+@_hasMissingDesignatedInitializers public class PSDeconde : Swift.Codable {
+  public static func decodeIfPresentString<C>(_ keyedContainer: Swift.KeyedDecodingContainer<C>, code: C) -> Swift.String where C : Swift.CodingKey
+  public static func decodeIfPresentInteger<C>(_ keyedContainer: Swift.KeyedDecodingContainer<C>, code: C) -> Swift.Int where C : Swift.CodingKey
+  public static func decodeIfPresentStringBool<C>(_ keyedContainer: Swift.KeyedDecodingContainer<C>, code: C) -> Swift.Bool where C : Swift.CodingKey
+  public static func decodeIfPresentStringInt<C>(_ keyedContainer: Swift.KeyedDecodingContainer<C>, code: C) -> Swift.Int where C : Swift.CodingKey
+  public static func decodeIfPresentArray<C, V>(_ keyedContainer: Swift.KeyedDecodingContainer<C>, code: C, object: V.Type) -> [V] where C : Swift.CodingKey, V : Swift.Decodable
+  @objc deinit
+  public func encode(to encoder: Swift.Encoder) throws
+  required public init(from decoder: Swift.Decoder) throws
+}
+open class PSBaseRequestModel : Swift.Encodable {
+  public var clientId: Swift.String
+  public var clientSecret: Swift.String
+  public var projectId: Swift.String
+  public var uuid: Swift.String
+  public var sdkVersion: Swift.String
+  public var tipoTienda: Swift.String
+  public var claveProyecto: Swift.String
+  public init()
+  open func encode(to encoder: Swift.Encoder) throws
+  @objc deinit
+}
+open class PSPeriodicityEntityModel : Swift.Decodable {
+  public var id: Swift.Int
+  public var idPeriod: Swift.Int
+  public var name: Swift.String
+  public var descrip: Swift.String
+  public var cvTipePeriod: Swift.String
+  public var numPeriod: Swift.String
+  public var numPeriodoIncrement: Swift.String
+  required public init(from decoder: Swift.Decoder) throws
+  @objc deinit
+}
+public protocol PSCoreDelegate {
+  func onTokenExpired(error: Swift.Error)
+}
+@_hasMissingDesignatedInitializers open class PSCore {
+  public static let shared: PS_Core.PSCore
+  public func initialize<U, V>(url: U, urlWeb: Swift.String, key: Swift.String, versionApp: V, partKey: Swift.String, clientID: Swift.String, clientKey: Swift.String, keyEncript: Swift.String? = nil, psCoreDelegate: PS_Core.PSCoreDelegate)
+  public var domain: Swift.String
+  public var url: Swift.String
+  public var urlWeb: Swift.String
+  public var userEncyptedPassword: Swift.String
+  public var key: Swift.String
+  public var clientID: Swift.String
+  public var clientKey: Swift.String
+  public var aforeKey: Swift.String
+  public var versionApp: Swift.String
+  public var sdksAvailable: [PS_Core.PSSdksEntityModel]
+  public var requestDateTime: Swift.String
+  public var requestUUID: Swift.String
+  public var requestGeo: Swift.String
+  public var partKey: Swift.String
+  public var secretID: Swift.String
+  public var mdlwSecret: Swift.String
+  public var passwordComplete: Swift.String
+  public var completeKey: Swift.String
+  public var token: Swift.String?
+  public var maxRetriesGetInicializationAndLogin: Swift.Int
+  public var keyEncript: Swift.String?
+  @objc deinit
+}
+open class PSInfoCurpResponseModel : PS_Core.PSBaseResponseModel {
+  public var gender: Swift.String
+  public var name: Swift.String
+  public var lastNameFather: Swift.String
+  public var lastNameMother: Swift.String
+  public var entityID: Swift.String
+  public var nationalID: Swift.String
+  public var entityDescription: Swift.String
+  public var nationalDescription: Swift.String
+  public var birthday: Swift.String
+  required public init(from decoder: Swift.Decoder) throws
+  @objc deinit
+}
+extension PS_Core.PSServerUtils {
+  public static func generateBoundaryString() -> Swift.String
+}
+open class PSError {
+  public var httpCode: Swift.Int
+  public var exception: Swift.String
+  public var message: Swift.String
+  public var cveDiagnostic: Swift.String
+  public init()
+  public init(httpCode: Swift.Int, exception: Swift.String, message: Swift.String, cveDiagnostic: Swift.String)
+  @objc deinit
+}
+open class PSBankEntityModel : Swift.Decodable {
+  public var id: Swift.String
+  public var name: Swift.String
+  public var status: Swift.String
+  public var cveBank: Swift.String
+  public var typeBank: Swift.String
+  public var menssageTypeBank: Swift.String
+  public var isInternationalBank: Swift.Bool
+  required public init(from decoder: Swift.Decoder) throws
+  @objc deinit
+}
+@_inheritsConvenienceInitializers open class PSGestoPagoPartnerEntityModel : PS_Core.PSPartnersEntityModel {
+  public var aforeActive: Swift.String
+  required public init(from decoder: Swift.Decoder) throws
+  @objc deinit
+}
+@_inheritsConvenienceInitializers open class PSGestoPagoWarningLeaveEntityModel : PS_Core.PSGestoPagoPersonalDataEntityModel {
+  required public init(from decoder: Swift.Decoder) throws
+  @objc deinit
+}
+open class PSDataFederalEntitiesEntityModel : Swift.Decodable {
+  public var clave: Swift.String
+  public var claveAlfabetica: Swift.String
+  public var idPais: Swift.Int
+  public var nombrePais: Swift.String
+  required public init(from decoder: Swift.Decoder) throws
+  @objc deinit
+}
+open class PSMasterCatalogEntityModel : PS_Core.PSMasterCatalogBase {
+  public var idCatalog: Swift.String
+  public var nameCatalog: Swift.String
+  public var processGroup: Swift.String
+  required public init(from decoder: Swift.Decoder) throws
+  @objc deinit
+}
+extension Dispatch.DispatchQueue {
+  public static func mainAsync(_ complete: @escaping () -> Swift.Void)
+  public static func mainAsyncAfterTime(_ time: Foundation.TimeInterval, _ complete: @escaping () -> Swift.Void)
+}
+open class PSIdentificacionDaonEntityModel : Swift.Decodable {
+  public var id: Swift.String
+  public var nombre: Swift.String
+  public var campos: Swift.String
+  public var documentos: [Swift.String]
+  required public init(from decoder: Swift.Decoder) throws
+  @objc deinit
+}
+@_inheritsConvenienceInitializers public class PSCheckInitializationResponseModel : PS_Core.PSMasterCatalogResponseModel {
+  public var sdks: Swift.String
+  public var secretId: Swift.String
+  public var menuApp: PS_Core.PSMenuApp?
+  public var mdlwSecret: Swift.String
+  required public init(from decoder: Swift.Decoder) throws
+  @objc deinit
+}
+open class PSMenuApp : Swift.Decodable {
+  public var menuFCT: Swift.String
+  public var menuFCTAnulacion: Swift.String
+  public var menuAutotraspasoOcultar: Swift.String
+  required public init(from decoder: Swift.Decoder) throws
+  @objc deinit
+}
+@_hasMissingDesignatedInitializers public class RegisterByURLServiceUtil {
+  public static func logout(curp: Swift.String, secured: Swift.Bool = true, completion: @escaping (Foundation.NSError?) -> ())
+  public static func login(curp: Swift.String, encryptedPassword: Swift.String, secured: Swift.Bool = true, context: PS_Core.PSServerConstants.ContextURL = .Transverse, completion: @escaping (_ token: Swift.String?, Foundation.NSError?) -> ())
+  public static func executeLogutAndLoginWeb(curp: Swift.String, encryptedPassword: Swift.String, completion: @escaping (_ token: Swift.String?, Foundation.NSError?) -> ())
+  @objc deinit
+}
+open class PSGenericEntityModel : Swift.Decodable {
+  public var id: Swift.String
+  public var name: Swift.String
+  public var key: Swift.String
+  public var descrip: Swift.String
+  public var status: Swift.String
+  public var campos: PS_Core.PSCamposGenericEntityModel?
+  required public init(from decoder: Swift.Decoder) throws
+  @objc deinit
+}
+open class PSFederalEntitiesEntityModel : Swift.Decodable {
+  public var id: Swift.String
+  public var nombre: Swift.String
+  public var camposArray: PS_Core.PSDataFederalEntitiesEntityModel?
+  required public init(from decoder: Swift.Decoder) throws
+  @objc deinit
+}
+@_hasMissingDesignatedInitializers open class PSCommercialNetworkEntityModel : Swift.Decodable {
+  public var name: Swift.String
+  public var street: Swift.String
+  public var extNum: Swift.String
+  public var intNum: Swift.String
+  public var neighborhood: Swift.String
+  public var postalCode: Swift.String
+  public var town: Swift.String
+  public var latitude: Swift.Double
+  public var longitude: Swift.Double
+  public var idCommertialNetwork: Swift.Int
+  required public init(from decoder: Swift.Decoder) throws
+  public func address() -> Swift.String
+  @objc deinit
+}
+open class PSPartnersEntityModel : Swift.Decodable {
+  public var id: Swift.Int
+  public var content: Swift.String
+  public var name: Swift.String
+  public var descrip: Swift.String
+  public var status: Swift.String
+  public var keyPartner: Swift.String
+  public var contentPartner: Swift.String
+  public var imagePartner: Swift.String
+  public var keyTypePartner: Swift.String
+  public var descriptionTypePartner: Swift.String
+  public var fastGuide: Swift.String
+  public var navigation: [PS_Core.PSNavigationPartnersEntityModel]
+  public var imagePath: Swift.String
+  public var country: Swift.String
+  public var establishments: Swift.String
+  public var idCountry: Swift.Int
+  public var idNetwork: Swift.String
+  required public init(from decoder: Swift.Decoder) throws
+  @objc deinit
+}
+open class PSDocumentEntityModel : Swift.Decodable {
+  public var id: Swift.String
+  public var name: Swift.String
+  public var descrip: Swift.String
+  public var status: Swift.String
+  public var imageCount: Swift.Int
+  public var imageType: Swift.String
+  required public init(from decoder: Swift.Decoder) throws
+  @objc deinit
+}
+open class PSCommercialNetworksEntityModel : Swift.Decodable {
+  public var id: Swift.String
+  public var name: Swift.String
+  public var descrip: Swift.String
+  public var status: Swift.String
+  public var navegacion: Swift.String
+  public var cvePartner: Swift.String
+  public var contenidoPartner: Swift.String
+  public var imgPartner: Swift.String
+  public var imgPath: Swift.String
+  public var cveTypePartner: Swift.String
+  public var descripTypePartner: Swift.String
+  public var country: Swift.String
+  public var fastGuide: [Swift.String]
+  public var total: Swift.String
+  public var idCommertialNetwork: Swift.Int
+  required public init(from decoder: Swift.Decoder) throws
+  @objc deinit
+}
+public struct PSMultipartFiles : Swift.Codable {
+  public enum MultipartEncodingType : Swift.String, Swift.Codable {
+    case Binary
+    public init?(rawValue: Swift.String)
+    public typealias RawValue = Swift.String
+    public var rawValue: Swift.String {
+      get
+    }
+  }
+  public enum MultipartMimeType : Swift.String, Swift.Codable {
+    case ImageJpg
+    case ApplicationZip
+    public init?(rawValue: Swift.String)
+    public typealias RawValue = Swift.String
+    public var rawValue: Swift.String {
+      get
+    }
+  }
+  public var part: Swift.String
+  public var name: Swift.String
+  public var mimeType: PS_Core.PSMultipartFiles.MultipartMimeType
+  public var data: Foundation.Data
+  public var boundary: Swift.String?
+  public var encoding: PS_Core.PSMultipartFiles.MultipartEncodingType
+  public var encrypt: Swift.Bool
+  public init()
+  public init(part: Swift.String, name: Swift.String, data: Foundation.Data, mimeType: PS_Core.PSMultipartFiles.MultipartMimeType = .ImageJpg, boundary: Swift.String? = nil, encoding: PS_Core.PSMultipartFiles.MultipartEncodingType = .Binary, encrypt: Swift.Bool = true)
+  public func encode(to encoder: Swift.Encoder) throws
+  public init(from decoder: Swift.Decoder) throws
+}
+open class PSGenerateCodeRequestModel : PS_Core.PSBaseRequestModel {
+  public init(curp: Swift.String, phone: Swift.String?, idCountryCode: Swift.String?, email: Swift.String?, tipoEnvio: Swift.String?)
+  override public func encode(to encoder: Swift.Encoder) throws
+  @objc deinit
+}
+open class PSFederalEntitiesResponseModel : PS_Core.PSBaseResponseModel {
+  required public init(from decoder: Swift.Decoder) throws
+  @objc deinit
+}
+open class PSLimitAmountsEntityModel : Swift.Decodable {
+  public var id: Swift.Int
+  public var name: Swift.String
+  public var descriptionAmount: Swift.String
+  public var value: Swift.Double
+  required public init(from decoder: Swift.Decoder) throws
+  @objc deinit
+}
+open class PSNavigationPartnersEntityModel : Swift.Codable {
+  public var id: Swift.Int
+  public var content: Swift.String
+  public var status: Swift.Int
+  public var tagValue: Swift.String
+  public var keyNavigation: Swift.String
+  public var descriptionNav: Swift.String
+  public var hasLink: Swift.String
+  public var linkWeb: Swift.String
+  public var linkApp: Swift.String
+  required public init(from decoder: Swift.Decoder) throws
+  @objc deinit
+  open func encode(to encoder: Swift.Encoder) throws
+}
+extension Swift.Sequence where Self.Element == [Swift.String : Any] {
+  public func arrayAnyToArrayString() -> [[Swift.String : Swift.String]]
+}
+open class PSGroupDocuementsEntityModel : Swift.Decodable {
+  public var id: Swift.String
+  public var name: Swift.String
+  public var descrip: Swift.String
+  public var status: Swift.String
+  public var documents: [Swift.String]
+  required public init(from decoder: Swift.Decoder) throws
+  @objc deinit
+}
+public struct PSServerConstants {
+  public struct CodeResponse {
+    public static let code00: Swift.String
+    public static let code01: Swift.String
+    public static let code02: Swift.String
+    public static let code100: Swift.String
+  }
+  public enum ContextURL : Swift.String {
+    case Register
+    case PreRegistration
+    case OnLineSaving
+    case Notification
+    case Transverse
+    case TransverseOTP
+    case Token
+    case Withdrawal
+    case pushMensaje
+    case Ambiance
+    case Asisted
+    case CertificateWorker
+    case banorteProcedures
+    case banorteInitialization
+    case banorteMultipart
+    case transfers
+    case transfersAccreditation
+    case transferApp
+    case UnemploymentWithdrawal
+    case UnemploymentWithdrawalMultipart
+    case fctAux
+    case MarriageWithdrawal
+    case MarriageWithdrawalMultipart
+    case BiometricosMultipart
+    case Biometricos
+    public init?(rawValue: Swift.String)
+    public typealias RawValue = Swift.String
+    public var rawValue: Swift.String {
+      get
+    }
+  }
+  public enum RequestName : Swift.String {
+    case RecuperarPwd
+    case ActualizarPwd
+    case ConsultarCurpBeneficiario
+    case GenerarCodigoSeguridad
+    case ConsultarInicializacion
+    case ConsultarCatalogoMaestro
+    case ConsultarCatalogos
+    case ConsultarTrabajador
+    case PrerRegistrarApp
+    case ActivarApp
+    case OtorgarAccesoApp
+    case AutenticarCurpPwd
+    case ValidarPreExistencia
+    case ConfirmarApp
+    case ActualizarDatos
+    case ValidarEstatusRegistro
+    case RegistrarDatosErroneos
+    case NotificarRecapturaImagen
+    case GuardarPrerRegistro
+    case ConsultarAforeRendimientos
+    case ValidarCuotaMercado
+    case RegistrarIdmission
+    case RegistroMovil
+    case RegistroAutovinculacion
+    case RegistroMovilSura
+    case RegistroAutovinculacionSura
+    case ValidarCurp
+    case ConsultarTrabajadorCurp
+    case ConsultarBeneficiarios
+    case ConsultarCurpRenapo
+    case ValidarNSS
+    case ConsultarCuentas
+    case ConsultaSaldoRetiro
+    case SolicitarRetiro
+    case ConsultaSolRetiro
+    case ConsultarMensajes
+    case ConsultarDetalleMensaje
+    case ActualizarRespuestaMensaje
+    case ConsultarMenor
+    case RegistrarMenores
+    case ValidarCurpMenores
+    case CalcularMenor
+    case ConsultarDatosTrabajador
+    case ConsultarPension
+    case CalcularPension
+    case GenerarOTP
+    case GenerarOTPSecure
+    case ValidarOTP
+    case ConsultarDatosNoCertificables
+    case ModificarDatosNoCertificables
+    case ConsultarMovimientos
+    case SolicitarDocumento
+    case ConsultarPrevisional
+    case ConsultarTrabajadorCertificado
+    case ConsultarDomiciliaciones
+    case CancelarDomiciliacion
+    case ActualizarDomiciliacion
+    case RegistrarDomiciliacion
+    case ConsultarTramitesEnCurso
+    case ConsultarGruposDocFaltantes
+    case IniciaRenvioTramite
+    case AgregarImagen
+    case RegistrarSolicitudDescarga
+    case Traspasos
+    case RegistrarFolioTraspaso
+    case ConsultarFolioTraspaso
+    case ValidarAgentePromotorTraspaso
+    case ValidarRequisitosTramite
+    case ValidarRequisitosTraspaso
+    case ConsultarSolicitudTraspaso
+    case CompararAforeTraspaso
+    case RegistrarSolicitudTraspaso
+    case CancelarSolicitudTraspaso
+    case ConsultarRecursoTraspaso
+    case ConsultarDocumentoTraspaso
+    case ConsultarDatosContacto
+    case ConfirmarDatosContacto
+    case ValidarEstatusSolicitud
+    case CalcularMontoEstimadoRetiro
+    case SolicitarRetiroDesempleo
+    case ValidarSolicitud
+    case SolicitarRetiroMatrimonio
+    case PrevalidarOtp
+    case avisoPrivacidadCiti
+    public init?(rawValue: Swift.String)
+    public typealias RawValue = Swift.String
+    public var rawValue: Swift.String {
+      get
+    }
+  }
+  public struct CreateURL {
+    public var urlString: Swift.String
+    public init(context: PS_Core.PSServerConstants.ContextURL, requestName: Swift.String, isSecure: Swift.Bool = false)
+  }
+  public static let operatingSystem: Swift.String
+}
+open class PSPostalCodeEntityModel : Swift.Decodable {
+  public var name: Swift.String
+  public var description: Swift.String
+  public var descriptionMunicipality: Swift.String
+  public var idEntity: Swift.Int
+  public var descripcionEntity: Swift.String
+  public var descripciontownShip: Swift.String
+  public var cveEntityFed: Swift.String
+  required public init(from decoder: Swift.Decoder) throws
+  @objc deinit
+}
+extension PS_Core.PSContract : Swift.Equatable {}
+extension PS_Core.PSContract : Swift.Hashable {}
+extension PS_Core.PSContract : Swift.RawRepresentable {}
+extension PS_Core.enumOriginAPP : Swift.Equatable {}
+extension PS_Core.enumOriginAPP : Swift.Hashable {}
+extension PS_Core.enumOriginAPP : Swift.RawRepresentable {}
+extension PS_Core.PSBaseResponseModel.CodingKeys : Swift.Equatable {}
+extension PS_Core.PSBaseResponseModel.CodingKeys : Swift.Hashable {}
+extension PS_Core.PSBaseResponseModel.CodingKeys : Swift.RawRepresentable {}
+extension PS_Core.PSMultipartFiles.MultipartEncodingType : Swift.Equatable {}
+extension PS_Core.PSMultipartFiles.MultipartEncodingType : Swift.Hashable {}
+extension PS_Core.PSMultipartFiles.MultipartEncodingType : Swift.RawRepresentable {}
+extension PS_Core.PSMultipartFiles.MultipartMimeType : Swift.Equatable {}
+extension PS_Core.PSMultipartFiles.MultipartMimeType : Swift.Hashable {}
+extension PS_Core.PSMultipartFiles.MultipartMimeType : Swift.RawRepresentable {}
+extension PS_Core.PSServerConstants.ContextURL : Swift.Equatable {}
+extension PS_Core.PSServerConstants.ContextURL : Swift.Hashable {}
+extension PS_Core.PSServerConstants.ContextURL : Swift.RawRepresentable {}
+extension PS_Core.PSServerConstants.RequestName : Swift.Equatable {}
+extension PS_Core.PSServerConstants.RequestName : Swift.Hashable {}
+extension PS_Core.PSServerConstants.RequestName : Swift.RawRepresentable {}

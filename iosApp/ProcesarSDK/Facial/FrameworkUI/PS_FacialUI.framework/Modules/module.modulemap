@@ -1,0 +1,11 @@
+framework module PS_FacialUI {
+  umbrella header "PS_FacialUI.h"
+
+  export *
+  module * { export * }
+}
+
+module PS_FacialUI.Swift {
+  header "PS_FacialUI-Swift.h"
+  requires objc
+}

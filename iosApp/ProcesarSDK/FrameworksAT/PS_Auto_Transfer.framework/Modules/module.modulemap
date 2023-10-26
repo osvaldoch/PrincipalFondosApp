@@ -1,0 +1,4 @@
+framework module PS_Auto_Transfer {
+  header "PS_Auto_Transfer-Swift.h"
+  requires objc
+}

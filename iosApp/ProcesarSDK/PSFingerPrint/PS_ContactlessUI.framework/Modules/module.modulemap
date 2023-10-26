@@ -1,0 +1,11 @@
+framework module PS_ContactlessUI {
+  umbrella header "PS_ContactlessUI.h"
+
+  export *
+  module * { export * }
+}
+
+module PS_ContactlessUI.Swift {
+  header "PS_ContactlessUI-Swift.h"
+  requires objc
+}

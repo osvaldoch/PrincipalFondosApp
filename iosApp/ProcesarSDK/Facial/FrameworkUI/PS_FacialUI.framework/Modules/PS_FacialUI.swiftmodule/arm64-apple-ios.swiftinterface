@@ -1,0 +1,744 @@
+// swift-interface-format-version: 1.0
+// swift-compiler-version: Apple Swift version 5.8 (swiftlang-5.8.0.124.2 clang-1403.0.22.11.100)
+// swift-module-flags: -target arm64-apple-ios11.4 -enable-objc-interop -enable-library-evolution -swift-version 5 -enforce-exclusivity=checked -Onone -module-name PS_FacialUI
+// swift-module-flags-ignorable: -enable-bare-slash-regex
+import AVFoundation
+import AudioToolbox
+import Foundation
+import Lottie
+@_exported import PS_FacialUI
+import Swift
+import UIKit
+import _Concurrency
+import _StringProcessing
+@objc @_inheritsConvenienceInitializers @_Concurrency.MainActor(unsafe) public class PSFURandomLivenessViewController : PS_FacialUI.DAONBaseViewController {
+  @objc @IBOutlet @_Concurrency.MainActor(unsafe) weak public var titleLabel: UIKit.UILabel!
+  @objc @IBOutlet @_Concurrency.MainActor(unsafe) public var previewView: UIKit.UIView!
+  @objc @IBOutlet @_Concurrency.MainActor(unsafe) public var successIndicatorImageView: UIKit.UIImageView!
+  @objc @IBOutlet @_Concurrency.MainActor(unsafe) public var faceOverlayView: PS_FacialUI.DAONFaceOverlayView!
+  @objc @IBOutlet @_Concurrency.MainActor(unsafe) public var infoLabel: UIKit.UILabel!
+  @objc @IBOutlet @_Concurrency.MainActor(unsafe) public var processingIndicatorView: UIKit.UIActivityIndicatorView!
+  @objc @IBOutlet @_Concurrency.MainActor(unsafe) weak public var ivHeader: UIKit.UIImageView!
+  @_Concurrency.MainActor(unsafe) @objc override dynamic public func viewDidLoad()
+  @_Concurrency.MainActor(unsafe) @objc override dynamic public func willMove(toParent parent: UIKit.UIViewController?)
+  @_Concurrency.MainActor(unsafe) @objc override dynamic public func viewDidAppear(_ animated: Swift.Bool)
+  @_Concurrency.MainActor(unsafe) @objc override dynamic public func viewWillAppear(_ animated: Swift.Bool)
+  @_Concurrency.MainActor(unsafe) public func startLivenessChallenge(livenessType: PS_FacialUI.PSFULivenessType)
+  @_Concurrency.MainActor(unsafe) public func onCameraStarted()
+  @_Concurrency.MainActor(unsafe) public func showCharacter(typeAnimation: PS_FacialUI.PSFULivenessType)
+  @_Concurrency.MainActor(unsafe) public func updatePositionIndicator(isUpright: Swift.Bool)
+  @_Concurrency.MainActor(unsafe) @objc override dynamic public init(nibName nibNameOrNil: Swift.String?, bundle nibBundleOrNil: Foundation.Bundle?)
+  @_Concurrency.MainActor(unsafe) @objc required dynamic public init?(coder: Foundation.NSCoder)
+  @objc deinit
+}
+public protocol PSFUDocumentCaptureOverlayVCDelegate {
+  func startWithScanningRegion(rect: CoreFoundation.CGRect)
+  func onReescanButtonPressed()
+  func onContinueButtonPressed() -> Swift.Bool
+  func onScanButtonPressed()
+  func adjustOptionsForBackSideScanning()
+  func onViewDidLoad()
+  func scanningMode() -> PS_FacialUI.PSFUDocumentCaptureOverlayViewController.ScanningMode
+}
+@objc @_inheritsConvenienceInitializers @_Concurrency.MainActor(unsafe) public class TutorialShakeViewController : PS_FacialUI.TutorialViewController {
+  @_Concurrency.MainActor(unsafe) @objc override dynamic public func viewDidLoad()
+  @_Concurrency.MainActor(unsafe) @objc override dynamic public init(nibName nibNameOrNil: Swift.String?, bundle nibBundleOrNil: Foundation.Bundle?)
+  @_Concurrency.MainActor(unsafe) @objc required dynamic public init?(coder: Foundation.NSCoder)
+  @objc deinit
+}
+public protocol DocumentCaptureOverlayDelegate {
+  func documentScanned(image: UIKit.UIImage)
+  func getScanningFront() -> Swift.Bool
+  func mrzDetected(upperLeft: CoreFoundation.CGPoint, upperRight: CoreFoundation.CGPoint, lowerLeft: CoreFoundation.CGPoint, lowerRight: CoreFoundation.CGPoint)
+  func documentDetected(upperLeft: CoreFoundation.CGPoint, upperRight: CoreFoundation.CGPoint, lowerLeft: CoreFoundation.CGPoint, lowerRight: CoreFoundation.CGPoint, documentFillsScanningArea: Swift.Bool)
+}
+public protocol PSFUTutorialBlinkVCDelegate {
+  func continueBlinkTutorialBntPressed()
+}
+@objc @_inheritsConvenienceInitializers @_Concurrency.MainActor(unsafe) public class PSFUDocumentScanHolderViewController : PS_FacialUI.DAONBaseViewController, PS_FacialUI.ImplementedDocumentCaptureVCDelegate {
+  @_Concurrency.MainActor(unsafe) @objc override dynamic public func viewDidLoad()
+  @_Concurrency.MainActor(unsafe) @objc override dynamic public func viewDidAppear(_ animated: Swift.Bool)
+  @_Concurrency.MainActor(unsafe) @objc override dynamic public func willMove(toParent parent: UIKit.UIViewController?)
+  @_Concurrency.MainActor(unsafe) public func onCompleteDocumentCapture()
+  @_Concurrency.MainActor(unsafe) @objc override dynamic public init(nibName nibNameOrNil: Swift.String?, bundle nibBundleOrNil: Foundation.Bundle?)
+  @_Concurrency.MainActor(unsafe) @objc required dynamic public init?(coder: Foundation.NSCoder)
+  @objc deinit
+}
+public protocol PSFUIDocumentCaptureFirstVCDelegate {
+  func onContinueClicked()
+  func onBackButtonClicked()
+}
+@objc @_inheritsConvenienceInitializers @_Concurrency.MainActor(unsafe) public class TutorialBlinkViewController1 : PS_FacialUI.TutorialViewController {
+  @_Concurrency.MainActor(unsafe) @objc override dynamic public func viewDidLoad()
+  @_Concurrency.MainActor(unsafe) @objc override dynamic public init(nibName nibNameOrNil: Swift.String?, bundle nibBundleOrNil: Foundation.Bundle?)
+  @_Concurrency.MainActor(unsafe) @objc required dynamic public init?(coder: Foundation.NSCoder)
+  @objc deinit
+}
+public struct PSFUAnyDocInfo {
+  public var anyDocImageResource: UIKit.UIImage?
+  public var tutorialTitle: Swift.String?
+  public var titleForCaptureDoc: Swift.String?
+  public var messageAfterCapture: Foundation.NSMutableAttributedString?
+  public var scanningDescriptionText: Foundation.NSMutableAttributedString?
+  public var couldNotScanDocTxt: Swift.String?
+  public init(anyDocImageResource: UIKit.UIImage?, tutorialTitle: Swift.String?, titleForCaptureDoc: Swift.String?, messageAfterCapture: Foundation.NSMutableAttributedString?, scanningDescriptionText: Foundation.NSMutableAttributedString?, couldNotScanDocTxt: Swift.String?)
+}
+public enum PSFUFlow {
+  case Welcome
+  case LoadingWithTime
+  case Loading
+  case Tutorial
+  case Liveness3D
+  case FrontDocument
+  case LivenessRandom
+  case BlinkTutorial
+  case NodTutorial
+  case ShakeTutorial
+  case ThreeDTutorialForAuth
+  case AlertType
+  case PrepareFor3DAuth
+  case Show3DNew
+  case FirstDocumentCapture
+  case ChooseDocsInstructions
+  case DocumentTutorial
+  case DocumentCameraScanner
+  case Review
+  case Timer
+  public static func == (a: PS_FacialUI.PSFUFlow, b: PS_FacialUI.PSFUFlow) -> Swift.Bool
+  public func hash(into hasher: inout Swift.Hasher)
+  public var hashValue: Swift.Int {
+    get
+  }
+}
+public enum flowSection : Swift.Int {
+  case Liveness3D
+  case Selfie
+  case FrontDocument
+  case BackDocument
+  case LivenessRandom
+  public init?(rawValue: Swift.Int)
+  public typealias RawValue = Swift.Int
+  public var rawValue: Swift.Int {
+    get
+  }
+}
+public struct typeCaptureDocument {
+}
+public enum PSFUDocumentType : Swift.String {
+  case ine_ife
+  case immigration
+  case consular
+  case passport
+  case acta
+  case anyDoc
+  public init?(rawValue: Swift.String)
+  public typealias RawValue = Swift.String
+  public var rawValue: Swift.String {
+    get
+  }
+}
+public enum PSFUFacialMode {
+  case Register
+  case Validation
+  case Recapture
+  case Minor
+  public static func == (a: PS_FacialUI.PSFUFacialMode, b: PS_FacialUI.PSFUFacialMode) -> Swift.Bool
+  public func hash(into hasher: inout Swift.Hasher)
+  public var hashValue: Swift.Int {
+    get
+  }
+}
+public enum PSFUGenreType : Swift.String {
+  case Woman
+  case Man
+  public init?(rawValue: Swift.String)
+  public typealias RawValue = Swift.String
+  public var rawValue: Swift.String {
+    get
+  }
+}
+public enum PSFUMode : Swift.String {
+  case Register
+  case Recapture
+  case Validation
+  case Minor
+  case ScanDoc
+  case Enroll
+  case ScanDocWithTutorial
+  case ShowCarousel
+  case Timer
+  public init?(rawValue: Swift.String)
+  public typealias RawValue = Swift.String
+  public var rawValue: Swift.String {
+    get
+  }
+}
+public enum PSFURegistrationMode : Swift.String {
+  case ThreeDAndSelfie
+  case OnlySelfie
+  public init?(rawValue: Swift.String)
+  public typealias RawValue = Swift.String
+  public var rawValue: Swift.String {
+    get
+  }
+}
+public enum PSFULivenessType : Swift.String {
+  case blink
+  case nod
+  case shake
+  public init?(rawValue: Swift.String)
+  public typealias RawValue = Swift.String
+  public var rawValue: Swift.String {
+    get
+  }
+}
+public enum PSFUScanDocumentScreenSize : Swift.String {
+  case Normal
+  case Large
+  public init?(rawValue: Swift.String)
+  public typealias RawValue = Swift.String
+  public var rawValue: Swift.String {
+    get
+  }
+}
+@objc @_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers public class PSFURandomManager : ObjectiveC.NSObject {
+  public static let instance: PS_FacialUI.PSFURandomManager
+  public var psfuRandomLivenessViewController: PS_FacialUI.PSFURandomLivenessViewController?
+  public func getCameraView() -> UIKit.UIView
+  @objc deinit
+}
+public protocol PSFURandomLivenessVCDelegate {
+  func openTutorial()
+  func onViewWillAppear()
+  func finshLivenessRandom(error: (any Swift.Error)?)
+  func onWillMove()
+  func onViewDidAppear()
+}
+public protocol PSWelcomeVCDelegate {
+  func getApplicationName() -> Swift.String?
+  func didAppearWelcome()
+  func onContinueBtnPressed(psfuWelcomeViewController: PS_FacialUI.PSFUWelcomeViewController)
+  func getSkipTutorial() -> Swift.Bool?
+  func onChangeSkipTutorial(skip: Swift.Bool)
+  func backButtonPressed(vc: PS_FacialUI.PSFUWelcomeViewController)
+}
+@objc @_inheritsConvenienceInitializers @_Concurrency.MainActor(unsafe) public class TimerViewController : PS_FacialUI.DAONBaseViewController {
+  @_Concurrency.MainActor(unsafe) @objc override dynamic public func viewDidLoad()
+  @_Concurrency.MainActor(unsafe) @objc override dynamic public init(nibName nibNameOrNil: Swift.String?, bundle nibBundleOrNil: Foundation.Bundle?)
+  @_Concurrency.MainActor(unsafe) @objc required dynamic public init?(coder: Foundation.NSCoder)
+  @objc deinit
+}
+@objc @_inheritsConvenienceInitializers @_Concurrency.MainActor(unsafe) public class DAONFaceOverlayView : PS_FacialUI.DAONFaceOverlayBaseView {
+  @_Concurrency.MainActor(unsafe) @objc override dynamic public func awakeFromNib()
+  @_Concurrency.MainActor(unsafe) @objc override dynamic public func layoutSubviews()
+  @_Concurrency.MainActor(unsafe) public func showQualityPassedBorder()
+  @_Concurrency.MainActor(unsafe) public func showDefaultBorder()
+  @_Concurrency.MainActor(unsafe) @objc override dynamic public init(frame: CoreFoundation.CGRect)
+  @_Concurrency.MainActor(unsafe) @objc required dynamic public init?(coder: Foundation.NSCoder)
+  @objc deinit
+}
+public protocol PSFUTutorialNodVCDelegate {
+  func continueNodTutorialBntPressed()
+}
+@objc @_inheritsConvenienceInitializers @_Concurrency.MainActor(unsafe) public class PSFUDocumentCaptureOverlayViewController : PS_FacialUI.BaseViewController {
+  public enum ScanningMode {
+    case Front
+    case Back
+    public static func == (a: PS_FacialUI.PSFUDocumentCaptureOverlayViewController.ScanningMode, b: PS_FacialUI.PSFUDocumentCaptureOverlayViewController.ScanningMode) -> Swift.Bool
+    public func hash(into hasher: inout Swift.Hasher)
+    public var hashValue: Swift.Int {
+      get
+    }
+  }
+  @objc @IBOutlet @_Concurrency.MainActor(unsafe) public var scanningRegion: PS_FacialUI.CaptureOverlayView!
+  @objc @IBOutlet @_Concurrency.MainActor(unsafe) public var messageDetail: UIKit.UILabel!
+  @objc @IBOutlet @_Concurrency.MainActor(unsafe) public var messageTitle: UIKit.UILabel?
+  @objc @IBOutlet @_Concurrency.MainActor(unsafe) public var rescanButton: PS_FacialUI.FacialUIButton!
+  @objc @IBOutlet @_Concurrency.MainActor(unsafe) public var continueButton: PS_FacialUI.FacialUIButton!
+  @_Concurrency.MainActor(unsafe) public var completionHandler: (() -> ())?
+  @_Concurrency.MainActor(unsafe) public var scanningMessageUpdateTimer: Foundation.Timer?
+  @_Concurrency.MainActor(unsafe) public var imageView: UIKit.UIImageView?
+  @_Concurrency.MainActor(unsafe) public var documentShapeLayer: QuartzCore.CAShapeLayer?
+  @_Concurrency.MainActor(unsafe) public var mrtzShapeLayer: QuartzCore.CAShapeLayer?
+  @_Concurrency.MainActor(unsafe) public var removeBorderLayerTimer: Foundation.Timer?
+  @_Concurrency.MainActor(unsafe) public var removeMRTZBorderLayerTimer: Foundation.Timer?
+  @_Concurrency.MainActor(unsafe) @objc override dynamic public func viewDidLoad()
+  @_Concurrency.MainActor(unsafe) @objc override dynamic public func viewDidLayoutSubviews()
+  @_Concurrency.MainActor(unsafe) public func resetTimers()
+  @_Concurrency.MainActor(unsafe) public func startScanningTimer()
+  @_Concurrency.MainActor(unsafe) public func documentScanned(with image: UIKit.UIImage, allFinished: Swift.Bool)
+  @_Concurrency.MainActor(unsafe) public func createBorderLayer(upperLeft: CoreFoundation.CGPoint, upperRight: CoreFoundation.CGPoint, lowerLeft: CoreFoundation.CGPoint, lowerRight: CoreFoundation.CGPoint, color: UIKit.UIColor, isSolid: Swift.Bool) -> QuartzCore.CAShapeLayer?
+  @objc @_Concurrency.MainActor(unsafe) public func removeMRTZBorderLayer(timer: Foundation.Timer)
+  @_Concurrency.MainActor(unsafe) public func removeLayerWithAnimation(_ shapeLayer: QuartzCore.CAShapeLayer?)
+  @_Concurrency.MainActor(unsafe) @objc override dynamic public init(nibName nibNameOrNil: Swift.String?, bundle nibBundleOrNil: Foundation.Bundle?)
+  @_Concurrency.MainActor(unsafe) @objc required dynamic public init?(coder: Foundation.NSCoder)
+  @objc deinit
+}
+@objc @_inheritsConvenienceInitializers @_Concurrency.MainActor(unsafe) open class BaseViewController : UIKit.UIViewController {
+  @_Concurrency.MainActor(unsafe) @objc override dynamic open func viewDidLoad()
+  @_Concurrency.MainActor(unsafe) @objc override dynamic open func viewWillAppear(_ animated: Swift.Bool)
+  @_Concurrency.MainActor(unsafe) public static func gradientViewBackground(customView: inout UIKit.UIView)
+  @_Concurrency.MainActor(unsafe) @objc override dynamic public init(nibName nibNameOrNil: Swift.String?, bundle nibBundleOrNil: Foundation.Bundle?)
+  @_Concurrency.MainActor(unsafe) @objc required dynamic public init?(coder: Foundation.NSCoder)
+  @objc deinit
+}
+@objc @_inheritsConvenienceInitializers @_Concurrency.MainActor(unsafe) public class TutorialViewController : PS_FacialUI.BaseViewController {
+  @_Concurrency.MainActor(unsafe) @objc override dynamic public func viewDidLoad()
+  @_Concurrency.MainActor(unsafe) @objc override dynamic public func viewWillAppear(_ animated: Swift.Bool)
+  @_Concurrency.MainActor(unsafe) @objc override dynamic public init(nibName nibNameOrNil: Swift.String?, bundle nibBundleOrNil: Foundation.Bundle?)
+  @_Concurrency.MainActor(unsafe) @objc required dynamic public init?(coder: Foundation.NSCoder)
+  @objc deinit
+}
+@objc @_inheritsConvenienceInitializers @IBDesignable @_Concurrency.MainActor(unsafe) open class FacialUIView : UIKit.UIView {
+  @objc @IBInspectable @_Concurrency.MainActor(unsafe) public var theme: Swift.Int {
+    @objc get
+    @objc set
+  }
+  @_Concurrency.MainActor(unsafe) @objc override dynamic open func awakeFromNib()
+  @_Concurrency.MainActor(unsafe) @objc override dynamic open func layoutSublayers(of layer: QuartzCore.CALayer)
+  @_Concurrency.MainActor(unsafe) @objc override dynamic public init(frame: CoreFoundation.CGRect)
+  @_Concurrency.MainActor(unsafe) @objc required dynamic public init?(coder: Foundation.NSCoder)
+  @objc deinit
+}
+public protocol ReviewVCDelegate {
+  func getIdxUserId() -> Swift.String?
+  func getIdCheckId() -> Swift.String?
+  func getDocumentIds() -> [Swift.String]?
+  func getLivenessVideoIds() -> [Swift.String]?
+  func getFaceImage() -> UIKit.UIImage?
+  func getDocumentImage() -> UIKit.UIImage?
+  func getDocumentImageBack() -> UIKit.UIImage?
+  func evaluationWithError(error: (any Swift.Error)?)
+  func onApplyReview()
+  func willAppearReview()
+  func finishReview(error: (any Swift.Error)?)
+}
+public protocol PSFUTutorial3DVCDelegate {
+  func didTapContinue(tutorialViewController: PS_FacialUI.TutorialViewController)
+}
+public protocol PSFUTimerVCDelegate {
+  func onTimerCompleted(vc: PS_FacialUI.TimerViewController)
+  func onTimerCanceled(vc: PS_FacialUI.TimerViewController)
+}
+extension UIKit.UIFont {
+  public static func registerFont(withFilenameString filenameString: Swift.String, bundle: Foundation.Bundle)
+}
+public protocol PSFU3DLivenessVCDelegate {
+  func onViewWillAppear(viewFor3dCamera: UIKit.UIView) -> Swift.Float
+  func isReadyFor3D() -> Swift.Bool
+  func onTakeSelfieImage() -> UIKit.UIImage?
+  func onViewWillDisappear()
+  func onViewDidAppear3D()
+  func handleOrientationChange()
+  func onEnrollPressed(image: UIKit.UIImage)
+  func onRetakePhotoPressed()
+  func onOpenTutorialPressed()
+  func onDidLoadSelfiePreview()
+  func rotateImage(image: UIKit.UIImage, orientation: UIKit.UIImage.Orientation) -> UIKit.UIImage
+  func onVerifingPhoto(image: UIKit.UIImage)
+}
+public protocol PSFUFaceOverlayProtocolView : UIKit.UIView {
+  func handleFrameProcessed(passed: Swift.Bool, issues: [Foundation.NSNumber]?)
+  func handleLivenessEvent(_ event: PS_FacialUI.PSFU3DLivenessViewController.PSFUFaceLivenessEvent)
+  func handleMessage(_ newMessage: Swift.String)
+  func showProofIndicator(passed: Swift.Bool, completion: @escaping () -> ())
+  func reset()
+}
+public protocol PSFUTutorialShakeVCDelegate {
+  func continueShakeTutorialBntPressed()
+}
+extension UIKit.UIDevice {
+  @_Concurrency.MainActor(unsafe) public static let nombreModelo: Swift.String
+}
+@objc @_inheritsConvenienceInitializers @_Concurrency.MainActor(unsafe) public class ReviewViewController : PS_FacialUI.DAONBaseViewController {
+  @_Concurrency.MainActor(unsafe) public var delegate: (any PS_FacialUI.RegistrationCaptureDelegate)?
+  @_Concurrency.MainActor(unsafe) @objc override dynamic public func viewDidLoad()
+  @_Concurrency.MainActor(unsafe) @objc override dynamic public func viewWillAppear(_ animated: Swift.Bool)
+  @_Concurrency.MainActor(unsafe) @objc override dynamic public func viewDidAppear(_ animated: Swift.Bool)
+  @_Concurrency.MainActor(unsafe) @objc override dynamic public init(nibName nibNameOrNil: Swift.String?, bundle nibBundleOrNil: Foundation.Bundle?)
+  @_Concurrency.MainActor(unsafe) @objc required dynamic public init?(coder: Foundation.NSCoder)
+  @objc deinit
+}
+public protocol RegistrationCaptureDelegate {
+  func onCaptureError(stageName: Swift.String, error: any Swift.Error)
+}
+@objc @_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers open class FacialUI2 : ObjectiveC.NSObject {
+  public var captureManagerDelegate: (any PS_FacialUI.CaptureManagerDelegate)?
+  public var psfuDocumentScanHolderVCDelegate: (any PS_FacialUI.PSFUDocumentScanHolderVCDelegate)?
+  public var psfuRandomLivenessVCDelegate: (any PS_FacialUI.PSFURandomLivenessVCDelegate)?
+  public var reviewVCDelegate: (any PS_FacialUI.ReviewVCDelegate)?
+  public var psWelcomeVCDelegate: (any PS_FacialUI.PSWelcomeVCDelegate)?
+  public var psfuiDocumentCaptureFirstVCDelegate: (any PS_FacialUI.PSFUIDocumentCaptureFirstVCDelegate)?
+  public var psfuChooseDocsInstructionsVCDelegate: (any PS_FacialUI.PSFUChooseDocsInstructionsVCDelegate)?
+  public var psfuDocumentTutorialVCDelegate: (any PS_FacialUI.PSFUDocumentTutorialVCDelegate)?
+  public var psfuDocumentCaptureOverlayVCDelegate: (any PS_FacialUI.PSFUDocumentCaptureOverlayVCDelegate)?
+  public var psLoadingVCDelegate: (any PS_FacialUI.PSLoadingVCDelegate)?
+  public var psfuTutorialBlinkVCDelegate: (any PS_FacialUI.PSFUTutorialBlinkVCDelegate)?
+  public var psfuTutorialShakeVCDelegate: (any PS_FacialUI.PSFUTutorialShakeVCDelegate)?
+  public var psfuTutorialNodVCDelegate: (any PS_FacialUI.PSFUTutorialNodVCDelegate)?
+  public var psfu3DLivenessVCDelegate: (any PS_FacialUI.PSFU3DLivenessVCDelegate)?
+  public var psfuTutorial3DVCDelegate: (any PS_FacialUI.PSFUTutorial3DVCDelegate)?
+  public var psfuTutorialVC4Delegate: (any PS_FacialUI.PSFUTutorialVC4Delegate)?
+  public var psfuTimerVCDelegate: (any PS_FacialUI.PSFUTimerVCDelegate)?
+  public static var facialUI: PS_FacialUI.FacialUI2
+  @objc deinit
+}
+extension UIKit.UIImage {
+  public func resizeImag2() -> Foundation.Data
+  public func psfuResizeImage() -> Foundation.Data
+}
+@_inheritsConvenienceInitializers @objc(PSFU3DLivenessViewController) @_Concurrency.MainActor(unsafe) public class PSFU3DLivenessViewController : UIKit.UIViewController {
+  public enum DASFaceCaptureOverlayType : Swift.Int {
+    case standard
+    case threeDFace
+    public init?(rawValue: Swift.Int)
+    public typealias RawValue = Swift.Int
+    public var rawValue: Swift.Int {
+      get
+    }
+  }
+  public enum ThreeDLivenessVCState : Swift.Int {
+    case preparing
+    case collectingForRegistration
+    case collectingForAuthentication
+    case confirmingPhoto
+    case verifyingPhoto
+    case analyzingLivenessData
+    case success
+    case noCameraPermission
+    public init?(rawValue: Swift.Int)
+    public typealias RawValue = Swift.Int
+    public var rawValue: Swift.Int {
+      get
+    }
+  }
+  public enum PSFUFaceLivenessEvent : Swift.Int {
+    case DASFaceLivenessEventNone
+    case DASFaceLivenessEventReset
+    case DASFaceLivenessEventPassive
+    case DASFaceLivenessEventBlink
+    case DASFaceLivenessEventSpoof
+    case DASFaceLivenessEventThreeDFaceInitializing
+    case DASFaceLivenessEventThreeDFaceStarted
+    case DASFaceLivenessEventThreeDFaceTracking
+    case DASFaceLivenessEventThreeDFaceAnalyzing
+    case DASFaceLivenessEventThreeDFaceCompleted
+    public init?(rawValue: Swift.Int)
+    public typealias RawValue = Swift.Int
+    public var rawValue: Swift.Int {
+      get
+    }
+  }
+  @_Concurrency.MainActor(unsafe) public var captureCompleted: Swift.Bool
+  @_Concurrency.MainActor(unsafe) final public let kTransitionTimeAfterResult: Swift.Double
+  @_Concurrency.MainActor(unsafe) public var state: PS_FacialUI.PSFU3DLivenessViewController.ThreeDLivenessVCState
+  @_Concurrency.MainActor(unsafe) public var receivedQualityData: Swift.Bool
+  @_Concurrency.MainActor(unsafe) public var allLiveneesCompleted: Swift.Bool
+  @_Concurrency.MainActor(unsafe) public var capturedImage: UIKit.UIImage?
+  @objc @IBOutlet @_Concurrency.MainActor(unsafe) weak public var titleLbl: PS_FacialUI.FacialUILabel!
+  @objc @IBOutlet @_Concurrency.MainActor(unsafe) public var videoContainerView: UIKit.UIView!
+  @objc @IBOutlet @_Concurrency.MainActor(unsafe) public var videoPreparingActivityIndicator: UIKit.UIActivityIndicatorView!
+  @objc @IBOutlet @_Concurrency.MainActor(unsafe) public var videoProcessingActivityIndicator: UIKit.UIActivityIndicatorView!
+  @objc @IBOutlet @_Concurrency.MainActor(unsafe) public var videoLivefeedView3: UIKit.UIView!
+  @objc @IBOutlet @_Concurrency.MainActor(unsafe) public var videoPhotoPreviewView: UIKit.UIImageView!
+  @objc @IBOutlet @_Concurrency.MainActor(unsafe) public var videoOverlayContainer: UIKit.UIView!
+  @objc @IBOutlet @_Concurrency.MainActor(unsafe) public var videoResultOverlay: UIKit.UIView!
+  @objc @IBOutlet @_Concurrency.MainActor(unsafe) public var actionsContainerView: UIKit.UIView!
+  @objc @IBOutlet @_Concurrency.MainActor(unsafe) public var takePhotoButton: UIKit.UIButton!
+  @_Concurrency.MainActor(unsafe) public var currentOverlay: (any PS_FacialUI.PSFUFaceOverlayProtocolView)?
+  @_Concurrency.MainActor(unsafe) public var trackingDuration: Swift.Float?
+  @objc @IBOutlet @_Concurrency.MainActor(unsafe) weak public var progressItemView: PS_FacialUI.ProgressItemUIView!
+  @objc @IBOutlet @_Concurrency.MainActor(unsafe) weak public var tutorialButton: UIKit.UIButton!
+  @_Concurrency.MainActor(unsafe) @objc override dynamic public func viewDidLoad()
+  @_Concurrency.MainActor(unsafe) @objc override dynamic public func viewWillAppear(_ animated: Swift.Bool)
+  @_Concurrency.MainActor(unsafe) @objc override dynamic public func viewWillDisappear(_ animated: Swift.Bool)
+  @_Concurrency.MainActor(unsafe) @objc override dynamic public func viewDidAppear(_ animated: Swift.Bool)
+  @_Concurrency.MainActor(unsafe) @objc override dynamic public func viewWillTransition(to size: CoreFoundation.CGSize, with coordinator: any UIKit.UIViewControllerTransitionCoordinator)
+  @_Concurrency.MainActor(unsafe) public func addOverlay(_ overlayType: PS_FacialUI.PSFU3DLivenessViewController.DASFaceCaptureOverlayType)
+  @_Concurrency.MainActor(unsafe) public func setEnableHelp(isEnable: Swift.Bool)
+  @_Concurrency.MainActor(unsafe) public func handleFaceControllerProcessedFrame(withResult imageQualityPassed: Swift.Bool, imageQualityIssues qualityIssues: [Foundation.NSNumber]?, isCancelling: Swift.Bool)
+  @_Concurrency.MainActor(unsafe) public func handleFaceControllerCompletedSuccessfully()
+  @_Concurrency.MainActor(unsafe) public func handleFaceControllerDetectedLivenessEvent(_ event: PS_FacialUI.PSFU3DLivenessViewController.PSFUFaceLivenessEvent, for image: UIKit.UIImage!, allRequiredLivenessEventsDetected: Swift.Bool)
+  @_Concurrency.MainActor(unsafe) public func configureForState(_ newState: PS_FacialUI.PSFU3DLivenessViewController.ThreeDLivenessVCState, capturedImage: UIKit.UIImage? = nil, hasRequiredLivenessEvents: Swift.Bool? = nil)
+  @_Concurrency.MainActor(unsafe) public func onEnrollPressed()
+  @_Concurrency.MainActor(unsafe) public func onRetakePressed()
+  @_Concurrency.MainActor(unsafe) public func onDidLoad()
+  @_Concurrency.MainActor(unsafe) public func close()
+  @_Concurrency.MainActor(unsafe) @objc override dynamic public init(nibName nibNameOrNil: Swift.String?, bundle nibBundleOrNil: Foundation.Bundle?)
+  @_Concurrency.MainActor(unsafe) @objc required dynamic public init?(coder: Foundation.NSCoder)
+  @objc deinit
+}
+public protocol PSFUChooseDocsInstructionsVCDelegate {
+  func backStartDocumentsFlowBtnClicked()
+  func getAvaliableCustomDocs() -> [PS_FacialUI.PSFUDocumentType]?
+  func onIneSelected()
+  func onConsularSelected()
+  func onPassportSelected()
+  func onImmigrationSelected()
+  func onActaSelected()
+}
+@objc @_inheritsConvenienceInitializers @_Concurrency.MainActor(unsafe) open class DAONBaseViewController : UIKit.UIViewController {
+  @_Concurrency.MainActor(unsafe) @objc override dynamic open func viewDidLoad()
+  @_Concurrency.MainActor(unsafe) open func constrainViewEqual(holderView: UIKit.UIView, childView: UIKit.UIView)
+  @_Concurrency.MainActor(unsafe) @objc override dynamic public init(nibName nibNameOrNil: Swift.String?, bundle nibBundleOrNil: Foundation.Bundle?)
+  @_Concurrency.MainActor(unsafe) @objc required dynamic public init?(coder: Foundation.NSCoder)
+  @objc deinit
+}
+@objc @_inheritsConvenienceInitializers @IBDesignable @_Concurrency.MainActor(unsafe) public class FacialUIButton : UIKit.UIButton {
+  @objc @IBInspectable @_Concurrency.MainActor(unsafe) public var theme: Swift.Int {
+    @objc get
+    @objc set
+  }
+  @_Concurrency.MainActor(unsafe) @objc override dynamic public func awakeFromNib()
+  @_Concurrency.MainActor(unsafe) @objc override dynamic public init(frame: CoreFoundation.CGRect)
+  @_Concurrency.MainActor(unsafe) @objc required dynamic public init?(coder: Foundation.NSCoder)
+  @objc deinit
+}
+@objc @_inheritsConvenienceInitializers @_Concurrency.MainActor(unsafe) open class CaptureOverlayView : UIKit.UIView {
+  @_Concurrency.MainActor(unsafe) public var viewAreaScann: UIKit.UIView?
+  @_Concurrency.MainActor(unsafe) public var isSquare: Swift.Bool
+  @_Concurrency.MainActor(unsafe) @objc override dynamic public func awakeFromNib()
+  @_Concurrency.MainActor(unsafe) @objc override dynamic public func layoutSubviews()
+  @_Concurrency.MainActor(unsafe) public func showQualityPassedBorder()
+  @_Concurrency.MainActor(unsafe) public func showNoDetectedBorder()
+  @_Concurrency.MainActor(unsafe) public func showDefaultBorder()
+  @_Concurrency.MainActor(unsafe) @objc override dynamic public init(frame: CoreFoundation.CGRect)
+  @_Concurrency.MainActor(unsafe) @objc required dynamic public init?(coder: Foundation.NSCoder)
+  @objc deinit
+}
+public protocol ProcessingViewControllerDelegate {
+  func didEndAnimationOutputLoading()
+}
+@objc @_inheritsConvenienceInitializers @_Concurrency.MainActor(unsafe) public class ProcessingViewController : PS_FacialUI.BaseViewController {
+  @objc @IBOutlet @_Concurrency.MainActor(unsafe) weak public var processingLabel: PS_FacialUI.FacialUILabel!
+  @objc @IBOutlet @_Concurrency.MainActor(unsafe) public var progressView: UIKit.UIProgressView!
+  @_Concurrency.MainActor(unsafe) public var delegateLoading: (any PS_FacialUI.ProcessingViewControllerDelegate)?
+  @_Concurrency.MainActor(unsafe) @objc override dynamic public func viewDidLoad()
+  @_Concurrency.MainActor(unsafe) @objc override dynamic public func viewWillAppear(_ animated: Swift.Bool)
+  @_Concurrency.MainActor(unsafe) @objc override dynamic public func viewWillDisappear(_ animated: Swift.Bool)
+  @_Concurrency.MainActor(unsafe) public func setAnimationOutput(time: Swift.Double)
+  @_Concurrency.MainActor(unsafe) @objc override dynamic public init(nibName nibNameOrNil: Swift.String?, bundle nibBundleOrNil: Foundation.Bundle?)
+  @_Concurrency.MainActor(unsafe) @objc required dynamic public init?(coder: Foundation.NSCoder)
+  @objc deinit
+}
+public protocol CaptureManagerDelegate {
+  func restartScanning()
+  func stopScanning()
+}
+extension UIKit.UIViewController {
+  @_Concurrency.MainActor(unsafe) public func pushChildController(_ childController: UIKit.UIViewController, animated: Swift.Bool)
+  @_Concurrency.MainActor(unsafe) public func addChildController(_ childController: UIKit.UIViewController, animated: Swift.Bool, transitionDirection: PS_FacialUI.TransitionOptions.Direction? = TransitionOptions.Direction.toRight)
+  @_Concurrency.MainActor(unsafe) public func removeChildController()
+  @_Concurrency.MainActor(unsafe) public func performViewCleanUp()
+}
+public struct TransitionOptions {
+  public enum Curve {
+    case linear
+    case easeIn
+    case easeOut
+    case easeInOut
+    public static func == (a: PS_FacialUI.TransitionOptions.Curve, b: PS_FacialUI.TransitionOptions.Curve) -> Swift.Bool
+    public func hash(into hasher: inout Swift.Hasher)
+    public var hashValue: Swift.Int {
+      get
+    }
+  }
+  public enum Direction {
+    case fade
+    case toTop
+    case toBottom
+    case toLeft
+    case toRight
+    public func transition() -> QuartzCore.CATransition
+    public static func == (a: PS_FacialUI.TransitionOptions.Direction, b: PS_FacialUI.TransitionOptions.Direction) -> Swift.Bool
+    public func hash(into hasher: inout Swift.Hasher)
+    public var hashValue: Swift.Int {
+      get
+    }
+  }
+  public enum Background {
+    case solidColor(UIKit.UIColor)
+    case customView(UIKit.UIView)
+  }
+  public var duration: Swift.Double
+  public var direction: PS_FacialUI.TransitionOptions.Direction
+  public var style: PS_FacialUI.TransitionOptions.Curve
+  public var background: PS_FacialUI.TransitionOptions.Background?
+  public init(direction: PS_FacialUI.TransitionOptions.Direction = .toRight, style: PS_FacialUI.TransitionOptions.Curve = .linear)
+  public init()
+}
+public protocol ImplementedDocumentCaptureVCDelegate {
+  func onCompleteDocumentCapture()
+}
+@objc @_inheritsConvenienceInitializers @IBDesignable @_Concurrency.MainActor(unsafe) public class ProgressItemUIView : UIKit.UIView {
+  @_Concurrency.MainActor(unsafe) public func setSection(sectionItem: Swift.Int)
+  @_Concurrency.MainActor(unsafe) @objc override dynamic public func awakeFromNib()
+  @_Concurrency.MainActor(unsafe) @objc override dynamic public init(frame: CoreFoundation.CGRect)
+  @_Concurrency.MainActor(unsafe) @objc required dynamic public init?(coder: Foundation.NSCoder)
+  @objc deinit
+}
+@objc @_inheritsConvenienceInitializers @_Concurrency.MainActor(unsafe) public class CarouselVC : UIKit.UIViewController, UIKit.UIScrollViewDelegate {
+  @_Concurrency.MainActor(unsafe) @objc override dynamic public func viewDidLoad()
+  @_Concurrency.MainActor(unsafe) @objc override dynamic public func viewWillAppear(_ animated: Swift.Bool)
+  @_Concurrency.MainActor(unsafe) @objc public func scrollViewDidEndDecelerating(_ scrollView: UIKit.UIScrollView)
+  @_Concurrency.MainActor(unsafe) @objc public func scrollViewWillBeginDragging(_ scrollView: UIKit.UIScrollView)
+  @_Concurrency.MainActor(unsafe) @objc public func scrollViewDidEndDragging(_ scrollView: UIKit.UIScrollView, willDecelerate decelerate: Swift.Bool)
+  @_Concurrency.MainActor(unsafe) @objc override dynamic public init(nibName nibNameOrNil: Swift.String?, bundle nibBundleOrNil: Foundation.Bundle?)
+  @_Concurrency.MainActor(unsafe) @objc required dynamic public init?(coder: Foundation.NSCoder)
+  @objc deinit
+}
+public protocol PSFUTutorialVC4Delegate {
+  func nextButtonPressed()
+  func didLoad()
+}
+@objc @_inheritsConvenienceInitializers @IBDesignable @_Concurrency.MainActor(unsafe) public class FacialUILabel : UIKit.UILabel {
+  @_Concurrency.MainActor(unsafe) @objc override dynamic public func awakeFromNib()
+  @_Concurrency.MainActor(unsafe) @objc override dynamic public init(frame: CoreFoundation.CGRect)
+  @_Concurrency.MainActor(unsafe) @objc required dynamic public init?(coder: Foundation.NSCoder)
+  @objc deinit
+}
+public protocol PSFUDocumentScanHolderVCDelegate {
+  func giveMeCustomViewForCaptureDocuments(completionHandler: (_ customViewForCaptureDocsVC: UIKit.UIViewController?, (any Swift.Error)?) -> Swift.Void)
+  func setImplementedDocumentCaptureVCDelegate(implementedDocumentCaptureVCDelegate: any PS_FacialUI.ImplementedDocumentCaptureVCDelegate)
+  func onAllDocumentsScanned()
+  func cancelScanDocuments()
+  func onCaptureError(stageName: Swift.String, error: any Swift.Error)
+}
+@objc @_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers public class PSFU3DFlowManager : ObjectiveC.NSObject {
+  public static var instance: PS_FacialUI.PSFU3DFlowManager
+  public var isRegistrationContext: Swift.Bool?
+  public var psfu3DLivenessViewController: PS_FacialUI.PSFU3DLivenessViewController?
+  public func handleFaceControllerStartedAnalysis(hasRequiredLivenessEvents: Swift.Bool)
+  public func handleFaceControllerCapturedImage(image: UIKit.UIImage?)
+  public func handleFaceControllerProcessedFrame(withResult imageQualityPassed: Swift.Bool, imageQualityIssues qualityIssues: [Foundation.NSNumber]?, isCancelling: Swift.Bool)
+  public func configure3dVCForState(threeDLivenessVCState: PS_FacialUI.PSFU3DLivenessViewController.ThreeDLivenessVCState, capturedImage: UIKit.UIImage? = nil, hasRequiredLivenessEvents: Swift.Bool? = nil)
+  @objc deinit
+}
+@objc @_inheritsConvenienceInitializers @_Concurrency.MainActor(unsafe) public class TutorialZoomViewController1 : PS_FacialUI.TutorialViewController {
+  @_Concurrency.MainActor(unsafe) @objc override dynamic public func viewDidLoad()
+  @_Concurrency.MainActor(unsafe) @objc override dynamic public init(nibName nibNameOrNil: Swift.String?, bundle nibBundleOrNil: Foundation.Bundle?)
+  @_Concurrency.MainActor(unsafe) @objc required dynamic public init?(coder: Foundation.NSCoder)
+  @objc deinit
+}
+public protocol FacialUIExecuteDelegate {
+  func openFlow(_ flow: PS_FacialUI.PSFUFlow)
+  func endTutorial()
+}
+open class FacialUIExecute {
+  public static let shared: PS_FacialUI.FacialUIExecute
+  public var documentType: PS_FacialUI.PSFUDocumentType?
+  final public let psfu3DFlowManager: PS_FacialUI.PSFU3DFlowManager
+  final public let psfuRandomManager: PS_FacialUI.PSFURandomManager
+  public var psfuAnyDocInfo: PS_FacialUI.PSFUAnyDocInfo?
+  public var psfuScanDocumentScreenSize: PS_FacialUI.PSFUScanDocumentScreenSize
+  public var psfuCustomTextScanningBack: Foundation.NSMutableAttributedString?
+  public var psfuCustomTextScanningFront: Foundation.NSMutableAttributedString?
+  public var psfuCustomTextDocumentScannedFront: Foundation.NSMutableAttributedString?
+  public var psfuCustomTextDocumentScannedBack: Foundation.NSMutableAttributedString?
+  public var delegate: (any PS_FacialUI.FacialUIExecuteDelegate)?
+  public init()
+  public func getPSFU3DLivenessVC() -> PS_FacialUI.PSFU3DLivenessViewController
+  public func setFlow(flow: PS_FacialUI.PSFUFlow, transitionDirection: PS_FacialUI.TransitionOptions.Direction? = TransitionOptions.Direction.toRight)
+  public func getFlow() -> PS_FacialUI.PSFUFlow?
+  public func show<T>(self externt: T, flow: PS_FacialUI.PSFUFlow, mode: PS_FacialUI.PSFUMode, registrationMode: PS_FacialUI.PSFURegistrationMode, genreType: PS_FacialUI.PSFUGenreType, psfuAnyDocInfo: PS_FacialUI.PSFUAnyDocInfo?, animated: Swift.Bool, completion: (() -> Swift.Void)? = nil) where T : UIKit.UIViewController
+  public func show<T>(self externt: T, flow: PS_FacialUI.PSFUFlow, mode: PS_FacialUI.PSFUMode, registrationMode: PS_FacialUI.PSFURegistrationMode, genreType: PS_FacialUI.PSFUGenreType, psfuAnyDocInfo: PS_FacialUI.PSFUAnyDocInfo?, animated: Swift.Bool, completion: (() -> Swift.Void)? = nil) where T : UIKit.UINavigationController
+  public func dismiss()
+  public func showCarousel()
+  public func closeCarousel()
+  public func getPSDocumentCaptureOverlayViewController() -> PS_FacialUI.PSFUDocumentCaptureOverlayViewController
+  public func open3dTutorial(viewController: UIKit.UIViewController)
+  public func getLoadingUI() -> PS_FacialUI.ProcessingViewController?
+  public func getWelcome() -> PS_FacialUI.PSFUWelcomeViewController?
+  public func openTimer() -> PS_FacialUI.TimerViewController?
+  public func getLaunch() -> PS_FacialUI.CarouselVC?
+  public func closeWithAlertError(errorMessage: Swift.String, codeError: Swift.Int)
+  public func showAlertError(errorMessage: Swift.String, codeError: Swift.Int, completion: ((Swift.Int, Swift.String) -> Swift.Void)?)
+  public func showAlertError(error: any Swift.Error, completion: ((Swift.Int, Swift.String) -> Swift.Void)?)
+  public func showAlertErrorCancel(error: any Swift.Error, completion: ((Swift.Int, Swift.String) -> Swift.Void)?)
+  public func showAlertErrorAndCancelAfterPressButton(errorMessage: Swift.String, codeError: Swift.Int, completion: ((Swift.Int, Swift.String) -> Swift.Void)?)
+  public func close()
+  public func close(completion: (() -> Swift.Void)?)
+  public func close(animated: Swift.Bool, completion: (() -> Swift.Void)?)
+  @objc deinit
+}
+@objc @_inheritsConvenienceInitializers @_Concurrency.MainActor(unsafe) public class TutorialNodViewController : PS_FacialUI.TutorialViewController {
+  @_Concurrency.MainActor(unsafe) @objc override dynamic public func viewDidLoad()
+  @_Concurrency.MainActor(unsafe) @objc override dynamic public init(nibName nibNameOrNil: Swift.String?, bundle nibBundleOrNil: Foundation.Bundle?)
+  @_Concurrency.MainActor(unsafe) @objc required dynamic public init?(coder: Foundation.NSCoder)
+  @objc deinit
+}
+@objc @_inheritsConvenienceInitializers @_Concurrency.MainActor(unsafe) public class DAONFaceOverlayBaseView : UIKit.UIView {
+  @_Concurrency.MainActor(unsafe) public var backgroundLayer: QuartzCore.CAGradientLayer?
+  @_Concurrency.MainActor(unsafe) public var ellipseBorderLayer: QuartzCore.CAShapeLayer?
+  @_Concurrency.MainActor(unsafe) public var maskLayer: QuartzCore.CAShapeLayer?
+  @_Concurrency.MainActor(unsafe) public var messageLabel: UIKit.UILabel?
+  @_Concurrency.MainActor(unsafe) public var resultImageView: UIKit.UIImageView?
+  @_Concurrency.MainActor(unsafe) public func startFaceOverlay()
+  @_Concurrency.MainActor(unsafe) public func setLabelImageView()
+  @_Concurrency.MainActor(unsafe) public func setPath() -> CoreFoundation.CGRect
+  @_Concurrency.MainActor(unsafe) @objc override dynamic public init(frame: CoreFoundation.CGRect)
+  @_Concurrency.MainActor(unsafe) @objc required dynamic public init?(coder: Foundation.NSCoder)
+  @objc deinit
+}
+@objc @_inheritsConvenienceInitializers @_Concurrency.MainActor(unsafe) public class PSFUWelcomeViewController : PS_FacialUI.BaseViewController {
+  @objc @IBOutlet @_Concurrency.MainActor(unsafe) weak public var switchOut: UIKit.UISwitch!
+  @_Concurrency.MainActor(unsafe) @objc override dynamic public func viewDidLoad()
+  @_Concurrency.MainActor(unsafe) @objc override dynamic public func viewDidAppear(_ animated: Swift.Bool)
+  @_Concurrency.MainActor(unsafe) @objc override dynamic public func viewWillAppear(_ animated: Swift.Bool)
+  @_Concurrency.MainActor(unsafe) @objc override dynamic public func viewWillDisappear(_ animated: Swift.Bool)
+  @_Concurrency.MainActor(unsafe) @objc override dynamic public init(nibName nibNameOrNil: Swift.String?, bundle nibBundleOrNil: Foundation.Bundle?)
+  @_Concurrency.MainActor(unsafe) @objc required dynamic public init?(coder: Foundation.NSCoder)
+  @objc deinit
+}
+public protocol PSFUDocumentTutorialVCDelegate {
+  func onActivateCamera()
+  func backInstructionsBtnClicked()
+}
+extension Dispatch.DispatchQueue {
+  public static func psfuMainAsync(_ complete: @escaping () -> Swift.Void)
+  public static func psfeMainAsyncAfterTime(_ time: Foundation.TimeInterval, _ complete: @escaping () -> Swift.Void)
+}
+public protocol PSLoadingVCDelegate {
+  func willAppearLoading()
+  func willDisappearLoading()
+}
+extension PS_FacialUI.PSFUFlow : Swift.Equatable {}
+extension PS_FacialUI.PSFUFlow : Swift.Hashable {}
+extension PS_FacialUI.flowSection : Swift.Equatable {}
+extension PS_FacialUI.flowSection : Swift.Hashable {}
+extension PS_FacialUI.flowSection : Swift.RawRepresentable {}
+extension PS_FacialUI.PSFUDocumentType : Swift.Equatable {}
+extension PS_FacialUI.PSFUDocumentType : Swift.Hashable {}
+extension PS_FacialUI.PSFUDocumentType : Swift.RawRepresentable {}
+extension PS_FacialUI.PSFUFacialMode : Swift.Equatable {}
+extension PS_FacialUI.PSFUFacialMode : Swift.Hashable {}
+extension PS_FacialUI.PSFUGenreType : Swift.Equatable {}
+extension PS_FacialUI.PSFUGenreType : Swift.Hashable {}
+extension PS_FacialUI.PSFUGenreType : Swift.RawRepresentable {}
+extension PS_FacialUI.PSFUMode : Swift.Equatable {}
+extension PS_FacialUI.PSFUMode : Swift.Hashable {}
+extension PS_FacialUI.PSFUMode : Swift.RawRepresentable {}
+extension PS_FacialUI.PSFURegistrationMode : Swift.Equatable {}
+extension PS_FacialUI.PSFURegistrationMode : Swift.Hashable {}
+extension PS_FacialUI.PSFURegistrationMode : Swift.RawRepresentable {}
+extension PS_FacialUI.PSFULivenessType : Swift.Equatable {}
+extension PS_FacialUI.PSFULivenessType : Swift.Hashable {}
+extension PS_FacialUI.PSFULivenessType : Swift.RawRepresentable {}
+extension PS_FacialUI.PSFUScanDocumentScreenSize : Swift.Equatable {}
+extension PS_FacialUI.PSFUScanDocumentScreenSize : Swift.Hashable {}
+extension PS_FacialUI.PSFUScanDocumentScreenSize : Swift.RawRepresentable {}
+extension PS_FacialUI.PSFUDocumentCaptureOverlayViewController.ScanningMode : Swift.Equatable {}
+extension PS_FacialUI.PSFUDocumentCaptureOverlayViewController.ScanningMode : Swift.Hashable {}
+extension PS_FacialUI.PSFU3DLivenessViewController.DASFaceCaptureOverlayType : Swift.Equatable {}
+extension PS_FacialUI.PSFU3DLivenessViewController.DASFaceCaptureOverlayType : Swift.Hashable {}
+extension PS_FacialUI.PSFU3DLivenessViewController.DASFaceCaptureOverlayType : Swift.RawRepresentable {}
+extension PS_FacialUI.PSFU3DLivenessViewController.ThreeDLivenessVCState : Swift.Equatable {}
+extension PS_FacialUI.PSFU3DLivenessViewController.ThreeDLivenessVCState : Swift.Hashable {}
+extension PS_FacialUI.PSFU3DLivenessViewController.ThreeDLivenessVCState : Swift.RawRepresentable {}
+extension PS_FacialUI.PSFU3DLivenessViewController.PSFUFaceLivenessEvent : Swift.Equatable {}
+extension PS_FacialUI.PSFU3DLivenessViewController.PSFUFaceLivenessEvent : Swift.Hashable {}
+extension PS_FacialUI.PSFU3DLivenessViewController.PSFUFaceLivenessEvent : Swift.RawRepresentable {}
+extension PS_FacialUI.TransitionOptions.Curve : Swift.Equatable {}
+extension PS_FacialUI.TransitionOptions.Curve : Swift.Hashable {}
+extension PS_FacialUI.TransitionOptions.Direction : Swift.Equatable {}
+extension PS_FacialUI.TransitionOptions.Direction : Swift.Hashable {}

@@ -1,0 +1,2 @@
+{
+"signature":"xQWlqcZ\/o+k4UV5D9uJxf4Gp1VjtapYc5DaY2elxt4O47NymSkGRi7F9NbX1bZz3bAA59VbfgYzFWTuJIcrlqRWb20lfIciYpeEkXF6ZKnyYTd8iEj9oa8I75U36MDv+tORbpQM7gLczkTH2A1CxzqBRtbrDiRIzOQDuEEuz3yqBKtr4MWWr6k916PWbG2UCqDHTrFTE+ajXSW4sJLKt5g24VzCRuyLWWKfFPew\/P3iL3u5Le0JjmMgvkgcrji4M2Kn7NXoMgR6RfJf3gDm8LYOsyKuH4CNXwMJiIkWhN+RE7gSSHZsHC0A7irdNsqkZa7rj0XufbWgb0TGI5uHkoA==","organization":"Daon","signed":{"features":["ALL"],"expiry":"2022-07-27 00:00:00","applicationIdentifier":"com.principal.fondosinversion"},"version":"2.1"}

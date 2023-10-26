@@ -1,0 +1,120 @@
+// swift-interface-format-version: 1.0
+// swift-compiler-version: Apple Swift version 5.4.2 (swiftlang-1205.0.28.2 clang-1205.0.19.57)
+// swift-module-flags: -target arm64-apple-ios12.4 -enable-objc-interop -enable-library-evolution -swift-version 5 -enforce-exclusivity=checked -Onone -module-name PS_BaseExternal
+import Foundation
+@_exported import PS_BaseExternal
+import PS_Core
+import Swift
+open class PSPerson : PS_Core.PSBaseRequestModel {
+  public init(curp: Swift.String?, nss: Swift.String?, name: Swift.String?, lastname: Swift.String?, secondLastname: Swift.String?)
+  required public init(from decoder: Swift.Decoder) throws
+  override open func encode(to encoder: Swift.Encoder) throws
+  override public init()
+  @objc deinit
+}
+@_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers open class PSConsultBeneficiariesResponseModel : PS_Core.PSBaseResponseModel {
+  public var hasBeneficiaries: Swift.Bool
+  public var beneficiariesCount: Swift.Int
+  public var beneficiaries: [PS_BaseExternal.Beneficiary]
+  required public init(from decoder: Swift.Decoder) throws
+  @objc deinit
+}
+open class PSRegisterData : Swift.Codable {
+  public var cveAfore: Swift.String
+  public var descAfore: Swift.String
+  public var cveAffiliation: Swift.String
+  public var descAffiliation: Swift.String
+  public var cveStatusRegister: Swift.String
+  public var descStatusRegister: Swift.String
+  public init()
+  required public init(from decoder: Swift.Decoder) throws
+  @objc deinit
+  open func encode(to encoder: Swift.Encoder) throws
+}
+@_inheritsConvenienceInitializers open class PSBaseService : PS_Core.PSBaseViewModel {
+  override public init()
+  public var onSuccessConsultCurpWorker: ((PS_BaseExternal.PSConsultCurpWorkerResponseModel) -> ())?
+  public func executeConsultCurpWorker(curp: Swift.String)
+  public var onSuccessValidNSS: ((PS_Core.PSBaseResponseModel?) -> ())?
+  public func executeValidNSS(curp: Swift.String, nss: Swift.String, name: Swift.String, lastNameFather: Swift.String, lastNameMother: Swift.String)
+  public var onSuccessConsultBeneficiaries: ((PS_BaseExternal.PSConsultBeneficiariesResponseModel) -> ())?
+  public func executeConsultBeneficiaries(curp: Swift.String)
+  @objc deinit
+}
+open class PSValidateCurpResponseModel : PS_Core.PSBaseResponseModel {
+  public var curp: Swift.String
+  public var name: Swift.String
+  public var sexo: Swift.String
+  public var lastNameFather: Swift.String
+  public var lastNameMother: Swift.String
+  public var statusRegister: Swift.String
+  public var statusValidation: Swift.String
+  public var afore: Swift.String
+  public var aforeDesc: Swift.String
+  public var typeAffilation: Swift.String
+  public var nacionality: Swift.String
+  public var entityBirthday: Swift.String
+  public var birthday: Swift.String
+  public var idEntityBirthday: Swift.String
+  public var idNacionality: Swift.String
+  public var cveStatusRegistry: Swift.String
+  public var descriptionRegistry: Swift.String
+  public var activeApplication: Swift.String
+  public var applicationData: PS_BaseExternal.PSApplicationData
+  public var registerData: PS_BaseExternal.PSRegisterData
+  public var transfersApp: Swift.Bool
+  public var transfersAppRemainingDays: Swift.String
+  public var transfersAppSettlementDate: Swift.String
+  public var phoneFile: Swift.String
+  public var emailFile: Swift.String
+  required public init(from decoder: Swift.Decoder) throws
+  override public init()
+  @objc deinit
+}
+open class PSConsultCurpWorkerResponseModel : PS_Core.PSBaseResponseModel {
+  public var curp: Swift.String
+  public var name: Swift.String
+  public var sexo: Swift.String
+  public var candidate: Swift.String
+  public var lastNameFather: Swift.String
+  public var lastNameMother: Swift.String
+  public var statusValidation: Swift.String
+  public var birthday: Swift.String
+  public var entityBirthday: Swift.String
+  public var nacionality: Swift.String
+  public var deviceActive: Swift.String
+  public var requestRegister: Swift.String
+  public var affiliationType: Swift.String
+  public var affilationKey: Swift.String
+  public var transfersApp: Swift.Bool
+  public var transfersAppRemainingDays: Swift.String
+  public var transfersAppSettlementDate: Swift.String
+  public var transfersAppStatus: Swift.String
+  public var phoneFile: Swift.String
+  public var emailFile: Swift.String
+  required public init(from decoder: Swift.Decoder) throws
+  override public init()
+  @objc deinit
+}
+open class PSApplicationData : Swift.Codable {
+  public var phone: Swift.String
+  public var email: Swift.String
+  public var profile: Swift.String
+  public var idProfile: Swift.String
+  public var idCodeRegion: Swift.String
+  public var keyRequest: Swift.String
+  public init()
+  required public init(from decoder: Swift.Decoder) throws
+  @objc deinit
+  open func encode(to encoder: Swift.Encoder) throws
+}
+@_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers public class Beneficiary : PS_Core.PSBaseResponseModel {
+  public var name: Swift.String
+  public var percentage: Swift.Int
+  public var beneficiaryIndex: Swift.Int
+  public var curp: Swift.String
+  public var lastName: Swift.String
+  public var secondLastName: Swift.String
+  required public init(from decoder: Swift.Decoder) throws
+  @objc deinit
+}

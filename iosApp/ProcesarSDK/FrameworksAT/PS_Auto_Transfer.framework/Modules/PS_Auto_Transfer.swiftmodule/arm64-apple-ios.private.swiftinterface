@@ -1,0 +1,351 @@
+// swift-interface-format-version: 1.0
+// swift-compiler-version: Apple Swift version 5.7.2 (swiftlang-5.7.2.135.5 clang-1400.0.29.51)
+// swift-module-flags: -target arm64-apple-ios11.4 -enable-objc-interop -enable-library-evolution -swift-version 5 -enforce-exclusivity=checked -Onone -module-name PS_Auto_Transfer
+// swift-module-flags-ignorable: -enable-bare-slash-regex
+import Foundation
+import PS_Core
+import Swift
+import _Concurrency
+import _StringProcessing
+@_inheritsConvenienceInitializers public class PSAutoTransferViewModel : PS_Core.PSBaseViewModel {
+  public var getConsultarFolioTraspasoApp: ((_ response: PS_Auto_Transfer.PSConsultTransferAppFolioResponse) -> ())?
+  public var onSuccessValidateRequirements: ((_ response: PS_Auto_Transfer.PSValidateRequirementsResponse) -> ())?
+  public var onSuccessRegisterTransfer: ((_ response: PS_Auto_Transfer.PSRegisterTransferResponse) -> ())?
+  public var onSuccessCancelTransfer: ((_ response: PS_Auto_Transfer.PSCancelTransferResponse) -> ())?
+  public var onSuccessCompareAforeTransfer: ((_ response: PS_Auto_Transfer.PSCompareAforeTransferResponse) -> ())?
+  public var onSuccessConsultIndicators: ((_ response: PS_Auto_Transfer.PSConsultIndicatorsResponseModel) -> ())?
+  public var onSuccessCheckContactDetails: ((_ response: PS_Auto_Transfer.PSContactDetailsResponse) -> ())?
+  public var onSuccessConfirmContactDetails: ((_ response: PS_Auto_Transfer.PSConfirmContactResponse) -> ())?
+  public var onSuccessConsultTransferResource: ((_ response: PS_Auto_Transfer.PSConsultTransferResourceResponse) -> ())?
+  public var onSuccessConsultAuthorizedAfore: ((_ response: PS_Auto_Transfer.PSAuthorizedAforeResponse) -> ())?
+  public func managerConsultarFolioTraspasoApp(curp: Swift.String)
+  public func validateRequirements(curp: Swift.String)
+  public func registerTransfer(psRegisterTransferRequest: PS_Auto_Transfer.PSRegisterTransferRequest)
+  public func compareAforeTransfer(curp: Swift.String, cvAforeCedente: Swift.String, cvAforeReceptora: Swift.String)
+  public func cancelTransfer(psCancelTransferRequest: PS_Auto_Transfer.PSCancelTransferRequest)
+  public func consultIndicators(curp: Swift.String, aforesID: [Swift.String]? = nil, medio: Swift.String = "03", temporalidad: [Swift.String] = ["12","60"], claveAforeReceptora: Swift.String? = nil)
+  public func checkContactDetails(curp: Swift.String, claveAfore: Swift.String)
+  public func confirmContactDetails(curp: Swift.String, claveAfore: Swift.String, nombre: Swift.String, apellidoPaterno: Swift.String, apellidoMaterno: Swift.String, telefono: Swift.String, correo: Swift.String)
+  public func consultTransferResource(cvAfore: Swift.String)
+  public func consultAuthorizedAfore(cvAfore: Swift.String)
+  override public init()
+  @objc deinit
+}
+@_inheritsConvenienceInitializers public class ImageResult : PS_Core.PSBaseRequestModel {
+  public var result: Swift.String
+  public var score: Swift.String
+  public var threshold: Swift.String
+  public var fmr: Swift.String
+  override public init()
+  public init(result: Swift.String, score: Swift.String, threshold: Swift.String, fmr: Swift.String)
+  override public func encode(to encoder: Swift.Encoder) throws
+  @objc deinit
+}
+@_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers open class PSConfirmContactResponse : PS_Core.PSBaseResponseModel {
+  public var curp: Swift.String?
+  public var claveAforeTransferente: Swift.String?
+  public var telefonoContactoCelular: Swift.String?
+  public var correoElectronico: Swift.String?
+  public var idDispositivo: Swift.String?
+  public var telefonoContactoCelularseisMeses: Swift.String?
+  public var valExpIdentificacion: Swift.String?
+  public var valEsExpIdentificacion: Swift.String?
+  public var valExpServBiometrico: Swift.String?
+  public var valEsExpServBiometrico: Swift.String?
+  public var valExpMovil: Swift.String?
+  public var valEsExpMovil: Swift.String?
+  public var valMarcas: Swift.String?
+  public var marcaOperativa: Swift.String?
+  public var valRegimenPensionario: Swift.String?
+  public var valTraspasounAnioCumplido: Swift.String?
+  public var valRendimientoAfore: Swift.String?
+  public var valEstadoCuenta: Swift.String?
+  public var susceptibleTraspaso: Swift.String?
+  public var descripcionPerfil: Swift.String?
+  public var clavePerfil: Swift.String?
+  required public init(from decoder: Swift.Decoder) throws
+  @objc deinit
+}
+open class PSConsultIndicatorsResponseModel : PS_Core.PSBaseResponseModel {
+  public var morningStarOutput: PS_Auto_Transfer.MorningStarOutput
+  public var rendimientoPonderadoOutput: PS_Auto_Transfer.RendimientoPonderadoOutput
+  public var calificacionOutput: PS_Auto_Transfer.CalificacionOutput
+  public var rendimientoNominalOutput: PS_Auto_Transfer.RendimientoNominalOutput
+  public init(consultarMorningStarOutput: PS_Auto_Transfer.MorningStarOutput, consultarRendimientoPonderadoOutput: PS_Auto_Transfer.RendimientoPonderadoOutput, consultarCalificacionOutput: PS_Auto_Transfer.CalificacionOutput, consultarRendimientoNominalOutput: PS_Auto_Transfer.RendimientoNominalOutput)
+  required public init(from decoder: Swift.Decoder) throws
+  @objc deinit
+}
+@_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers open class PSCancelTransferResponse : PS_Core.PSBaseResponseModel {
+  public var estatusRegistro: Swift.String?
+  public var claveAfore: Swift.String?
+  public var claveAforeSeleccionada: Swift.String?
+  public var claveEstatusRegistro: Swift.String?
+  public var clavePerfil: Swift.String?
+  public var tipoAfiliacion: Swift.String?
+  public var descripcionAfore: Swift.String?
+  public var descripcionPerfil: Swift.String?
+  public var claveAfiliacion: Swift.String?
+  public var trasAppDiasRest: Swift.String?
+  public var trasAppEstatus: Swift.String?
+  required public init(from decoder: Swift.Decoder) throws
+  @objc deinit
+}
+@_hasMissingDesignatedInitializers open class MorningStarIndicador : PS_Core.PSBaseResponseModel {
+  public var cvAfore: Swift.String
+  public var nombreAfore: Swift.String
+  public var cvIndicador: Swift.String
+  public var indicador: Swift.String
+  required public init(from decoder: Swift.Decoder) throws
+  @objc deinit
+}
+@_inheritsConvenienceInitializers public class PSConfirmContactRequest : PS_Core.PSBaseRequestModel {
+  public var curp: Swift.String
+  public var claveAfore: Swift.String
+  public var nombre: Swift.String
+  public var apellidoPaterno: Swift.String
+  public var apellidoMaterno: Swift.String
+  public var telefono: Swift.String
+  public var correo: Swift.String
+  override public init()
+  public init(curp: Swift.String, claveAfore: Swift.String, nombre: Swift.String, apellidoPaterno: Swift.String, apellidoMaterno: Swift.String, telefono: Swift.String, correo: Swift.String)
+  override public func encode(to encoder: Swift.Encoder) throws
+  @objc deinit
+}
+@_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers public class PSConsultTransferResourceResponse : PS_Core.PSBaseResponseModel {
+  public var recursos: [PS_Auto_Transfer.PSRecursos]
+  required public init(from decoder: Swift.Decoder) throws
+  @objc deinit
+}
+@_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers open class PSContactPhones : PS_Core.PSBaseResponseModel {
+  public var contactPhone: Swift.String?
+  required public init(from decoder: Swift.Decoder) throws
+  @objc deinit
+}
+@_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers open class PSValidateRequirementsResponse : PS_Core.PSBaseResponseModel {
+  public var intentosValidacionIdentidad: Swift.Int?
+  public var tieneExpedienteMovil: Swift.Int?
+  override public init()
+  required public init(from decoder: Swift.Decoder) throws
+  @objc deinit
+}
+@_inheritsConvenienceInitializers public class PSCancelTransferRequest : PS_Core.PSBaseRequestModel {
+  public var curp: Swift.String
+  public var folio: Swift.String
+  public var motivoCancelacion: Swift.String
+  public var aplicacionOrigen: Swift.String
+  override public init()
+  public init(curp: Swift.String, folio: Swift.String, motivoCancelacion: Swift.String, aplicacionOrigen: Swift.String)
+  override public func encode(to encoder: Swift.Encoder) throws
+  @objc deinit
+}
+@_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers public class PSAuthorizedAforeResponse : PS_Core.PSBaseResponseModel {
+  public var data: [PS_Auto_Transfer.PSAuthorizedAfore]
+  required public init(from decoder: Swift.Decoder) throws
+  @objc deinit
+}
+public class ImagenExpeMovil : PS_Core.PSBaseRequestModel {
+  public init(claveImagen: Swift.String, imagen: Swift.String)
+  override public func encode(to encoder: Swift.Encoder) throws
+  @objc deinit
+}
+@_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers open class RendimientoNominalOutput : PS_Core.PSBaseResponseModel {
+  public var rendimientos: [PS_Auto_Transfer.RendimientoNominal]
+  public var textoCalculo: Swift.String
+  required public init(from decoder: Swift.Decoder) throws
+  @objc deinit
+}
+@_inheritsConvenienceInitializers public class PSRegisterTransferRequest : PS_Core.PSBaseRequestModel {
+  public var curp: Swift.String
+  public var correo: Swift.String?
+  public var celular: Swift.String?
+  public var cvAforeCedente: Swift.String
+  public var cvAforeReceptora: Swift.String
+  public var aplicacionOrigen: Swift.Int
+  public var telefono: Swift.String
+  public var password: Swift.String
+  public var imageResult: PS_Auto_Transfer.ImageResult?
+  public var datosComplementarios: PS_Auto_Transfer.DatosComplementarios?
+  public var domicilio: PS_Auto_Transfer.Domicilio?
+  public var imagenExpeMovil: [PS_Auto_Transfer.ImagenExpeMovil]
+  public var isCapturedBeneficiaries: Swift.Bool?
+  public var beneficiaries: [PS_Auto_Transfer.BeneficiaryDataRegister]?
+  override public init()
+  public init(curp: Swift.String, correo: Swift.String, celular: Swift.String, cvAforeCedente: Swift.String, cvAforeReceptora: Swift.String, aplicacionOrigen: Swift.Int, telefono: Swift.String, password: Swift.String, imageResult: PS_Auto_Transfer.ImageResult, datosComplementarios: PS_Auto_Transfer.DatosComplementarios, domicilio: PS_Auto_Transfer.Domicilio, imagenExpeMovil: [PS_Auto_Transfer.ImagenExpeMovil], isCapturedBeneficiaries: Swift.Bool? = nil, beneficiaries: [PS_Auto_Transfer.BeneficiaryDataRegister]? = nil)
+  override public func encode(to encoder: Swift.Encoder) throws
+  @objc deinit
+}
+public class DatosComplementarios : PS_Core.PSBaseRequestModel {
+  public var sexo: Swift.String
+  public var fechaNacimiento: Swift.String
+  public var actividadEconomica: Swift.String
+  public var ocupacion: Swift.String
+  public var nivelEstudios: Swift.String
+  public var nacionalidad: Swift.String
+  public var entidadNacimiento: Swift.String
+  public init(sexo: Swift.String, fechaNacimiento: Swift.String, actividadEconomica: Swift.String, ocupacion: Swift.String, nivelEstudios: Swift.String, nacionalidad: Swift.String, entidadNacimiento: Swift.String)
+  override public func encode(to encoder: Swift.Encoder) throws
+  @objc deinit
+}
+@_hasMissingDesignatedInitializers open class RendimientoPonderado : PS_Core.PSBaseResponseModel {
+  public var aforeReceptora: Swift.String
+  public var nombreAforeReceptora: Swift.String
+  public var comisionAforeReceptora: Swift.String
+  public var rendimientoAforeReceptora: Swift.String
+  public var fechaInicioVigencia: Swift.String
+  public var fechaFinVigencia: Swift.String
+  public var indicadorPosicionRendimiento: Swift.Int
+  public var indicadorPosicionComision: Swift.Int
+  required public init(from decoder: Swift.Decoder) throws
+  @objc deinit
+}
+@_inheritsConvenienceInitializers open class PSCompareAforeTransferResponse : PS_Core.PSBaseResponseModel {
+  override public init()
+  required public init(from decoder: Swift.Decoder) throws
+  @objc deinit
+}
+@_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers public class PSAuthorizedAfore : PS_Core.PSBaseResponseModel {
+  public var claveAfore: Swift.String?
+  required public init(from decoder: Swift.Decoder) throws
+  @objc deinit
+}
+@_hasMissingDesignatedInitializers open class Calificacion : PS_Core.PSBaseResponseModel {
+  public var aforeReceptora: Swift.String
+  public var nombreAforeReceptora: Swift.String
+  public var calificacionAforeReceptora: Swift.String
+  public var fechaInicioVigencia: Swift.String
+  public var fechaFinVigencia: Swift.String
+  required public init(from decoder: Swift.Decoder) throws
+  @objc deinit
+}
+@_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers open class MorningStarOutput : PS_Core.PSBaseResponseModel {
+  public var indicadores: [PS_Auto_Transfer.MorningStarIndicador]
+  public var textoCalculo: Swift.String
+  public var fechaInicioVigencia: Swift.String
+  public var fechaFinVigencia: Swift.String
+  required public init(from decoder: Swift.Decoder) throws
+  @objc deinit
+}
+@_inheritsConvenienceInitializers public class PSContactDetailsRequest : PS_Core.PSBaseRequestModel {
+  public var curp: Swift.String
+  public var claveAfore: Swift.String
+  override public init()
+  public init(curp: Swift.String, claveAfore: Swift.String)
+  override public func encode(to encoder: Swift.Encoder) throws
+  @objc deinit
+}
+@_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers open class PSConsultTransferAppFolioResponse : PS_Core.PSBaseResponseModel {
+  public var folio: Swift.String
+  public var texto: Swift.String
+  public var fechaCreacion: Swift.String
+  public var cvAfore: Swift.String
+  public var descripcionAfore: Swift.String
+  public var diasRestantes: Swift.Int
+  public var cancelable: Swift.Int
+  public var motivoAnulacionTraspaso: [PS_Auto_Transfer.PSCancelMotive]
+  public var cvAforeTransfer: Swift.String
+  public var nameAforeTransfer: Swift.String
+  public var cvPromoter: Swift.String
+  public var originTransfer: Swift.String
+  required public init(from decoder: Swift.Decoder) throws
+  @objc deinit
+}
+@_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers open class PSCancelMotive : PS_Core.PSBaseResponseModel {
+  public var key: Swift.String
+  public var descripcion: Swift.String
+  required public init(from decoder: Swift.Decoder) throws
+  override open func encode(to encoder: Swift.Encoder) throws
+  @objc deinit
+}
+@_hasMissingDesignatedInitializers open class RendimientoNominal : PS_Core.PSBaseResponseModel {
+  public var cvAfore: Swift.String
+  public var nombreAfore: Swift.String
+  public var rendimiento: Swift.String
+  public var temporalidad: Swift.String
+  required public init(from decoder: Swift.Decoder) throws
+  @objc deinit
+}
+public struct BeneficiaryDataRegister : Swift.Encodable {
+  public var curp: Swift.String
+  public var name: Swift.String
+  public var lastNameFather: Swift.String
+  public var lastNameMother: Swift.String
+  public var porcentage: Swift.String
+  public init(curp: Swift.String, name: Swift.String, lastNameFather: Swift.String, lastNameMother: Swift.String, porcentage: Swift.String)
+  public func encode(to encoder: Swift.Encoder) throws
+}
+@_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers open class RendimientoPonderadoOutput : PS_Core.PSBaseResponseModel {
+  public var leyendaComision: Swift.String
+  public var leyendaRendimiento: Swift.String
+  public var sieforeBasica: Swift.String
+  public var rendimientoPonderado: Swift.String
+  public var rendimientoSimple: Swift.String
+  public var rendimientosPonderados: [PS_Auto_Transfer.RendimientoPonderado]
+  public var leyendaSiefore: Swift.String
+  required public init(from decoder: Swift.Decoder) throws
+  @objc deinit
+}
+@_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers open class CalificacionOutput : PS_Core.PSBaseResponseModel {
+  public var calificaciones: [PS_Auto_Transfer.Calificacion]
+  public var leyendaCalificacion: Swift.String
+  required public init(from decoder: Swift.Decoder) throws
+  @objc deinit
+}
+public class Domicilio : PS_Core.PSBaseRequestModel {
+  public var pais: Swift.String
+  public var entidadFederativa: Swift.String
+  public var ciudad: Swift.String
+  public var delegacionMunicipio: Swift.String
+  public var descripcionEstado: Swift.String
+  public var colonia: Swift.String
+  public var codigoPostal: Swift.String
+  public var calle: Swift.String
+  public var numeroInterior: Swift.String
+  public var numeroExterior: Swift.String
+  public init(pais: Swift.String, entidadFederativa: Swift.String, ciudad: Swift.String, delegacionMunicipio: Swift.String, descripcionEstado: Swift.String, colonia: Swift.String, codigoPostal: Swift.String, calle: Swift.String, numeroInterior: Swift.String, numeroExterior: Swift.String)
+  override public func encode(to encoder: Swift.Encoder) throws
+  @objc deinit
+}
+@_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers open class PSContactDetailsResponse : PS_Core.PSBaseResponseModel {
+  public var curp: Swift.String?
+  public var correoElectronico: Swift.String?
+  public var telefonoContactoCelular: Swift.String?
+  public var telefonosContactoCelular: [PS_Auto_Transfer.PSContactPhones]?
+  public var telefonoContacto: Swift.String?
+  public var tipoExpedienteCorreo: Swift.String?
+  public var tipoExpedienteCelular: Swift.String?
+  required public init(from decoder: Swift.Decoder) throws
+  @objc deinit
+}
+@_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers open class PSRegisterTransferResponse : PS_Core.PSBaseResponseModel {
+  public var folio: Swift.String?
+  public var claveAfore: Swift.String?
+  public var claveAforeSeleccionada: Swift.String?
+  public var claveEstatusRegistro: Swift.String?
+  public var clavePerfil: Swift.String?
+  public var tipoAfiliacion: Swift.String?
+  public var descripcionAfore: Swift.String?
+  public var descripcionPerfil: Swift.String?
+  public var claveAfiliacion: Swift.String?
+  public var trasAppDiasRest: Swift.String?
+  public var trasAppEstatus: Swift.String?
+  required public init(from decoder: Swift.Decoder) throws
+  @objc deinit
+}
+@_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers public class PSRecursos : PS_Core.PSBaseResponseModel {
+  public enum ResourceType : Swift.Int, Swift.Decodable {
+    case Video
+    case Infographic
+    public init?(rawValue: Swift.Int)
+    public typealias RawValue = Swift.Int
+    public var rawValue: Swift.Int {
+      get
+    }
+  }
+  public var url: Swift.String?
+  public var tipoRecurso: PS_Auto_Transfer.PSRecursos.ResourceType?
+  required public init(from decoder: Swift.Decoder) throws
+  @objc deinit
+}
+extension PS_Auto_Transfer.PSRecursos.ResourceType : Swift.Equatable {}
+extension PS_Auto_Transfer.PSRecursos.ResourceType : Swift.Hashable {}
+extension PS_Auto_Transfer.PSRecursos.ResourceType : Swift.RawRepresentable {}

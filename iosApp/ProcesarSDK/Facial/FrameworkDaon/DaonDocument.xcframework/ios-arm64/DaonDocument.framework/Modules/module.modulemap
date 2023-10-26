@@ -1,0 +1,6 @@
+framework module DaonDocument {
+  umbrella header "DaonDocument.h"
+
+  export *
+  module * { export * }
+}

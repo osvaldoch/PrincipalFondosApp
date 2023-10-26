@@ -1,0 +1,11 @@
+framework module PS_Facial_Services {
+  umbrella header "PS_Facial_Services.h"
+
+  export *
+  module * { export * }
+}
+
+module PS_Facial_Services.Swift {
+  header "PS_Facial_Services-Swift.h"
+  requires objc
+}

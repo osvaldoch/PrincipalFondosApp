@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>documentImageQuality</key>
+	<real>0.75</real>
+	<key>faceEvaluationPolicyName</key>
+	<string>PoliticaEvaluacionv5</string>
+	<key>faceLivenessPolicyName</key>
+	<string>PolicyRandomSingleChallenge</string>
+	<key>fidoApplicationId</key>
+	<string>AforeMovil</string>
+	<key>fidoLoginPolicyName</key>
+	<string>AutenticacionAM</string>
+	<key>fidoRegistrationPolicyName</key>
+	<string>RegistroAM</string>
+	<key>gdprServiceUrl</key>
+	<string>https://api.esar.io</string>
+	<key>onboardingServerPassword</key>
+	<string>md7_U53R%2020</string>
+	<key>onboardingServerPort</key>
+	<integer>443</integer>
+	<key>onboardingServerSecure</key>
+	<true/>
+	<key>onboardingServerUrl</key>
+	<string>api.esar.io/aforemovil/</string>
+	<key>onboardingServerUsername</key>
+	<string>mdl_user</string>
+</dict>
+</plist>

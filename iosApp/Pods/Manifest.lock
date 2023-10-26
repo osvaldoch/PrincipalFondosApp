@@ -1,0 +1,51 @@
+PODS:
+  - Alamofire (4.8.1)
+  - AlamofireImage (3.5.2):
+    - Alamofire (~> 4.8)
+  - AlamofireObjectMapper (5.2.1):
+    - Alamofire (~> 4.7)
+    - ObjectMapper (~> 3.4)
+  - Identy (5.1.2)
+  - KeychainSwift (19.0.0)
+  - lottie-ios (3.2.3)
+  - ObjectMapper (3.5.3)
+  - shared (1.0)
+
+DEPENDENCIES:
+  - Alamofire (= 4.8.1)
+  - AlamofireImage
+  - AlamofireObjectMapper (~> 5.2.0)
+  - Identy (~> 5.1.1)
+  - KeychainSwift (~> 19.0)
+  - lottie-ios (= 3.2.3)
+  - ObjectMapper
+  - shared (from `../shared`)
+
+SPEC REPOS:
+  https://github.com/CocoaPods/Specs.git:
+    - Alamofire
+    - AlamofireImage
+    - AlamofireObjectMapper
+    - KeychainSwift
+    - lottie-ios
+    - ObjectMapper
+  https://identy.jfrog.io/identy/api/pods/cocoapods-identy-finger:
+    - Identy
+
+EXTERNAL SOURCES:
+  shared:
+    :path: "../shared"
+
+SPEC CHECKSUMS:
+  Alamofire: 16ce2c353fb72865124ddae8a57c5942388f4f11
+  AlamofireImage: 63cfe3baf1370be6c498149687cf6db3e3b00999
+  AlamofireObjectMapper: 1989f690e982b71921b9253f53a4f33a9bc00d88
+  Identy: 0c3038f30db11e6b1bc3882f62de686b0b1ec8f1
+  KeychainSwift: a06190cf933ad46b1e0abc3d77d29c06331715c7
+  lottie-ios: c058aeafa76daa4cf64d773554bccc8385d0150e
+  ObjectMapper: 97111c97e054a6ee25917662106689f0b4127b37
+  shared: 2d3b24a8fe27b7d9e65b8d075a9672fbc6a1aa10
+
+PODFILE CHECKSUM: f40d46b829c83d533222dbffca5a6dfedf8ff2c7
+
+COCOAPODS: 1.13.0

@@ -1,0 +1,42 @@
+// swift-interface-format-version: 1.0
+// swift-compiler-version: Apple Swift version 5.7.2 (swiftlang-5.7.2.135.5 clang-1400.0.29.51)
+// swift-module-flags: -target arm64-apple-ios11.4 -enable-objc-interop -enable-library-evolution -swift-version 5 -enforce-exclusivity=checked -Onone -module-name PS_ContactlessUI
+// swift-module-flags-ignorable: -enable-bare-slash-regex
+import Foundation
+import Identy
+@_exported import PS_ContactlessUI
+import Swift
+import UIKit
+import _Concurrency
+import _StringProcessing
+@_hasMissingDesignatedInitializers public class PsFingerprintConfig {
+  public static let shared: PS_ContactlessUI.PsFingerprintConfig
+  public struct PSFingerthemeThemeConfig {
+    public init(plainSolidColor: UIKit.UIColor = .clear, boxesColor: UIKit.UIColor = .clear, startColor: UIKit.UIColor = .clear, middleColor: UIKit.UIColor = .clear, endColor: UIKit.UIColor = .clear, boxes_transparent: UIKit.UIColor = .clear, boxes_transparent_innerborder: UIKit.UIColor = .clear, scanningBarcolor: UIKit.UIColor = .clear, textColor: UIKit.UIColor = .clear, alertTextColor: UIKit.UIColor = .clear)
+  }
+  public struct PSFingerSettings {
+    public init(timeout: Swift.Double = 30, secLevel: PS_ContactlessUI.PsFingerprintConfig.PSSecLevel = .none, allowVerificationAfterSpoof: Swift.Bool = false, qualityMode: PS_ContactlessUI.PsFingerprintConfig.PSQualityMode = .lean, attempts: Swift.UInt = 5)
+  }
+  public enum PSSecLevel {
+    case none, low, medium, high, very_high
+    public static func == (a: PS_ContactlessUI.PsFingerprintConfig.PSSecLevel, b: PS_ContactlessUI.PsFingerprintConfig.PSSecLevel) -> Swift.Bool
+    public func hash(into hasher: inout Swift.Hasher)
+    public var hashValue: Swift.Int {
+      get
+    }
+  }
+  public enum PSQualityMode {
+    case lean, normal
+    public static func == (a: PS_ContactlessUI.PsFingerprintConfig.PSQualityMode, b: PS_ContactlessUI.PsFingerprintConfig.PSQualityMode) -> Swift.Bool
+    public func hash(into hasher: inout Swift.Hasher)
+    public var hashValue: Swift.Int {
+      get
+    }
+  }
+  public func startPSFingerprintSDK(theme: PS_ContactlessUI.PsFingerprintConfig.PSFingerthemeThemeConfig, settings: PS_ContactlessUI.PsFingerprintConfig.PSFingerSettings, licenceName: Swift.String, licenceType: Swift.String, localizablePath: Swift.String?, spoofingLevel: PS_ContactlessUI.PsFingerprintConfig.PSSecLevel, viewcontroller: UIKit.UIViewController, fingers: [Identy.HandScanType], completion: @escaping (((_ response: Identy.IdentyResponse?, _ error: Identy.IdentyError?) -> Swift.Void)))
+  @objc deinit
+}
+extension PS_ContactlessUI.PsFingerprintConfig.PSSecLevel : Swift.Equatable {}
+extension PS_ContactlessUI.PsFingerprintConfig.PSSecLevel : Swift.Hashable {}
+extension PS_ContactlessUI.PsFingerprintConfig.PSQualityMode : Swift.Equatable {}
+extension PS_ContactlessUI.PsFingerprintConfig.PSQualityMode : Swift.Hashable {}

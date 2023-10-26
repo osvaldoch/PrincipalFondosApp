@@ -1,0 +1,227 @@
+// swift-interface-format-version: 1.0
+// swift-compiler-version: Apple Swift version 5.8 (swiftlang-5.8.0.124.2 clang-1403.0.22.11.100)
+// swift-module-flags: -target arm64-apple-ios11.4 -enable-objc-interop -enable-library-evolution -swift-version 5 -enforce-exclusivity=checked -Onone -module-name PS_Ine_WS
+// swift-module-flags-ignorable: -enable-bare-slash-regex
+import Foundation
+import PS_Core
+import Swift
+import _Concurrency
+import _StringProcessing
+open class PSConformacionExpedienteElectronicoResponse : PS_Core.PSBaseResponseModel {
+  public var expedienteMovil: PS_Ine_WS.ExpedienteMovil?
+  public var expedientesCompletos: Swift.String?
+  public var expedienteBiometrico: PS_Ine_WS.Expediente?
+  public var expedienteIdentificacion: PS_Ine_WS.Expediente?
+  public init(expedienteMovil: PS_Ine_WS.ExpedienteMovil?, expedientesCompletos: Swift.String?, expedienteBiometrico: PS_Ine_WS.Expediente?, expedienteIdentificacion: PS_Ine_WS.Expediente?)
+  required public init(from decoder: any Swift.Decoder) throws
+  @objc deinit
+}
+public struct Expediente : Swift.Codable {
+  public let estatus: Swift.String?
+  public let fecha: Swift.String?
+  public func encode(to encoder: any Swift.Encoder) throws
+  public init(from decoder: any Swift.Decoder) throws
+}
+public struct ExpedienteMovil : Swift.Decodable {
+  public let nss: Swift.String?
+  public let rfc: Swift.String?
+  public let celular: Swift.String?
+  public let telefono: Swift.String?
+  public let beneficiarios: [PS_Ine_WS.BeneficiarioExpediente]?
+  public let nombreCompleto: Swift.String?
+  public let correoElectronico: Swift.String?
+  public let nivelEstudios: Swift.String?
+  public let ocupacion: Swift.String?
+  public let actividadEconomica: Swift.String?
+  public let domicilioParticular: Swift.String?
+  public let telefonoOficina: Swift.String?
+  public init(from decoder: any Swift.Decoder) throws
+}
+public struct BeneficiarioExpediente : Swift.Decodable {
+  public let porcentaje: Swift.String?
+  public let nombreCompleto: Swift.String?
+  public let curp: Swift.String?
+  public init(from decoder: any Swift.Decoder) throws
+}
+@_inheritsConvenienceInitializers public class PSGenerarExpedienteBiometricoRequest : PS_Core.PSBaseRequestModel {
+  public var curp: Swift.String?
+  public var cvAfore: Swift.String?
+  public var cvOperacion: Swift.String?
+  public var ineComprobanteDom: Swift.Int?
+  public var idCodigoSeguridad: Swift.String?
+  public var datosIne: PS_Ine_WS.DatosIne
+  public var multiPartfiles: [PS_Core.PSMultipartFiles]?
+  override public init()
+  public init(curp: Swift.String?, cvAfore: Swift.String?, cvOperacion: Swift.String?, ineComprobanteDom: Swift.Int?, idCodigoSeguridad: Swift.String?, datosIne: PS_Ine_WS.DatosIne?)
+  override public func encode(to encoder: any Swift.Encoder) throws
+  @objc deinit
+}
+public class DatosIne : Swift.Encodable {
+  public var tipoCredencial: Swift.String?
+  public var cic: Swift.String?
+  public var ocr: Swift.String?
+  public var claveElector: Swift.String?
+  public var numeroEmision: Swift.String?
+  public var anioEmision: Swift.String?
+  public var anioRegistro: Swift.String?
+  public var nombre: Swift.String?
+  public var apellidoPaterno: Swift.String?
+  public var apellidoMaterno: Swift.String?
+  public var codigoPostal: Swift.String?
+  public init(tipoCredencial: Swift.String?, cic: Swift.String?, ocr: Swift.String?, claveElector: Swift.String?, numeroEmision: Swift.String?, anioEmision: Swift.String?, anioRegistro: Swift.String?, nombre: Swift.String?, apellidoPaterno: Swift.String?, apellidoMaterno: Swift.String?, codigoPostal: Swift.String?)
+  public init()
+  public func encode(to encoder: any Swift.Encoder) throws
+  @objc deinit
+}
+@_inheritsConvenienceInitializers public class PSIneWSViewModel : PS_Core.PSBaseViewModel {
+  public var onSuccessExtraerDatosDocumento: ((_ response: PS_Ine_WS.PSExtraerDatosDocumentoResponse) -> ())?
+  public func extraerDatosDocumentoWS(extraerDatosDocumentoRequest: PS_Ine_WS.PSExtraerDatosDocumentoRequest)
+  public var onSuccessGenerarFormatoDeEnrolamiento: ((_ response: PS_Ine_WS.PSGenerarFormatoDeEnrolamientoResponse) -> ())?
+  public func generarFormatoDeEnrolamientoWS(generarFormatoDeEnrolamientoRequest: PS_Ine_WS.PSGenerarFormatoDeEnrolamientoRequest)
+  public var onSuccessGenerarExpedienteBiometrico: ((_ response: PS_Ine_WS.PSGenerarExpedienteBiometricoResponse) -> ())?
+  public func generarExpedientBiometricoWS(generarExpedienteBiometricoRequest: PS_Ine_WS.PSGenerarExpedienteBiometricoRequest)
+  public var onSuccessConformarExpedienteElectronico: ((_ response: PS_Ine_WS.PSConformacionExpedienteElectronicoResponse) -> ())?
+  public func conformarExpedienteElectronicoWS(conformarExpedienteElectronicoRequest: PS_Ine_WS.PSConformacionExpedienteElectronicoRequest)
+  override public init()
+  @objc deinit
+}
+@_inheritsConvenienceInitializers public class PSConformacionExpedienteElectronicoRequest : PS_Core.PSBaseRequestModel {
+  public var curp: Swift.String?
+  override public init()
+  public init(curp: Swift.String?)
+  override public func encode(to encoder: any Swift.Encoder) throws
+  @objc deinit
+}
+@_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers public class PSExtraerDatosDocumentoRequest : PS_Core.PSBaseRequestModel {
+  public var apellidoMaterno: Swift.String?
+  public var apellidoPaterno: Swift.String?
+  public var curp: Swift.String?
+  public var claveAfore: Swift.String?
+  public var nombre: Swift.String?
+  public var multiPartfiles: [PS_Core.PSMultipartFiles]?
+  public init(apellidoMaterno: Swift.String?, apellidoPaterno: Swift.String?, curp: Swift.String?, claveAfore: Swift.String?, nombre: Swift.String?, multiPartfiles: [PS_Core.PSMultipartFiles]?, files: [[Swift.String : Swift.String]] = [[String: String]]())
+  override public func encode(to encoder: any Swift.Encoder) throws
+  @objc deinit
+}
+@_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers public class PSGenerarFormatoDeEnrolamientoRequest : PS_Core.PSBaseRequestModel {
+  public var cvAfore: Swift.String?
+  public var curp: Swift.String?
+  public var nombre: Swift.String?
+  public var apellidoPaterno: Swift.String?
+  public var apellidoMaterno: Swift.String?
+  public init(cvAfore: Swift.String?, curp: Swift.String?, nombre: Swift.String?, apellidoPaterno: Swift.String?, apellidoMaterno: Swift.String?)
+  override public func encode(to encoder: any Swift.Encoder) throws
+  @objc deinit
+}
+public struct TraspasoJsonModel : Swift.Codable {
+  public var cvAforeCedente: Swift.String?, conformarExpe: Swift.String?, capturaBeneficiarios: Swift.String?
+  public var beneficiarios: [PS_Ine_WS.Beneficiario]?
+  public var celular: Swift.String?, correoElectronico: Swift.String?, telefono: Swift.String?
+  public var domicilio: PS_Ine_WS.Domicilio?
+  public var datosComplementarios: PS_Ine_WS.DatosComplementarios?
+  public var imageResult: PS_Ine_WS.ImageResult?
+  public var imageExpe: [PS_Ine_WS.ImageExpe]?
+  public init()
+  public func encode(to encoder: any Swift.Encoder) throws
+  public init(from decoder: any Swift.Decoder) throws
+}
+public struct Beneficiario : Swift.Codable {
+  public var apellidoPaterno: Swift.String, apellidoMaterno: Swift.String, porcentaje: Swift.String, nombre: Swift.String
+  public var curpBeneficiario: Swift.String
+  public init(apellidoPaterno: Swift.String, apellidoMaterno: Swift.String, porcentaje: Swift.String, nombre: Swift.String, curpBeneficiario: Swift.String)
+  public func encode(to encoder: any Swift.Encoder) throws
+  public init(from decoder: any Swift.Decoder) throws
+}
+public struct DatosComplementarios : Swift.Codable {
+  public var sexo: Swift.String, fechaNacimiento: Swift.String, actividadEconomica: Swift.String, ocupacion: Swift.String, nivelEstudios: Swift.String, nacionalidad: Swift.String
+  public var entidadNacimiento: Swift.String
+  public init(sexo: Swift.String, fechaNacimiento: Swift.String, actividadEconomica: Swift.String, ocupacion: Swift.String, nivelEstudios: Swift.String, nacionalidad: Swift.String, entidadNacimiento: Swift.String)
+  public func encode(to encoder: any Swift.Encoder) throws
+  public init(from decoder: any Swift.Decoder) throws
+}
+public struct Domicilio : Swift.Codable {
+  public var pais: Swift.String, entidadFederativa: Swift.String, ciudad: Swift.String, delegacionMunicipio: Swift.String, descripcionEstado: Swift.String
+  public var colonia: Swift.String, codigoPostal: Swift.String, calle: Swift.String, numeroInterior: Swift.String
+  public var numeroExterior: Swift.String
+  public init(pais: Swift.String, entidadFederativa: Swift.String, ciudad: Swift.String, delegacionMunicipio: Swift.String, descripcionEstado: Swift.String, colonia: Swift.String, codigoPostal: Swift.String, calle: Swift.String, numeroInterior: Swift.String, numeroExterior: Swift.String)
+  public func encode(to encoder: any Swift.Encoder) throws
+  public init(from decoder: any Swift.Decoder) throws
+}
+public struct ImageExpe : Swift.Codable {
+  public var claveImagen: Swift.String, imagen: Swift.String
+  public init(claveImagen: Swift.String, imagen: Swift.String)
+  public func encode(to encoder: any Swift.Encoder) throws
+  public init(from decoder: any Swift.Decoder) throws
+}
+public struct ImageResult : Swift.Codable {
+  public var result: Swift.String, score: Swift.String, threshold: Swift.String, fmr: Swift.String
+  public init(result: Swift.String, score: Swift.String, threshold: Swift.String, fmr: Swift.String)
+  public func encode(to encoder: any Swift.Encoder) throws
+  public init(from decoder: any Swift.Decoder) throws
+}
+@_hasMissingDesignatedInitializers open class PSGenerarExpedienteBiometricoResponse : PS_Core.PSBaseResponseModel {
+  public var folio: Swift.String?
+  required public init(from decoder: any Swift.Decoder) throws
+  @objc deinit
+}
+open class PSExtraerDatosDocumentoResponse : PS_Core.PSBaseResponseModel {
+  public var anioEmision: Swift.String?
+  public var anioRegistro: Swift.String?
+  public var apellidoMaterno: Swift.String?
+  public var apellidoPaterno: Swift.String?
+  public var cic: Swift.String?
+  public var claveElector: Swift.String?
+  public var curp: Swift.String?
+  public var emisionesPrevias: Swift.String?
+  public var nombre: Swift.String?
+  public var ocr: Swift.String?
+  public var tipoVotingCard: Swift.String?
+  public init(anioEmision: Swift.String?, anioRegistro: Swift.String?, apellidoMaterno: Swift.String?, apellidoPaterno: Swift.String?, cic: Swift.String?, claveElector: Swift.String?, curp: Swift.String?, emisionesPrevias: Swift.String, nombre: Swift.String?, ocr: Swift.String?, tipoVotingCard: Swift.String?)
+  required public init(from decoder: any Swift.Decoder) throws
+  override public func encode(to encoder: any Swift.Encoder) throws
+  @objc deinit
+}
+public struct HuellaJsonModel : Swift.Codable {
+  public var huellasDactilares: [PS_Ine_WS.HuellaModel]?
+  public init()
+  public func encode(to encoder: any Swift.Encoder) throws
+  public init(from decoder: any Swift.Decoder) throws
+}
+public struct HuellaModel : Swift.Codable {
+  public var idDedo: PS_Ine_WS.HuellaModel.IdDedo?
+  public var huella: Swift.String?
+  public var nfiq: Swift.String?
+  public enum IdDedo : Swift.String, Swift.Codable, Swift.CaseIterable {
+    case PulgarDerecho
+    case IndiceDerecho
+    case MedioDerecho
+    case AnularDerecho
+    case MeniqueDerecho
+    case PulgarIzquierdo
+    case IndiceIzquierdo
+    case MedioIzquierdo
+    case AnularIzquerdo
+    case MeniqueIzquierdo
+    public init?(rawValue: Swift.String)
+    public typealias AllCases = [PS_Ine_WS.HuellaModel.IdDedo]
+    public typealias RawValue = Swift.String
+    public static var allCases: [PS_Ine_WS.HuellaModel.IdDedo] {
+      get
+    }
+    public var rawValue: Swift.String {
+      get
+    }
+  }
+  public init(idDedo: PS_Ine_WS.HuellaModel.IdDedo, huella: Swift.String, nfiq: Swift.String)
+  public func encode(to encoder: any Swift.Encoder) throws
+  public init(from decoder: any Swift.Decoder) throws
+}
+@_hasMissingDesignatedInitializers open class PSGenerarFormatoDeEnrolamientoResponse : PS_Core.PSBaseResponseModel {
+  public var documento: Swift.String?
+  required public init(from decoder: any Swift.Decoder) throws
+  override public func encode(to encoder: any Swift.Encoder) throws
+  @objc deinit
+}
+extension PS_Ine_WS.HuellaModel.IdDedo : Swift.Equatable {}
+extension PS_Ine_WS.HuellaModel.IdDedo : Swift.Hashable {}
+extension PS_Ine_WS.HuellaModel.IdDedo : Swift.RawRepresentable {}

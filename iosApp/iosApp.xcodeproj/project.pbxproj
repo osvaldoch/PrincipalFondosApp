@@ -1,0 +1,1016 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 52;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		058557BB273AAA24004C7B11 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 058557BA273AAA24004C7B11 /* Assets.xcassets */; };
+		058557D9273AAEEB004C7B11 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 058557D8273AAEEB004C7B11 /* Preview Assets.xcassets */; };
+		2152FB042600AC8F00CF470E /* iOSApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2152FB032600AC8F00CF470E /* iOSApp.swift */; };
+		6A0A954F28D7B340E9872C5E /* Pods_iosApp_iosApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 46F2CC8B95A22CA91D34FC04 /* Pods_iosApp_iosApp.framework */; };
+		7555FF83242A565900829871 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7555FF82242A565900829871 /* ContentView.swift */; };
+		7B7556AC2AEAE47A00C4B219 /* PSSdkInitialize.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B7556AB2AEAE47A00C4B219 /* PSSdkInitialize.swift */; };
+		7B7557142AEAE4BE00C4B219 /* 1858_com.principal.fondosinversion2022-09-04 00_00_00.lic in Resources */ = {isa = PBXBuildFile; fileRef = 7B7556B12AEAE4BD00C4B219 /* 1858_com.principal.fondosinversion2022-09-04 00_00_00.lic */; };
+		7B7557242AEAE4BF00C4B219 /* Daon.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 7B7556C32AEAE4BD00C4B219 /* Daon.bundle */; };
+		7B7557272AEAE4BF00C4B219 /* daon_doc_license.txt in Resources */ = {isa = PBXBuildFile; fileRef = 7B7556C82AEAE4BD00C4B219 /* daon_doc_license.txt */; };
+		7B7557282AEAE4BF00C4B219 /* defaultPrefs.plist in Resources */ = {isa = PBXBuildFile; fileRef = 7B7556C92AEAE4BD00C4B219 /* defaultPrefs.plist */; };
+		7B7557292AEAE4BF00C4B219 /* license.txt in Resources */ = {isa = PBXBuildFile; fileRef = 7B7556CA2AEAE4BD00C4B219 /* license.txt */; };
+		7B75572D2AEAE4BF00C4B219 /* FacialDaonSdkDelExt.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B7556D22AEAE4BD00C4B219 /* FacialDaonSdkDelExt.swift */; };
+		7B75572E2AEAE4BF00C4B219 /* FacialSDKManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B7556D32AEAE4BD00C4B219 /* FacialSDKManager.swift */; };
+		7B75572F2AEAE4BF00C4B219 /* FacialPSFacialServicesDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B7556D52AEAE4BD00C4B219 /* FacialPSFacialServicesDelegate.swift */; };
+		7B7557302AEAE4BF00C4B219 /* FacialPSFacialEnginePSDaonSdkDelExt.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B7556D72AEAE4BD00C4B219 /* FacialPSFacialEnginePSDaonSdkDelExt.swift */; };
+		7B7557312AEAE4BF00C4B219 /* FacialPSFacialEnginePSFacialUIDelExt.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B7556D82AEAE4BD00C4B219 /* FacialPSFacialEnginePSFacialUIDelExt.swift */; };
+		7B7557322AEAE4BF00C4B219 /* FacialPSFacialEngineDelegateExt.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B7556D92AEAE4BD00C4B219 /* FacialPSFacialEngineDelegateExt.swift */; };
+		7B7557332AEAE4BF00C4B219 /* FacialPSFacialEngineCaptureManagerDelegateExt.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B7556DA2AEAE4BD00C4B219 /* FacialPSFacialEngineCaptureManagerDelegateExt.swift */; };
+		7B7557342AEAE4BF00C4B219 /* FacialPSFacialEnginePSFacialServicesDelExt.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B7556DB2AEAE4BD00C4B219 /* FacialPSFacialEnginePSFacialServicesDelExt.swift */; };
+		7B7557352AEAE4BF00C4B219 /* FacialPSFacialEngineMainAppDelExt.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B7556DC2AEAE4BE00C4B219 /* FacialPSFacialEngineMainAppDelExt.swift */; };
+		7B7557362AEAE4BF00C4B219 /* FacialSDKManagerPSFUTutorialVC4DelExt.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B7556DF2AEAE4BE00C4B219 /* FacialSDKManagerPSFUTutorialVC4DelExt.swift */; };
+		7B7557372AEAE4BF00C4B219 /* FacialLoadingVCDelExt.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B7556E12AEAE4BE00C4B219 /* FacialLoadingVCDelExt.swift */; };
+		7B7557392AEAE4BF00C4B219 /* FacialPSWelcomeDelExt.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B7556E52AEAE4BE00C4B219 /* FacialPSWelcomeDelExt.swift */; };
+		7B75573A2AEAE4BF00C4B219 /* FacialReviewVCDelegateExt.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B7556E72AEAE4BE00C4B219 /* FacialReviewVCDelegateExt.swift */; };
+		7B75573B2AEAE4BF00C4B219 /* FacialPSFUDocumentScanHolderVCDelExt.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B7556E92AEAE4BE00C4B219 /* FacialPSFUDocumentScanHolderVCDelExt.swift */; };
+		7B75573C2AEAE4BF00C4B219 /* FacialPSFUDocumentCaptureOverlayVCDelExt.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B7556EA2AEAE4BE00C4B219 /* FacialPSFUDocumentCaptureOverlayVCDelExt.swift */; };
+		7B75573D2AEAE4BF00C4B219 /* FacialPSFUDocumentTutorialDelegateVCDelExt.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B7556EB2AEAE4BE00C4B219 /* FacialPSFUDocumentTutorialDelegateVCDelExt.swift */; };
+		7B75573E2AEAE4BF00C4B219 /* FacialPSFUIDocumentCaptureFirstVCDelExt.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B7556EC2AEAE4BE00C4B219 /* FacialPSFUIDocumentCaptureFirstVCDelExt.swift */; };
+		7B75573F2AEAE4BF00C4B219 /* FacialCapturaManagerDelegateExt.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B7556ED2AEAE4BE00C4B219 /* FacialCapturaManagerDelegateExt.swift */; };
+		7B7557402AEAE4BF00C4B219 /* FacialPSFUChooseDocsInstructionsVCDelExt.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B7556EE2AEAE4BE00C4B219 /* FacialPSFUChooseDocsInstructionsVCDelExt.swift */; };
+		7B7557412AEAE4BF00C4B219 /* FacialPSFU3DLivenessVCDelExt.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B7556F02AEAE4BE00C4B219 /* FacialPSFU3DLivenessVCDelExt.swift */; };
+		7B7557422AEAE4BF00C4B219 /* FacialSDKManPSFUTutorial3DVCDelExt.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B7556F12AEAE4BE00C4B219 /* FacialSDKManPSFUTutorial3DVCDelExt.swift */; };
+		7B7557432AEAE4BF00C4B219 /* PSDKCapturedDocument.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B7556F42AEAE4BE00C4B219 /* PSDKCapturedDocument.swift */; };
+		7B7557442AEAE4BF00C4B219 /* PSDKCaptureManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B7556F52AEAE4BE00C4B219 /* PSDKCaptureManager.swift */; };
+		7B7557452AEAE4BF00C4B219 /* DocumentCapture.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7B7556F62AEAE4BE00C4B219 /* DocumentCapture.storyboard */; };
+		7B7557462AEAE4BF00C4B219 /* PSDKCapturedDocumentManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B7556F72AEAE4BE00C4B219 /* PSDKCapturedDocumentManager.swift */; };
+		7B7557472AEAE4BF00C4B219 /* PSDKDocCaptOverlayHelperViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B7556F82AEAE4BE00C4B219 /* PSDKDocCaptOverlayHelperViewController.swift */; };
+		7B7557482AEAE4BF00C4B219 /* PSDKLiveness3DManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B7556F92AEAE4BE00C4B219 /* PSDKLiveness3DManager.swift */; };
+		7B7557492AEAE4BF00C4B219 /* PSDKSingleAuthenticatorContextManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B7556FA2AEAE4BE00C4B219 /* PSDKSingleAuthenticatorContextManager.swift */; };
+		7B75574A2AEAE4BF00C4B219 /* Fido.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B7556FC2AEAE4BE00C4B219 /* Fido.swift */; };
+		7B75574B2AEAE4BF00C4B219 /* PSDKError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B7556FD2AEAE4BE00C4B219 /* PSDKError.swift */; };
+		7B75574C2AEAE4BF00C4B219 /* FidoAuthenticationTask.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B7556FE2AEAE4BE00C4B219 /* FidoAuthenticationTask.swift */; };
+		7B75574D2AEAE4BF00C4B219 /* FidoRegistrationTask.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B7556FF2AEAE4BE00C4B219 /* FidoRegistrationTask.swift */; };
+		7B75574E2AEAE4BF00C4B219 /* PSDKEnums.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B7557012AEAE4BE00C4B219 /* PSDKEnums.swift */; };
+		7B75574F2AEAE4BF00C4B219 /* PSDaonSdk.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B7557022AEAE4BE00C4B219 /* PSDaonSdk.swift */; };
+		7B7557502AEAE4BF00C4B219 /* PSDaonSdkDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B7557042AEAE4BE00C4B219 /* PSDaonSdkDelegate.swift */; };
+		7B7557512AEAE4BF00C4B219 /* CustomFlowEnrollByURLManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B7557062AEAE4BE00C4B219 /* CustomFlowEnrollByURLManager.swift */; };
+		7B7557522AEAE4BF00C4B219 /* MyCustomFlowManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B7557072AEAE4BE00C4B219 /* MyCustomFlowManager.swift */; };
+		7B7557592AEAE4E700C4B219 /* BlinkId.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7B7556BC2AEAE4BD00C4B219 /* BlinkId.xcframework */; };
+		7B75575A2AEAE4E700C4B219 /* BlinkId.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 7B7556BC2AEAE4BD00C4B219 /* BlinkId.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		7B75575B2AEAE4E800C4B219 /* DaonAuthenticatorFace.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7B7556BF2AEAE4BD00C4B219 /* DaonAuthenticatorFace.xcframework */; };
+		7B75575C2AEAE4E800C4B219 /* DaonAuthenticatorFace.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 7B7556BF2AEAE4BD00C4B219 /* DaonAuthenticatorFace.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		7B75575D2AEAE4E800C4B219 /* DaonAuthenticatorSDK.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7B7556BA2AEAE4BD00C4B219 /* DaonAuthenticatorSDK.xcframework */; };
+		7B75575E2AEAE4E800C4B219 /* DaonAuthenticatorSDK.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 7B7556BA2AEAE4BD00C4B219 /* DaonAuthenticatorSDK.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		7B75575F2AEAE4E900C4B219 /* DaonCryptoSDK.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7B7556BD2AEAE4BD00C4B219 /* DaonCryptoSDK.xcframework */; };
+		7B7557602AEAE4E900C4B219 /* DaonCryptoSDK.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 7B7556BD2AEAE4BD00C4B219 /* DaonCryptoSDK.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		7B7557612AEAE4E900C4B219 /* DaonDocument.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7B7556B82AEAE4BD00C4B219 /* DaonDocument.xcframework */; };
+		7B7557622AEAE4E900C4B219 /* DaonDocument.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 7B7556B82AEAE4BD00C4B219 /* DaonDocument.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		7B7557632AEAE4E900C4B219 /* DaonFaceDetector.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7B7556B92AEAE4BD00C4B219 /* DaonFaceDetector.xcframework */; };
+		7B7557642AEAE4E900C4B219 /* DaonFaceDetector.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 7B7556B92AEAE4BD00C4B219 /* DaonFaceDetector.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		7B7557652AEAE4EA00C4B219 /* DaonFaceLiveness.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7B7556C02AEAE4BD00C4B219 /* DaonFaceLiveness.xcframework */; };
+		7B7557662AEAE4EA00C4B219 /* DaonFaceLiveness.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 7B7556C02AEAE4BD00C4B219 /* DaonFaceLiveness.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		7B7557672AEAE4EA00C4B219 /* DaonFaceLivenessBlink.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7B7556BB2AEAE4BD00C4B219 /* DaonFaceLivenessBlink.xcframework */; };
+		7B7557682AEAE4EA00C4B219 /* DaonFaceLivenessBlink.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 7B7556BB2AEAE4BD00C4B219 /* DaonFaceLivenessBlink.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		7B7557692AEAE4EB00C4B219 /* DaonFaceMaskDetector.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7B7556C52AEAE4BD00C4B219 /* DaonFaceMaskDetector.xcframework */; };
+		7B75576A2AEAE4EB00C4B219 /* DaonFaceMaskDetector.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 7B7556C52AEAE4BD00C4B219 /* DaonFaceMaskDetector.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		7B75576B2AEAE4EB00C4B219 /* DaonFaceMatcher.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7B7556C42AEAE4BD00C4B219 /* DaonFaceMatcher.xcframework */; };
+		7B75576C2AEAE4EB00C4B219 /* DaonFaceMatcher.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 7B7556C42AEAE4BD00C4B219 /* DaonFaceMatcher.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		7B75576D2AEAE4EB00C4B219 /* DaonFaceQuality.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7B7556B72AEAE4BD00C4B219 /* DaonFaceQuality.xcframework */; };
+		7B75576E2AEAE4EB00C4B219 /* DaonFaceQuality.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 7B7556B72AEAE4BD00C4B219 /* DaonFaceQuality.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		7B75576F2AEAE4EC00C4B219 /* DaonFaceSDK.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7B7556B62AEAE4BD00C4B219 /* DaonFaceSDK.xcframework */; };
+		7B7557702AEAE4EC00C4B219 /* DaonFaceSDK.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 7B7556B62AEAE4BD00C4B219 /* DaonFaceSDK.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		7B7557712AEAE4EC00C4B219 /* DaonFIDOSDK.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7B7556C12AEAE4BD00C4B219 /* DaonFIDOSDK.xcframework */; };
+		7B7557722AEAE4EC00C4B219 /* DaonFIDOSDK.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 7B7556C12AEAE4BD00C4B219 /* DaonFIDOSDK.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		7B7557732AEAE4ED00C4B219 /* DaonIDCapture.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7B7556BE2AEAE4BD00C4B219 /* DaonIDCapture.xcframework */; };
+		7B7557742AEAE4ED00C4B219 /* DaonIDCapture.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 7B7556BE2AEAE4BD00C4B219 /* DaonIDCapture.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		7B7557752AEAE4ED00C4B219 /* DaonIDCaptureSDK.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7B7556C22AEAE4BD00C4B219 /* DaonIDCaptureSDK.xcframework */; };
+		7B7557762AEAE4ED00C4B219 /* DaonIDCaptureSDK.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 7B7556C22AEAE4BD00C4B219 /* DaonIDCaptureSDK.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		7B7557782AEAE4F500C4B219 /* PS_Auto_Transfer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7B7557122AEAE4BE00C4B219 /* PS_Auto_Transfer.framework */; };
+		7B7557792AEAE4F500C4B219 /* PS_Auto_Transfer.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 7B7557122AEAE4BE00C4B219 /* PS_Auto_Transfer.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		7B75577A2AEAE4F600C4B219 /* PS_BaseExternal.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7B7557112AEAE4BE00C4B219 /* PS_BaseExternal.framework */; };
+		7B75577B2AEAE4F600C4B219 /* PS_BaseExternal.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 7B7557112AEAE4BE00C4B219 /* PS_BaseExternal.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		7B75577C2AEAE4F600C4B219 /* PS_ContactlessUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7B7556B22AEAE4BD00C4B219 /* PS_ContactlessUI.framework */; };
+		7B75577D2AEAE4F600C4B219 /* PS_ContactlessUI.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 7B7556B22AEAE4BD00C4B219 /* PS_ContactlessUI.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		7B75577E2AEAE4F700C4B219 /* PS_Core.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7B7556AF2AEAE4BD00C4B219 /* PS_Core.framework */; };
+		7B75577F2AEAE4F700C4B219 /* PS_Core.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 7B7556AF2AEAE4BD00C4B219 /* PS_Core.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		7B7557802AEAE4F700C4B219 /* PS_Facial_Engine.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7B7557092AEAE4BE00C4B219 /* PS_Facial_Engine.framework */; };
+		7B7557812AEAE4F700C4B219 /* PS_Facial_Engine.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 7B7557092AEAE4BE00C4B219 /* PS_Facial_Engine.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		7B7557822AEAE4F800C4B219 /* PS_Facial_Services.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7B75570B2AEAE4BE00C4B219 /* PS_Facial_Services.framework */; };
+		7B7557832AEAE4F800C4B219 /* PS_Facial_Services.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 7B75570B2AEAE4BE00C4B219 /* PS_Facial_Services.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		7B7557842AEAE4F800C4B219 /* PS_FacialUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7B75570D2AEAE4BE00C4B219 /* PS_FacialUI.framework */; };
+		7B7557852AEAE4F800C4B219 /* PS_FacialUI.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 7B75570D2AEAE4BE00C4B219 /* PS_FacialUI.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		7B7557862AEAE4F800C4B219 /* PS_Ine_WS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7B7556B32AEAE4BD00C4B219 /* PS_Ine_WS.framework */; };
+		7B7557872AEAE4F900C4B219 /* PS_Ine_WS.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 7B7556B32AEAE4BD00C4B219 /* PS_Ine_WS.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		7B7557882AEAE4F900C4B219 /* PS_Notification.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7B75570F2AEAE4BE00C4B219 /* PS_Notification.framework */; };
+		7B7557892AEAE4F900C4B219 /* PS_Notification.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 7B75570F2AEAE4BE00C4B219 /* PS_Notification.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+/* End PBXBuildFile section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		7B7557772AEAE4ED00C4B219 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				7B75575E2AEAE4E800C4B219 /* DaonAuthenticatorSDK.xcframework in Embed Frameworks */,
+				7B75577D2AEAE4F600C4B219 /* PS_ContactlessUI.framework in Embed Frameworks */,
+				7B7557722AEAE4EC00C4B219 /* DaonFIDOSDK.xcframework in Embed Frameworks */,
+				7B75577F2AEAE4F700C4B219 /* PS_Core.framework in Embed Frameworks */,
+				7B7557702AEAE4EC00C4B219 /* DaonFaceSDK.xcframework in Embed Frameworks */,
+				7B75577B2AEAE4F600C4B219 /* PS_BaseExternal.framework in Embed Frameworks */,
+				7B7557602AEAE4E900C4B219 /* DaonCryptoSDK.xcframework in Embed Frameworks */,
+				7B7557872AEAE4F900C4B219 /* PS_Ine_WS.framework in Embed Frameworks */,
+				7B75576A2AEAE4EB00C4B219 /* DaonFaceMaskDetector.xcframework in Embed Frameworks */,
+				7B7557792AEAE4F500C4B219 /* PS_Auto_Transfer.framework in Embed Frameworks */,
+				7B75576E2AEAE4EB00C4B219 /* DaonFaceQuality.xcframework in Embed Frameworks */,
+				7B75576C2AEAE4EB00C4B219 /* DaonFaceMatcher.xcframework in Embed Frameworks */,
+				7B7557622AEAE4E900C4B219 /* DaonDocument.xcframework in Embed Frameworks */,
+				7B75575C2AEAE4E800C4B219 /* DaonAuthenticatorFace.xcframework in Embed Frameworks */,
+				7B7557892AEAE4F900C4B219 /* PS_Notification.framework in Embed Frameworks */,
+				7B7557642AEAE4E900C4B219 /* DaonFaceDetector.xcframework in Embed Frameworks */,
+				7B75575A2AEAE4E700C4B219 /* BlinkId.xcframework in Embed Frameworks */,
+				7B7557832AEAE4F800C4B219 /* PS_Facial_Services.framework in Embed Frameworks */,
+				7B7557682AEAE4EA00C4B219 /* DaonFaceLivenessBlink.xcframework in Embed Frameworks */,
+				7B7557852AEAE4F800C4B219 /* PS_FacialUI.framework in Embed Frameworks */,
+				7B7557662AEAE4EA00C4B219 /* DaonFaceLiveness.xcframework in Embed Frameworks */,
+				7B7557812AEAE4F700C4B219 /* PS_Facial_Engine.framework in Embed Frameworks */,
+				7B7557762AEAE4ED00C4B219 /* DaonIDCaptureSDK.xcframework in Embed Frameworks */,
+				7B7557742AEAE4ED00C4B219 /* DaonIDCapture.xcframework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		058557BA273AAA24004C7B11 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		058557D8273AAEEB004C7B11 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		2152FB032600AC8F00CF470E /* iOSApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = iOSApp.swift; sourceTree = "<group>"; };
+		46F2CC8B95A22CA91D34FC04 /* Pods_iosApp_iosApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_iosApp_iosApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		52AE74FB6C503E8DEA0C1CF5 /* Pods-iosApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iosApp.debug.xcconfig"; path = "Target Support Files/Pods-iosApp/Pods-iosApp.debug.xcconfig"; sourceTree = "<group>"; };
+		561F0679AAA3FF23F43A1312 /* Pods-iosApp-iosApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iosApp-iosApp.release.xcconfig"; path = "Target Support Files/Pods-iosApp-iosApp/Pods-iosApp-iosApp.release.xcconfig"; sourceTree = "<group>"; };
+		7555FF7B242A565900829871 /* iosApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iosApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		7555FF82242A565900829871 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		7555FF8C242A565B00829871 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		7B7556AB2AEAE47A00C4B219 /* PSSdkInitialize.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PSSdkInitialize.swift; sourceTree = "<group>"; };
+		7B7556AF2AEAE4BD00C4B219 /* PS_Core.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = PS_Core.framework; sourceTree = "<group>"; };
+		7B7556B12AEAE4BD00C4B219 /* 1858_com.principal.fondosinversion2022-09-04 00_00_00.lic */ = {isa = PBXFileReference; lastKnownFileType = file; path = "1858_com.principal.fondosinversion2022-09-04 00_00_00.lic"; sourceTree = "<group>"; };
+		7B7556B22AEAE4BD00C4B219 /* PS_ContactlessUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = PS_ContactlessUI.framework; sourceTree = "<group>"; };
+		7B7556B32AEAE4BD00C4B219 /* PS_Ine_WS.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = PS_Ine_WS.framework; sourceTree = "<group>"; };
+		7B7556B62AEAE4BD00C4B219 /* DaonFaceSDK.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; path = DaonFaceSDK.xcframework; sourceTree = "<group>"; };
+		7B7556B72AEAE4BD00C4B219 /* DaonFaceQuality.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; path = DaonFaceQuality.xcframework; sourceTree = "<group>"; };
+		7B7556B82AEAE4BD00C4B219 /* DaonDocument.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; path = DaonDocument.xcframework; sourceTree = "<group>"; };
+		7B7556B92AEAE4BD00C4B219 /* DaonFaceDetector.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; path = DaonFaceDetector.xcframework; sourceTree = "<group>"; };
+		7B7556BA2AEAE4BD00C4B219 /* DaonAuthenticatorSDK.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; path = DaonAuthenticatorSDK.xcframework; sourceTree = "<group>"; };
+		7B7556BB2AEAE4BD00C4B219 /* DaonFaceLivenessBlink.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; path = DaonFaceLivenessBlink.xcframework; sourceTree = "<group>"; };
+		7B7556BC2AEAE4BD00C4B219 /* BlinkId.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; path = BlinkId.xcframework; sourceTree = "<group>"; };
+		7B7556BD2AEAE4BD00C4B219 /* DaonCryptoSDK.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; path = DaonCryptoSDK.xcframework; sourceTree = "<group>"; };
+		7B7556BE2AEAE4BD00C4B219 /* DaonIDCapture.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; path = DaonIDCapture.xcframework; sourceTree = "<group>"; };
+		7B7556BF2AEAE4BD00C4B219 /* DaonAuthenticatorFace.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; path = DaonAuthenticatorFace.xcframework; sourceTree = "<group>"; };
+		7B7556C02AEAE4BD00C4B219 /* DaonFaceLiveness.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; path = DaonFaceLiveness.xcframework; sourceTree = "<group>"; };
+		7B7556C12AEAE4BD00C4B219 /* DaonFIDOSDK.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; path = DaonFIDOSDK.xcframework; sourceTree = "<group>"; };
+		7B7556C22AEAE4BD00C4B219 /* DaonIDCaptureSDK.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; path = DaonIDCaptureSDK.xcframework; sourceTree = "<group>"; };
+		7B7556C32AEAE4BD00C4B219 /* Daon.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = Daon.bundle; sourceTree = "<group>"; };
+		7B7556C42AEAE4BD00C4B219 /* DaonFaceMatcher.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; path = DaonFaceMatcher.xcframework; sourceTree = "<group>"; };
+		7B7556C52AEAE4BD00C4B219 /* DaonFaceMaskDetector.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; path = DaonFaceMaskDetector.xcframework; sourceTree = "<group>"; };
+		7B7556C82AEAE4BD00C4B219 /* daon_doc_license.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = daon_doc_license.txt; sourceTree = "<group>"; };
+		7B7556C92AEAE4BD00C4B219 /* defaultPrefs.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = defaultPrefs.plist; sourceTree = "<group>"; };
+		7B7556CA2AEAE4BD00C4B219 /* license.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = license.txt; sourceTree = "<group>"; };
+		7B7556CC2AEAE4BD00C4B219 /* defaultPrefs_dev.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = defaultPrefs_dev.plist; sourceTree = "<group>"; };
+		7B7556CD2AEAE4BD00C4B219 /* license.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = license.txt; sourceTree = "<group>"; };
+		7B7556CE2AEAE4BD00C4B219 /* daon_doc_license_dev.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = daon_doc_license_dev.txt; sourceTree = "<group>"; };
+		7B7556D22AEAE4BD00C4B219 /* FacialDaonSdkDelExt.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FacialDaonSdkDelExt.swift; sourceTree = "<group>"; };
+		7B7556D32AEAE4BD00C4B219 /* FacialSDKManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FacialSDKManager.swift; sourceTree = "<group>"; };
+		7B7556D52AEAE4BD00C4B219 /* FacialPSFacialServicesDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FacialPSFacialServicesDelegate.swift; sourceTree = "<group>"; };
+		7B7556D72AEAE4BD00C4B219 /* FacialPSFacialEnginePSDaonSdkDelExt.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FacialPSFacialEnginePSDaonSdkDelExt.swift; sourceTree = "<group>"; };
+		7B7556D82AEAE4BD00C4B219 /* FacialPSFacialEnginePSFacialUIDelExt.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FacialPSFacialEnginePSFacialUIDelExt.swift; sourceTree = "<group>"; };
+		7B7556D92AEAE4BD00C4B219 /* FacialPSFacialEngineDelegateExt.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FacialPSFacialEngineDelegateExt.swift; sourceTree = "<group>"; };
+		7B7556DA2AEAE4BD00C4B219 /* FacialPSFacialEngineCaptureManagerDelegateExt.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FacialPSFacialEngineCaptureManagerDelegateExt.swift; sourceTree = "<group>"; };
+		7B7556DB2AEAE4BD00C4B219 /* FacialPSFacialEnginePSFacialServicesDelExt.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FacialPSFacialEnginePSFacialServicesDelExt.swift; sourceTree = "<group>"; };
+		7B7556DC2AEAE4BE00C4B219 /* FacialPSFacialEngineMainAppDelExt.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FacialPSFacialEngineMainAppDelExt.swift; sourceTree = "<group>"; };
+		7B7556DF2AEAE4BE00C4B219 /* FacialSDKManagerPSFUTutorialVC4DelExt.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FacialSDKManagerPSFUTutorialVC4DelExt.swift; sourceTree = "<group>"; };
+		7B7556E12AEAE4BE00C4B219 /* FacialLoadingVCDelExt.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FacialLoadingVCDelExt.swift; sourceTree = "<group>"; };
+		7B7556E52AEAE4BE00C4B219 /* FacialPSWelcomeDelExt.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FacialPSWelcomeDelExt.swift; sourceTree = "<group>"; };
+		7B7556E72AEAE4BE00C4B219 /* FacialReviewVCDelegateExt.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FacialReviewVCDelegateExt.swift; sourceTree = "<group>"; };
+		7B7556E92AEAE4BE00C4B219 /* FacialPSFUDocumentScanHolderVCDelExt.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FacialPSFUDocumentScanHolderVCDelExt.swift; sourceTree = "<group>"; };
+		7B7556EA2AEAE4BE00C4B219 /* FacialPSFUDocumentCaptureOverlayVCDelExt.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FacialPSFUDocumentCaptureOverlayVCDelExt.swift; sourceTree = "<group>"; };
+		7B7556EB2AEAE4BE00C4B219 /* FacialPSFUDocumentTutorialDelegateVCDelExt.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FacialPSFUDocumentTutorialDelegateVCDelExt.swift; sourceTree = "<group>"; };
+		7B7556EC2AEAE4BE00C4B219 /* FacialPSFUIDocumentCaptureFirstVCDelExt.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FacialPSFUIDocumentCaptureFirstVCDelExt.swift; sourceTree = "<group>"; };
+		7B7556ED2AEAE4BE00C4B219 /* FacialCapturaManagerDelegateExt.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FacialCapturaManagerDelegateExt.swift; sourceTree = "<group>"; };
+		7B7556EE2AEAE4BE00C4B219 /* FacialPSFUChooseDocsInstructionsVCDelExt.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FacialPSFUChooseDocsInstructionsVCDelExt.swift; sourceTree = "<group>"; };
+		7B7556F02AEAE4BE00C4B219 /* FacialPSFU3DLivenessVCDelExt.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FacialPSFU3DLivenessVCDelExt.swift; sourceTree = "<group>"; };
+		7B7556F12AEAE4BE00C4B219 /* FacialSDKManPSFUTutorial3DVCDelExt.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FacialSDKManPSFUTutorial3DVCDelExt.swift; sourceTree = "<group>"; };
+		7B7556F42AEAE4BE00C4B219 /* PSDKCapturedDocument.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PSDKCapturedDocument.swift; sourceTree = "<group>"; };
+		7B7556F52AEAE4BE00C4B219 /* PSDKCaptureManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PSDKCaptureManager.swift; sourceTree = "<group>"; };
+		7B7556F62AEAE4BE00C4B219 /* DocumentCapture.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = DocumentCapture.storyboard; sourceTree = "<group>"; };
+		7B7556F72AEAE4BE00C4B219 /* PSDKCapturedDocumentManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PSDKCapturedDocumentManager.swift; sourceTree = "<group>"; };
+		7B7556F82AEAE4BE00C4B219 /* PSDKDocCaptOverlayHelperViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PSDKDocCaptOverlayHelperViewController.swift; sourceTree = "<group>"; };
+		7B7556F92AEAE4BE00C4B219 /* PSDKLiveness3DManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PSDKLiveness3DManager.swift; sourceTree = "<group>"; };
+		7B7556FA2AEAE4BE00C4B219 /* PSDKSingleAuthenticatorContextManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PSDKSingleAuthenticatorContextManager.swift; sourceTree = "<group>"; };
+		7B7556FC2AEAE4BE00C4B219 /* Fido.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Fido.swift; sourceTree = "<group>"; };
+		7B7556FD2AEAE4BE00C4B219 /* PSDKError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PSDKError.swift; sourceTree = "<group>"; };
+		7B7556FE2AEAE4BE00C4B219 /* FidoAuthenticationTask.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FidoAuthenticationTask.swift; sourceTree = "<group>"; };
+		7B7556FF2AEAE4BE00C4B219 /* FidoRegistrationTask.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FidoRegistrationTask.swift; sourceTree = "<group>"; };
+		7B7557012AEAE4BE00C4B219 /* PSDKEnums.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PSDKEnums.swift; sourceTree = "<group>"; };
+		7B7557022AEAE4BE00C4B219 /* PSDaonSdk.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PSDaonSdk.swift; sourceTree = "<group>"; };
+		7B7557042AEAE4BE00C4B219 /* PSDaonSdkDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PSDaonSdkDelegate.swift; sourceTree = "<group>"; };
+		7B7557062AEAE4BE00C4B219 /* CustomFlowEnrollByURLManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomFlowEnrollByURLManager.swift; sourceTree = "<group>"; };
+		7B7557072AEAE4BE00C4B219 /* MyCustomFlowManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyCustomFlowManager.swift; sourceTree = "<group>"; };
+		7B7557092AEAE4BE00C4B219 /* PS_Facial_Engine.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = PS_Facial_Engine.framework; sourceTree = "<group>"; };
+		7B75570B2AEAE4BE00C4B219 /* PS_Facial_Services.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = PS_Facial_Services.framework; sourceTree = "<group>"; };
+		7B75570D2AEAE4BE00C4B219 /* PS_FacialUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = PS_FacialUI.framework; sourceTree = "<group>"; };
+		7B75570F2AEAE4BE00C4B219 /* PS_Notification.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = PS_Notification.framework; sourceTree = "<group>"; };
+		7B7557112AEAE4BE00C4B219 /* PS_BaseExternal.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = PS_BaseExternal.framework; sourceTree = "<group>"; };
+		7B7557122AEAE4BE00C4B219 /* PS_Auto_Transfer.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = PS_Auto_Transfer.framework; sourceTree = "<group>"; };
+		A4E90CBE1566D420938872ED /* Pods-iosApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iosApp.release.xcconfig"; path = "Target Support Files/Pods-iosApp/Pods-iosApp.release.xcconfig"; sourceTree = "<group>"; };
+		E2F611F3FE565144AD56989A /* Pods-iosApp-iosApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iosApp-iosApp.debug.xcconfig"; path = "Target Support Files/Pods-iosApp-iosApp/Pods-iosApp-iosApp.debug.xcconfig"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		50D0352A9830419BC24344CF /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				7B7557592AEAE4E700C4B219 /* BlinkId.xcframework in Frameworks */,
+				7B75575F2AEAE4E900C4B219 /* DaonCryptoSDK.xcframework in Frameworks */,
+				7B7557822AEAE4F800C4B219 /* PS_Facial_Services.framework in Frameworks */,
+				7B75577C2AEAE4F600C4B219 /* PS_ContactlessUI.framework in Frameworks */,
+				7B75576D2AEAE4EB00C4B219 /* DaonFaceQuality.xcframework in Frameworks */,
+				7B75577E2AEAE4F700C4B219 /* PS_Core.framework in Frameworks */,
+				7B75575D2AEAE4E800C4B219 /* DaonAuthenticatorSDK.xcframework in Frameworks */,
+				7B7557842AEAE4F800C4B219 /* PS_FacialUI.framework in Frameworks */,
+				7B7557672AEAE4EA00C4B219 /* DaonFaceLivenessBlink.xcframework in Frameworks */,
+				7B7557802AEAE4F700C4B219 /* PS_Facial_Engine.framework in Frameworks */,
+				7B7557752AEAE4ED00C4B219 /* DaonIDCaptureSDK.xcframework in Frameworks */,
+				7B75576B2AEAE4EB00C4B219 /* DaonFaceMatcher.xcframework in Frameworks */,
+				7B7557692AEAE4EB00C4B219 /* DaonFaceMaskDetector.xcframework in Frameworks */,
+				7B7557882AEAE4F900C4B219 /* PS_Notification.framework in Frameworks */,
+				7B7557862AEAE4F800C4B219 /* PS_Ine_WS.framework in Frameworks */,
+				7B75577A2AEAE4F600C4B219 /* PS_BaseExternal.framework in Frameworks */,
+				7B7557782AEAE4F500C4B219 /* PS_Auto_Transfer.framework in Frameworks */,
+				7B7557612AEAE4E900C4B219 /* DaonDocument.xcframework in Frameworks */,
+				7B75576F2AEAE4EC00C4B219 /* DaonFaceSDK.xcframework in Frameworks */,
+				7B7557732AEAE4ED00C4B219 /* DaonIDCapture.xcframework in Frameworks */,
+				7B75575B2AEAE4E800C4B219 /* DaonAuthenticatorFace.xcframework in Frameworks */,
+				7B7557652AEAE4EA00C4B219 /* DaonFaceLiveness.xcframework in Frameworks */,
+				7B7557712AEAE4EC00C4B219 /* DaonFIDOSDK.xcframework in Frameworks */,
+				7B7557632AEAE4E900C4B219 /* DaonFaceDetector.xcframework in Frameworks */,
+				6A0A954F28D7B340E9872C5E /* Pods_iosApp_iosApp.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		058557D7273AAEEB004C7B11 /* Preview Content */ = {
+			isa = PBXGroup;
+			children = (
+				058557D8273AAEEB004C7B11 /* Preview Assets.xcassets */,
+			);
+			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		35EE0D22F4A9DEA5F2579001 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				52AE74FB6C503E8DEA0C1CF5 /* Pods-iosApp.debug.xcconfig */,
+				A4E90CBE1566D420938872ED /* Pods-iosApp.release.xcconfig */,
+				E2F611F3FE565144AD56989A /* Pods-iosApp-iosApp.debug.xcconfig */,
+				561F0679AAA3FF23F43A1312 /* Pods-iosApp-iosApp.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		60B1207FF763BD5F6C03AE7B /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				46F2CC8B95A22CA91D34FC04 /* Pods_iosApp_iosApp.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		7555FF72242A565900829871 = {
+			isa = PBXGroup;
+			children = (
+				7B7556AD2AEAE4BD00C4B219 /* ProcesarSDK */,
+				7555FF7D242A565900829871 /* iosApp */,
+				7555FF7C242A565900829871 /* Products */,
+				35EE0D22F4A9DEA5F2579001 /* Pods */,
+				60B1207FF763BD5F6C03AE7B /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		7555FF7C242A565900829871 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				7555FF7B242A565900829871 /* iosApp.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		7555FF7D242A565900829871 /* iosApp */ = {
+			isa = PBXGroup;
+			children = (
+				058557BA273AAA24004C7B11 /* Assets.xcassets */,
+				7555FF82242A565900829871 /* ContentView.swift */,
+				7555FF8C242A565B00829871 /* Info.plist */,
+				2152FB032600AC8F00CF470E /* iOSApp.swift */,
+				058557D7273AAEEB004C7B11 /* Preview Content */,
+				7B7556AB2AEAE47A00C4B219 /* PSSdkInitialize.swift */,
+			);
+			path = iosApp;
+			sourceTree = "<group>";
+		};
+		7B7556AD2AEAE4BD00C4B219 /* ProcesarSDK */ = {
+			isa = PBXGroup;
+			children = (
+				7B7556AE2AEAE4BD00C4B219 /* Core */,
+				7B7556B02AEAE4BD00C4B219 /* PSFingerPrint */,
+				7B7556B42AEAE4BD00C4B219 /* Facial */,
+				7B75570E2AEAE4BE00C4B219 /* CertificationProcedures */,
+				7B7557102AEAE4BE00C4B219 /* FrameworksAT */,
+			);
+			path = ProcesarSDK;
+			sourceTree = "<group>";
+		};
+		7B7556AE2AEAE4BD00C4B219 /* Core */ = {
+			isa = PBXGroup;
+			children = (
+				7B7556AF2AEAE4BD00C4B219 /* PS_Core.framework */,
+			);
+			path = Core;
+			sourceTree = "<group>";
+		};
+		7B7556B02AEAE4BD00C4B219 /* PSFingerPrint */ = {
+			isa = PBXGroup;
+			children = (
+				7B7556B12AEAE4BD00C4B219 /* 1858_com.principal.fondosinversion2022-09-04 00_00_00.lic */,
+				7B7556B22AEAE4BD00C4B219 /* PS_ContactlessUI.framework */,
+				7B7556B32AEAE4BD00C4B219 /* PS_Ine_WS.framework */,
+			);
+			path = PSFingerPrint;
+			sourceTree = "<group>";
+		};
+		7B7556B42AEAE4BD00C4B219 /* Facial */ = {
+			isa = PBXGroup;
+			children = (
+				7B7556B52AEAE4BD00C4B219 /* FrameworkDaon */,
+				7B7556C62AEAE4BD00C4B219 /* daon_config */,
+				7B7556CF2AEAE4BD00C4B219 /* FacialRecoginition */,
+				7B7557082AEAE4BE00C4B219 /* FrameworkEngine */,
+				7B75570A2AEAE4BE00C4B219 /* Services */,
+				7B75570C2AEAE4BE00C4B219 /* FrameworkUI */,
+			);
+			path = Facial;
+			sourceTree = "<group>";
+		};
+		7B7556B52AEAE4BD00C4B219 /* FrameworkDaon */ = {
+			isa = PBXGroup;
+			children = (
+				7B7556B62AEAE4BD00C4B219 /* DaonFaceSDK.xcframework */,
+				7B7556B72AEAE4BD00C4B219 /* DaonFaceQuality.xcframework */,
+				7B7556B82AEAE4BD00C4B219 /* DaonDocument.xcframework */,
+				7B7556B92AEAE4BD00C4B219 /* DaonFaceDetector.xcframework */,
+				7B7556BA2AEAE4BD00C4B219 /* DaonAuthenticatorSDK.xcframework */,
+				7B7556BB2AEAE4BD00C4B219 /* DaonFaceLivenessBlink.xcframework */,
+				7B7556BC2AEAE4BD00C4B219 /* BlinkId.xcframework */,
+				7B7556BD2AEAE4BD00C4B219 /* DaonCryptoSDK.xcframework */,
+				7B7556BE2AEAE4BD00C4B219 /* DaonIDCapture.xcframework */,
+				7B7556BF2AEAE4BD00C4B219 /* DaonAuthenticatorFace.xcframework */,
+				7B7556C02AEAE4BD00C4B219 /* DaonFaceLiveness.xcframework */,
+				7B7556C12AEAE4BD00C4B219 /* DaonFIDOSDK.xcframework */,
+				7B7556C22AEAE4BD00C4B219 /* DaonIDCaptureSDK.xcframework */,
+				7B7556C32AEAE4BD00C4B219 /* Daon.bundle */,
+				7B7556C42AEAE4BD00C4B219 /* DaonFaceMatcher.xcframework */,
+				7B7556C52AEAE4BD00C4B219 /* DaonFaceMaskDetector.xcframework */,
+			);
+			path = FrameworkDaon;
+			sourceTree = "<group>";
+		};
+		7B7556C62AEAE4BD00C4B219 /* daon_config */ = {
+			isa = PBXGroup;
+			children = (
+				7B7556C72AEAE4BD00C4B219 /* Prod */,
+				7B7556CB2AEAE4BD00C4B219 /* Dev */,
+			);
+			path = daon_config;
+			sourceTree = "<group>";
+		};
+		7B7556C72AEAE4BD00C4B219 /* Prod */ = {
+			isa = PBXGroup;
+			children = (
+				7B7556C82AEAE4BD00C4B219 /* daon_doc_license.txt */,
+				7B7556C92AEAE4BD00C4B219 /* defaultPrefs.plist */,
+				7B7556CA2AEAE4BD00C4B219 /* license.txt */,
+			);
+			path = Prod;
+			sourceTree = "<group>";
+		};
+		7B7556CB2AEAE4BD00C4B219 /* Dev */ = {
+			isa = PBXGroup;
+			children = (
+				7B7556CC2AEAE4BD00C4B219 /* defaultPrefs_dev.plist */,
+				7B7556CD2AEAE4BD00C4B219 /* license.txt */,
+				7B7556CE2AEAE4BD00C4B219 /* daon_doc_license_dev.txt */,
+			);
+			path = Dev;
+			sourceTree = "<group>";
+		};
+		7B7556CF2AEAE4BD00C4B219 /* FacialRecoginition */ = {
+			isa = PBXGroup;
+			children = (
+				7B7556D02AEAE4BD00C4B219 /* FacialRecognitionFrameworksConnection */,
+				7B7556F22AEAE4BE00C4B219 /* DaonSdk */,
+				7B7557052AEAE4BE00C4B219 /* Flow */,
+			);
+			path = FacialRecoginition;
+			sourceTree = "<group>";
+		};
+		7B7556D02AEAE4BD00C4B219 /* FacialRecognitionFrameworksConnection */ = {
+			isa = PBXGroup;
+			children = (
+				7B7556D12AEAE4BD00C4B219 /* FacialDaonSdkDelegates */,
+				7B7556D32AEAE4BD00C4B219 /* FacialSDKManager.swift */,
+				7B7556D42AEAE4BD00C4B219 /* FacialServicesDelegates */,
+				7B7556D62AEAE4BD00C4B219 /* FacialEngineDelegates */,
+				7B7556DD2AEAE4BE00C4B219 /* FacialUIDelegates */,
+			);
+			path = FacialRecognitionFrameworksConnection;
+			sourceTree = "<group>";
+		};
+		7B7556D12AEAE4BD00C4B219 /* FacialDaonSdkDelegates */ = {
+			isa = PBXGroup;
+			children = (
+				7B7556D22AEAE4BD00C4B219 /* FacialDaonSdkDelExt.swift */,
+			);
+			path = FacialDaonSdkDelegates;
+			sourceTree = "<group>";
+		};
+		7B7556D42AEAE4BD00C4B219 /* FacialServicesDelegates */ = {
+			isa = PBXGroup;
+			children = (
+				7B7556D52AEAE4BD00C4B219 /* FacialPSFacialServicesDelegate.swift */,
+			);
+			path = FacialServicesDelegates;
+			sourceTree = "<group>";
+		};
+		7B7556D62AEAE4BD00C4B219 /* FacialEngineDelegates */ = {
+			isa = PBXGroup;
+			children = (
+				7B7556D72AEAE4BD00C4B219 /* FacialPSFacialEnginePSDaonSdkDelExt.swift */,
+				7B7556D82AEAE4BD00C4B219 /* FacialPSFacialEnginePSFacialUIDelExt.swift */,
+				7B7556D92AEAE4BD00C4B219 /* FacialPSFacialEngineDelegateExt.swift */,
+				7B7556DA2AEAE4BD00C4B219 /* FacialPSFacialEngineCaptureManagerDelegateExt.swift */,
+				7B7556DB2AEAE4BD00C4B219 /* FacialPSFacialEnginePSFacialServicesDelExt.swift */,
+				7B7556DC2AEAE4BE00C4B219 /* FacialPSFacialEngineMainAppDelExt.swift */,
+			);
+			path = FacialEngineDelegates;
+			sourceTree = "<group>";
+		};
+		7B7556DD2AEAE4BE00C4B219 /* FacialUIDelegates */ = {
+			isa = PBXGroup;
+			children = (
+				7B7556DE2AEAE4BE00C4B219 /* Tutorial */,
+				7B7556E02AEAE4BE00C4B219 /* Loading */,
+				7B7556E42AEAE4BE00C4B219 /* Welcome */,
+				7B7556E62AEAE4BE00C4B219 /* Review */,
+				7B7556E82AEAE4BE00C4B219 /* DocumentsScan */,
+				7B7556EF2AEAE4BE00C4B219 /* 3dLiveness */,
+			);
+			path = FacialUIDelegates;
+			sourceTree = "<group>";
+		};
+		7B7556DE2AEAE4BE00C4B219 /* Tutorial */ = {
+			isa = PBXGroup;
+			children = (
+				7B7556DF2AEAE4BE00C4B219 /* FacialSDKManagerPSFUTutorialVC4DelExt.swift */,
+			);
+			path = Tutorial;
+			sourceTree = "<group>";
+		};
+		7B7556E02AEAE4BE00C4B219 /* Loading */ = {
+			isa = PBXGroup;
+			children = (
+				7B7556E12AEAE4BE00C4B219 /* FacialLoadingVCDelExt.swift */,
+			);
+			path = Loading;
+			sourceTree = "<group>";
+		};
+		7B7556E42AEAE4BE00C4B219 /* Welcome */ = {
+			isa = PBXGroup;
+			children = (
+				7B7556E52AEAE4BE00C4B219 /* FacialPSWelcomeDelExt.swift */,
+			);
+			path = Welcome;
+			sourceTree = "<group>";
+		};
+		7B7556E62AEAE4BE00C4B219 /* Review */ = {
+			isa = PBXGroup;
+			children = (
+				7B7556E72AEAE4BE00C4B219 /* FacialReviewVCDelegateExt.swift */,
+			);
+			path = Review;
+			sourceTree = "<group>";
+		};
+		7B7556E82AEAE4BE00C4B219 /* DocumentsScan */ = {
+			isa = PBXGroup;
+			children = (
+				7B7556E92AEAE4BE00C4B219 /* FacialPSFUDocumentScanHolderVCDelExt.swift */,
+				7B7556EA2AEAE4BE00C4B219 /* FacialPSFUDocumentCaptureOverlayVCDelExt.swift */,
+				7B7556EB2AEAE4BE00C4B219 /* FacialPSFUDocumentTutorialDelegateVCDelExt.swift */,
+				7B7556EC2AEAE4BE00C4B219 /* FacialPSFUIDocumentCaptureFirstVCDelExt.swift */,
+				7B7556ED2AEAE4BE00C4B219 /* FacialCapturaManagerDelegateExt.swift */,
+				7B7556EE2AEAE4BE00C4B219 /* FacialPSFUChooseDocsInstructionsVCDelExt.swift */,
+			);
+			path = DocumentsScan;
+			sourceTree = "<group>";
+		};
+		7B7556EF2AEAE4BE00C4B219 /* 3dLiveness */ = {
+			isa = PBXGroup;
+			children = (
+				7B7556F02AEAE4BE00C4B219 /* FacialPSFU3DLivenessVCDelExt.swift */,
+				7B7556F12AEAE4BE00C4B219 /* FacialSDKManPSFUTutorial3DVCDelExt.swift */,
+			);
+			path = 3dLiveness;
+			sourceTree = "<group>";
+		};
+		7B7556F22AEAE4BE00C4B219 /* DaonSdk */ = {
+			isa = PBXGroup;
+			children = (
+				7B7556F32AEAE4BE00C4B219 /* classes */,
+				7B7556FB2AEAE4BE00C4B219 /* FIDO */,
+				7B7557002AEAE4BE00C4B219 /* Enums */,
+				7B7557022AEAE4BE00C4B219 /* PSDaonSdk.swift */,
+				7B7557032AEAE4BE00C4B219 /* protocols */,
+			);
+			path = DaonSdk;
+			sourceTree = "<group>";
+		};
+		7B7556F32AEAE4BE00C4B219 /* classes */ = {
+			isa = PBXGroup;
+			children = (
+				7B7556F42AEAE4BE00C4B219 /* PSDKCapturedDocument.swift */,
+				7B7556F52AEAE4BE00C4B219 /* PSDKCaptureManager.swift */,
+				7B7556F62AEAE4BE00C4B219 /* DocumentCapture.storyboard */,
+				7B7556F72AEAE4BE00C4B219 /* PSDKCapturedDocumentManager.swift */,
+				7B7556F82AEAE4BE00C4B219 /* PSDKDocCaptOverlayHelperViewController.swift */,
+				7B7556F92AEAE4BE00C4B219 /* PSDKLiveness3DManager.swift */,
+				7B7556FA2AEAE4BE00C4B219 /* PSDKSingleAuthenticatorContextManager.swift */,
+			);
+			path = classes;
+			sourceTree = "<group>";
+		};
+		7B7556FB2AEAE4BE00C4B219 /* FIDO */ = {
+			isa = PBXGroup;
+			children = (
+				7B7556FC2AEAE4BE00C4B219 /* Fido.swift */,
+				7B7556FD2AEAE4BE00C4B219 /* PSDKError.swift */,
+				7B7556FE2AEAE4BE00C4B219 /* FidoAuthenticationTask.swift */,
+				7B7556FF2AEAE4BE00C4B219 /* FidoRegistrationTask.swift */,
+			);
+			path = FIDO;
+			sourceTree = "<group>";
+		};
+		7B7557002AEAE4BE00C4B219 /* Enums */ = {
+			isa = PBXGroup;
+			children = (
+				7B7557012AEAE4BE00C4B219 /* PSDKEnums.swift */,
+			);
+			path = Enums;
+			sourceTree = "<group>";
+		};
+		7B7557032AEAE4BE00C4B219 /* protocols */ = {
+			isa = PBXGroup;
+			children = (
+				7B7557042AEAE4BE00C4B219 /* PSDaonSdkDelegate.swift */,
+			);
+			path = protocols;
+			sourceTree = "<group>";
+		};
+		7B7557052AEAE4BE00C4B219 /* Flow */ = {
+			isa = PBXGroup;
+			children = (
+				7B7557062AEAE4BE00C4B219 /* CustomFlowEnrollByURLManager.swift */,
+				7B7557072AEAE4BE00C4B219 /* MyCustomFlowManager.swift */,
+			);
+			path = Flow;
+			sourceTree = "<group>";
+		};
+		7B7557082AEAE4BE00C4B219 /* FrameworkEngine */ = {
+			isa = PBXGroup;
+			children = (
+				7B7557092AEAE4BE00C4B219 /* PS_Facial_Engine.framework */,
+			);
+			path = FrameworkEngine;
+			sourceTree = "<group>";
+		};
+		7B75570A2AEAE4BE00C4B219 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				7B75570B2AEAE4BE00C4B219 /* PS_Facial_Services.framework */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		7B75570C2AEAE4BE00C4B219 /* FrameworkUI */ = {
+			isa = PBXGroup;
+			children = (
+				7B75570D2AEAE4BE00C4B219 /* PS_FacialUI.framework */,
+			);
+			path = FrameworkUI;
+			sourceTree = "<group>";
+		};
+		7B75570E2AEAE4BE00C4B219 /* CertificationProcedures */ = {
+			isa = PBXGroup;
+			children = (
+				7B75570F2AEAE4BE00C4B219 /* PS_Notification.framework */,
+			);
+			path = CertificationProcedures;
+			sourceTree = "<group>";
+		};
+		7B7557102AEAE4BE00C4B219 /* FrameworksAT */ = {
+			isa = PBXGroup;
+			children = (
+				7B7557112AEAE4BE00C4B219 /* PS_BaseExternal.framework */,
+				7B7557122AEAE4BE00C4B219 /* PS_Auto_Transfer.framework */,
+			);
+			path = FrameworksAT;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		7555FF7A242A565900829871 /* iosApp */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 7555FFA5242A565B00829871 /* Build configuration list for PBXNativeTarget "iosApp" */;
+			buildPhases = (
+				E16AB31A8B6BACFF22E2DD0D /* [CP] Check Pods Manifest.lock */,
+				7555FF77242A565900829871 /* Sources */,
+				7555FF79242A565900829871 /* Resources */,
+				50D0352A9830419BC24344CF /* Frameworks */,
+				B309ACF59B5443301BAEDAEF /* [CP] Embed Pods Frameworks */,
+				7B7557772AEAE4ED00C4B219 /* Embed Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = iosApp;
+			productName = iosApp;
+			productReference = 7555FF7B242A565900829871 /* iosApp.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		7555FF73242A565900829871 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 1130;
+				LastUpgradeCheck = 1130;
+				ORGANIZATIONNAME = orgName;
+				TargetAttributes = {
+					7555FF7A242A565900829871 = {
+						CreatedOnToolsVersion = 11.3.1;
+					};
+				};
+			};
+			buildConfigurationList = 7555FF76242A565900829871 /* Build configuration list for PBXProject "iosApp" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 7555FF72242A565900829871;
+			productRefGroup = 7555FF7C242A565900829871 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				7555FF7A242A565900829871 /* iosApp */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		7555FF79242A565900829871 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				7B7557142AEAE4BE00C4B219 /* 1858_com.principal.fondosinversion2022-09-04 00_00_00.lic in Resources */,
+				7B7557272AEAE4BF00C4B219 /* daon_doc_license.txt in Resources */,
+				7B7557242AEAE4BF00C4B219 /* Daon.bundle in Resources */,
+				7B7557292AEAE4BF00C4B219 /* license.txt in Resources */,
+				058557D9273AAEEB004C7B11 /* Preview Assets.xcassets in Resources */,
+				058557BB273AAA24004C7B11 /* Assets.xcassets in Resources */,
+				7B7557282AEAE4BF00C4B219 /* defaultPrefs.plist in Resources */,
+				7B7557452AEAE4BF00C4B219 /* DocumentCapture.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		B309ACF59B5443301BAEDAEF /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-iosApp-iosApp/Pods-iosApp-iosApp-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-iosApp-iosApp/Pods-iosApp-iosApp-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-iosApp-iosApp/Pods-iosApp-iosApp-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		E16AB31A8B6BACFF22E2DD0D /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-iosApp-iosApp-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		7555FF77242A565900829871 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				7B7557462AEAE4BF00C4B219 /* PSDKCapturedDocumentManager.swift in Sources */,
+				7B7556AC2AEAE47A00C4B219 /* PSSdkInitialize.swift in Sources */,
+				7B75574B2AEAE4BF00C4B219 /* PSDKError.swift in Sources */,
+				2152FB042600AC8F00CF470E /* iOSApp.swift in Sources */,
+				7B7557402AEAE4BF00C4B219 /* FacialPSFUChooseDocsInstructionsVCDelExt.swift in Sources */,
+				7B7557472AEAE4BF00C4B219 /* PSDKDocCaptOverlayHelperViewController.swift in Sources */,
+				7B75572D2AEAE4BF00C4B219 /* FacialDaonSdkDelExt.swift in Sources */,
+				7B7557422AEAE4BF00C4B219 /* FacialSDKManPSFUTutorial3DVCDelExt.swift in Sources */,
+				7B75574A2AEAE4BF00C4B219 /* Fido.swift in Sources */,
+				7B7557352AEAE4BF00C4B219 /* FacialPSFacialEngineMainAppDelExt.swift in Sources */,
+				7B7557502AEAE4BF00C4B219 /* PSDaonSdkDelegate.swift in Sources */,
+				7555FF83242A565900829871 /* ContentView.swift in Sources */,
+				7B75572E2AEAE4BF00C4B219 /* FacialSDKManager.swift in Sources */,
+				7B75574F2AEAE4BF00C4B219 /* PSDaonSdk.swift in Sources */,
+				7B75573B2AEAE4BF00C4B219 /* FacialPSFUDocumentScanHolderVCDelExt.swift in Sources */,
+				7B7557342AEAE4BF00C4B219 /* FacialPSFacialEnginePSFacialServicesDelExt.swift in Sources */,
+				7B7557522AEAE4BF00C4B219 /* MyCustomFlowManager.swift in Sources */,
+				7B7557492AEAE4BF00C4B219 /* PSDKSingleAuthenticatorContextManager.swift in Sources */,
+				7B7557312AEAE4BF00C4B219 /* FacialPSFacialEnginePSFacialUIDelExt.swift in Sources */,
+				7B7557412AEAE4BF00C4B219 /* FacialPSFU3DLivenessVCDelExt.swift in Sources */,
+				7B7557362AEAE4BF00C4B219 /* FacialSDKManagerPSFUTutorialVC4DelExt.swift in Sources */,
+				7B75573E2AEAE4BF00C4B219 /* FacialPSFUIDocumentCaptureFirstVCDelExt.swift in Sources */,
+				7B75573F2AEAE4BF00C4B219 /* FacialCapturaManagerDelegateExt.swift in Sources */,
+				7B75574E2AEAE4BF00C4B219 /* PSDKEnums.swift in Sources */,
+				7B7557442AEAE4BF00C4B219 /* PSDKCaptureManager.swift in Sources */,
+				7B7557512AEAE4BF00C4B219 /* CustomFlowEnrollByURLManager.swift in Sources */,
+				7B7557372AEAE4BF00C4B219 /* FacialLoadingVCDelExt.swift in Sources */,
+				7B75574D2AEAE4BF00C4B219 /* FidoRegistrationTask.swift in Sources */,
+				7B75573A2AEAE4BF00C4B219 /* FacialReviewVCDelegateExt.swift in Sources */,
+				7B7557302AEAE4BF00C4B219 /* FacialPSFacialEnginePSDaonSdkDelExt.swift in Sources */,
+				7B75573C2AEAE4BF00C4B219 /* FacialPSFUDocumentCaptureOverlayVCDelExt.swift in Sources */,
+				7B7557392AEAE4BF00C4B219 /* FacialPSWelcomeDelExt.swift in Sources */,
+				7B75574C2AEAE4BF00C4B219 /* FidoAuthenticationTask.swift in Sources */,
+				7B7557432AEAE4BF00C4B219 /* PSDKCapturedDocument.swift in Sources */,
+				7B7557322AEAE4BF00C4B219 /* FacialPSFacialEngineDelegateExt.swift in Sources */,
+				7B7557332AEAE4BF00C4B219 /* FacialPSFacialEngineCaptureManagerDelegateExt.swift in Sources */,
+				7B75573D2AEAE4BF00C4B219 /* FacialPSFUDocumentTutorialDelegateVCDelExt.swift in Sources */,
+				7B75572F2AEAE4BF00C4B219 /* FacialPSFacialServicesDelegate.swift in Sources */,
+				7B7557482AEAE4BF00C4B219 /* PSDKLiveness3DManager.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		7555FFA3242A565B00829871 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.1;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		7555FFA4242A565B00829871 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.1;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		7555FFA6242A565B00829871 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = E2F611F3FE565144AD56989A /* Pods-iosApp-iosApp.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_STYLE = Manual;
+				DEVELOPMENT_ASSET_PATHS = "\"iosApp/Preview Content\"";
+				DEVELOPMENT_TEAM = "";
+				"DEVELOPMENT_TEAM[sdk=iphoneos*]" = R2SKR88VKB;
+				ENABLE_PREVIEWS = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/ProcesarSDK/Core",
+					"$(PROJECT_DIR)/ProcesarSDK/PSFingerPrint",
+					"$(PROJECT_DIR)/ProcesarSDK/Facial/FrameworkEngine",
+					"$(PROJECT_DIR)/ProcesarSDK/Facial/Services",
+					"$(PROJECT_DIR)/ProcesarSDK/Facial/FrameworkUI",
+					"$(PROJECT_DIR)/ProcesarSDK/CertificationProcedures",
+					"$(PROJECT_DIR)/ProcesarSDK/FrameworksAT",
+				);
+				INFOPLIST_FILE = iosApp/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.principal.fondosinversion;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				"PROVISIONING_PROFILE_SPECIFIER[sdk=iphoneos*]" = PrincipalProfileDev;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		7555FFA7242A565B00829871 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 561F0679AAA3FF23F43A1312 /* Pods-iosApp-iosApp.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_STYLE = Manual;
+				DEVELOPMENT_ASSET_PATHS = "\"iosApp/Preview Content\"";
+				DEVELOPMENT_TEAM = "";
+				"DEVELOPMENT_TEAM[sdk=iphoneos*]" = R2SKR88VKB;
+				ENABLE_PREVIEWS = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/ProcesarSDK/Core",
+					"$(PROJECT_DIR)/ProcesarSDK/PSFingerPrint",
+					"$(PROJECT_DIR)/ProcesarSDK/Facial/FrameworkEngine",
+					"$(PROJECT_DIR)/ProcesarSDK/Facial/Services",
+					"$(PROJECT_DIR)/ProcesarSDK/Facial/FrameworkUI",
+					"$(PROJECT_DIR)/ProcesarSDK/CertificationProcedures",
+					"$(PROJECT_DIR)/ProcesarSDK/FrameworksAT",
+				);
+				INFOPLIST_FILE = iosApp/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.principal.fondosinversion;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				"PROVISIONING_PROFILE_SPECIFIER[sdk=iphoneos*]" = PrincipalProfileDev;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		7555FF76242A565900829871 /* Build configuration list for PBXProject "iosApp" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				7555FFA3242A565B00829871 /* Debug */,
+				7555FFA4242A565B00829871 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		7555FFA5242A565B00829871 /* Build configuration list for PBXNativeTarget "iosApp" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				7555FFA6242A565B00829871 /* Debug */,
+				7555FFA7242A565B00829871 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 7555FF73242A565900829871 /* Project object */;
+}

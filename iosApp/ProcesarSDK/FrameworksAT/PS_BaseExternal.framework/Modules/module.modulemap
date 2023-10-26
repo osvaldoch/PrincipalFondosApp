@@ -1,0 +1,11 @@
+framework module PS_BaseExternal {
+  umbrella header "PS_BaseExternal.h"
+
+  export *
+  module * { export * }
+}
+
+module PS_BaseExternal.Swift {
+    header "PS_BaseExternal-Swift.h"
+    requires objc
+}

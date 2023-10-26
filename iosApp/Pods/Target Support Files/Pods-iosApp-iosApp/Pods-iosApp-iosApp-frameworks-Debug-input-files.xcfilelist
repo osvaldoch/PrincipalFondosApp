@@ -1,0 +1,9 @@
+${PODS_ROOT}/Target Support Files/Pods-iosApp-iosApp/Pods-iosApp-iosApp-frameworks.sh
+${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework
+${BUILT_PRODUCTS_DIR}/AlamofireImage/AlamofireImage.framework
+${BUILT_PRODUCTS_DIR}/AlamofireObjectMapper/AlamofireObjectMapper.framework
+${BUILT_PRODUCTS_DIR}/KeychainSwift/KeychainSwift.framework
+${BUILT_PRODUCTS_DIR}/ObjectMapper/ObjectMapper.framework
+${BUILT_PRODUCTS_DIR}/lottie-ios/Lottie.framework
+${PODS_ROOT}/../../shared/build/cocoapods/framework/shared.framework
+${PODS_ROOT}/Identy/Identy.framework

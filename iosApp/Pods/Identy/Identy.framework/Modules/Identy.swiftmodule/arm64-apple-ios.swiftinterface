@@ -1,0 +1,705 @@
+// swift-interface-format-version: 1.0
+// swift-compiler-version: Apple Swift version 5.7 (swiftlang-5.7.0.127.4 clang-1400.0.29.50)
+// swift-module-flags: -target arm64-apple-ios11.0 -enable-objc-interop -enable-library-evolution -swift-version 5 -enforce-exclusivity=checked -O -module-name Identy
+// swift-module-flags-ignorable: -enable-bare-slash-regex
+import AVFoundation
+import AVKit
+import Accelerate
+import CommonCrypto
+import Compression
+import CoreData
+import CoreFoundation
+import CoreMotion
+import Foundation
+@_exported import Identy
+import ImageIO
+import MobileCoreServices
+import Security
+import Swift
+import SystemConfiguration
+import UIKit
+import WebKit
+import _Concurrency
+import _StringProcessing
+import os.log
+import os
+public func + (left: CoreFoundation.CGPoint, right: CoreFoundation.CGPoint) -> CoreFoundation.CGPoint
+public func - (left: CoreFoundation.CGPoint, right: CoreFoundation.CGPoint) -> CoreFoundation.CGPoint
+public func -= (left: inout CoreFoundation.CGPoint, right: CoreFoundation.CGPoint)
+public func += (left: inout CoreFoundation.CGPoint, right: CoreFoundation.CGPoint)
+public func + (left: CoreFoundation.CGPoint, right: CoreFoundation.CGSize) -> CoreFoundation.CGPoint
+public func + (left: CoreFoundation.CGSize, right: CoreFoundation.CGPoint) -> CoreFoundation.CGSize
+public func - (left: CoreFoundation.CGPoint, right: CoreFoundation.CGSize) -> CoreFoundation.CGPoint
+public func - (left: CoreFoundation.CGSize, right: CoreFoundation.CGPoint) -> CoreFoundation.CGSize
+public func * (left: CoreFoundation.CGFloat, right: CoreFoundation.CGPoint) -> CoreFoundation.CGPoint
+public func * (left: CoreFoundation.CGPoint, right: CoreFoundation.CGFloat) -> CoreFoundation.CGPoint
+public func / (left: CoreFoundation.CGPoint, right: CoreFoundation.CGFloat) -> CoreFoundation.CGPoint
+public func * (left: CoreFoundation.CGFloat, right: CoreFoundation.CGSize) -> CoreFoundation.CGSize
+public func * (left: CoreFoundation.CGSize, right: CoreFoundation.CGFloat) -> CoreFoundation.CGSize
+public func / (left: CoreFoundation.CGSize, right: CoreFoundation.CGFloat) -> CoreFoundation.CGSize
+public let defaultReadChunkSize: Swift.UInt32
+public let defaultWriteChunkSize: Swift.UInt32
+public let defaultFilePermissions: Swift.UInt16
+public let defaultDirectoryPermissions: Swift.UInt16
+public enum CompressionMethod : Swift.UInt16 {
+  case none
+  case deflate
+  public init?(rawValue: Swift.UInt16)
+  public typealias RawValue = Swift.UInt16
+  public var rawValue: Swift.UInt16 {
+    get
+  }
+}
+final public class Archive : Swift.Sequence {
+  public enum ArchiveError : Swift.Error {
+    case unreadableArchive
+    case unwritableArchive
+    case invalidEntryPath
+    case invalidCompressionMethod
+    case invalidStartOfCentralDirectoryOffset
+    case missingEndOfCentralDirectoryRecord
+    case cancelledOperation
+    public static func == (a: Identy.Archive.ArchiveError, b: Identy.Archive.ArchiveError) -> Swift.Bool
+    public func hash(into hasher: inout Swift.Hasher)
+    public var hashValue: Swift.Int {
+      get
+    }
+  }
+  public enum AccessMode : Swift.UInt {
+    case create
+    case read
+    case update
+    public init?(rawValue: Swift.UInt)
+    public typealias RawValue = Swift.UInt
+    public var rawValue: Swift.UInt {
+      get
+    }
+  }
+  final public let url: Foundation.URL
+  final public let accessMode: Identy.Archive.AccessMode
+  public init?(url: Foundation.URL, accessMode mode: Identy.Archive.AccessMode, preferredEncoding: Swift.String.Encoding? = nil)
+  public init?(data: Foundation.Data = Data(), accessMode mode: Identy.Archive.AccessMode, preferredEncoding: Swift.String.Encoding? = nil)
+  @objc deinit
+  final public func makeIterator() -> Swift.AnyIterator<Identy.Entry>
+  final public subscript(path: Swift.String) -> Identy.Entry? {
+    get
+  }
+  public typealias Element = Identy.Entry
+  public typealias Iterator = Swift.AnyIterator<Identy.Entry>
+}
+extension Identy.Archive {
+  final public func totalUnitCountForRemoving(_ entry: Identy.Entry) -> Swift.Int64
+  final public func totalUnitCountForReading(_ entry: Identy.Entry) -> Swift.Int64
+  final public func totalUnitCountForAddingItem(at url: Foundation.URL) -> Swift.Int64
+}
+public typealias CRC32 = Swift.UInt32
+public typealias Consumer = (_ data: Foundation.Data) throws -> Swift.Void
+public typealias Provider = (_ position: Swift.Int, _ size: Swift.Int) throws -> Foundation.Data
+public let crcTable: [Swift.UInt32]
+extension Foundation.Data {
+  public func crc32(checksum: Identy.CRC32) -> Identy.CRC32
+  public static func compress(size: Swift.Int, bufferSize: Swift.Int, provider: (_ position: Swift.Int, _ size: Swift.Int) throws -> Foundation.Data, consumer: (_ data: Foundation.Data) throws -> Swift.Void) throws -> Identy.CRC32
+  public static func decompress(size: Swift.Int, bufferSize: Swift.Int, skipCRC32: Swift.Bool, provider: (_ position: Swift.Int, _ size: Swift.Int) throws -> Foundation.Data, consumer: (_ data: Foundation.Data) throws -> Swift.Void) throws -> Identy.CRC32
+}
+extension UIKit.UIInterfaceOrientation {
+  public var videoOrientation: AVFoundation.AVCaptureVideoOrientation {
+    get
+  }
+}
+extension Identy.Archive {
+  final public func addEntry(with path: Swift.String, relativeTo baseURL: Foundation.URL, compressionMethod: Identy.CompressionMethod = .none, bufferSize: Swift.UInt32 = defaultWriteChunkSize, progress: Foundation.Progress? = nil) throws
+  final public func addEntry(with path: Swift.String, type: Identy.Entry.EntryType, uncompressedSize: Swift.UInt32, modificationDate: Foundation.Date = Date(), permissions: Swift.UInt16? = nil, compressionMethod: Identy.CompressionMethod = .none, bufferSize: Swift.UInt32 = defaultWriteChunkSize, progress: Foundation.Progress? = nil, provider: (_ position: Swift.Int, _ size: Swift.Int) throws -> Foundation.Data) throws
+  final public func remove(_ entry: Identy.Entry, bufferSize: Swift.UInt32 = defaultReadChunkSize, progress: Foundation.Progress? = nil) throws
+}
+public class IdentySingleton {
+  public init()
+  @objc deinit
+}
+public enum IdentyError : Swift.Error {
+  case NETWORK_ERROR
+  case JAILBROKEN_DEVICE_ERROR
+  case ACTIVITY_PAUSED
+  case ACTIVITY_PAUSED_ON_BACK_PRESSED
+  case TRANSACTION_TIMEOUT
+  case TRANSACTION_LIMIT_EXCEEDED
+  case INITIALIZATION_FAILED
+  case TEMPLATE_GENERATION_FAILED
+  case NIST_GENERATION_FAILED
+  case NO_FACE_DETECTED
+  case INVAILD_INPUT
+  case UNABLE_TO_RETRIVE_TEMPLATE
+  case UNABLE_TO_CONVERT_IMAGEFORMAT
+  case NO_FILE_FOUND
+  case INVALID_TRANSACTION_TIME
+  case INVALID_TRANSACTION_COUNT
+  case UNABLE_TO_RETRIVE_FILE
+  case SOMETHING_IS_WEIRD
+  case LICENSE_NOT_EXIST
+  case LICENSE_EMPTY
+  case LICENSE_VALIDATION_FAILED
+  case LICENSE_SERVER_NOT_CONNECTED
+  case INCORRECT_BOXES, RT_QUALITY_FAILED, RF_QUALITY_FAILED, UNKNOWN
+  case PROCESSING_ERROR
+  case CONVERSION_ERROR
+  case POSITION_ERROR
+  public static func == (a: Identy.IdentyError, b: Identy.IdentyError) -> Swift.Bool
+  public func hash(into hasher: inout Swift.Hasher)
+  public var hashValue: Swift.Int {
+    get
+  }
+}
+extension Identy.IdentyError : Foundation.LocalizedError {
+  public var errorDescription: Swift.String? {
+    get
+  }
+}
+public class IdentyResponse {
+  @objc public init()
+  public var responseDictionary: Swift.Dictionary<Swift.String, Any>?
+  @objc deinit
+}
+public enum AppTemplateFormat : Swift.Int {
+  case WSQ, ISO_19794_4, PNG_8, PNG, JPEG2K_24, JPEG2K_8, RAW, ISO_19794_2, ANSI_378_2004, IDENTY, NIST_ITL_1_2015_R9, NIST_ITL_1_2015_R14, SLAP_WSQ, SLAP_PNG
+  public func getTemplateName() -> Swift.String
+  public init?(rawValue: Swift.Int)
+  public typealias RawValue = Swift.Int
+  public var rawValue: Swift.Int {
+    get
+  }
+}
+public enum FingerAS : Swift.Int {
+  case NONE, LOW, MEDIUM, BALANCED_HIGH, HIGH, BALANCED_VERY_HIGH, VERY_HIGH, HIGHEST
+  public init?(rawValue: Swift.Int)
+  public typealias RawValue = Swift.Int
+  public var rawValue: Swift.Int {
+    get
+  }
+}
+public enum CaptureStatus {
+  case NO_FINGERS, FAR, CLOSE, OUTSIDE, NOT_STABLE, PLEASE_HOLD, CAPTURING, CAPTURED
+  public static func == (a: Identy.CaptureStatus, b: Identy.CaptureStatus) -> Swift.Bool
+  public func hash(into hasher: inout Swift.Hasher)
+  public var hashValue: Swift.Int {
+    get
+  }
+}
+public enum Confidence : Swift.Int {
+  case LOW, MEDIUM, HIGH
+  public init?(rawValue: Swift.Int)
+  public typealias RawValue = Swift.Int
+  public var rawValue: Swift.Int {
+    get
+  }
+}
+public enum TemplateSize : Swift.Int {
+  case DEFAULT
+  public var TemplateSizeName: Swift.String {
+    get
+  }
+  public init?(rawValue: Swift.Int)
+  public typealias RawValue = Swift.Int
+  public var rawValue: Swift.Int {
+    get
+  }
+}
+extension Identy.Archive {
+  final public func extract(_ entry: Identy.Entry, to url: Foundation.URL, bufferSize: Swift.UInt32 = defaultReadChunkSize, skipCRC32: Swift.Bool = false, progress: Foundation.Progress? = nil) throws -> Identy.CRC32
+  final public func extract(_ entry: Identy.Entry, bufferSize: Swift.UInt32 = defaultReadChunkSize, skipCRC32: Swift.Bool = false, progress: Foundation.Progress? = nil, consumer: (_ data: Foundation.Data) throws -> Swift.Void) throws -> Identy.CRC32
+}
+public class FingerStatusUpdater {
+  public init()
+  public var onStatusUpdate: ((_ status: Identy.CaptureStatus) -> Swift.Void)?
+  @objc deinit
+}
+public class IdentyUser {
+  public var userName: Swift.String!
+  public var userID: Swift.String!
+  public init(name: Swift.String)
+  @objc deinit
+}
+public struct Keys {
+  public static let isNeedShowTraining: Swift.String
+  public static let isFirstTime: Swift.String
+  public static let isAntiSpoof: Swift.String
+  public static let isMissingFinger: Swift.String
+  public static let isShowGuide: Swift.String
+  public static let isFlash: Swift.String
+  public init()
+}
+public enum HandType : Swift.Int {
+  case left
+  case right
+  case both
+  case none
+  public var handNameString: Swift.String {
+    get
+  }
+  public init?(rawValue: Swift.Int)
+  public typealias RawValue = Swift.Int
+  public var rawValue: Swift.Int {
+    get
+  }
+}
+public enum selectedFingerType : Swift.Int {
+  case leftIndex
+  case leftMiddle
+  case leftRing
+  case leftLittle
+  case rightIndex
+  case rightMiddle
+  case rightRing
+  case rightLittle
+  public init?(rawValue: Swift.Int)
+  public typealias RawValue = Swift.Int
+  public var rawValue: Swift.Int {
+    get
+  }
+}
+public enum HandScanType : Swift.Int {
+  case none
+  case l4f
+  case leftIndex
+  case leftMiddle
+  case leftRing
+  case leftLittle
+  case r4f
+  case rightIndex
+  case rightMiddle
+  case rightRing
+  case rightLittle
+  case leftThumb
+  case rightThumb
+  case twoThumb
+  public var handScanTypeString: Swift.String {
+    get
+  }
+  public var toString: Swift.String {
+    get
+  }
+  public var fingerString: Swift.String {
+    get
+  }
+  public init?(rawValue: Swift.Int)
+  public typealias RawValue = Swift.Int
+  public var rawValue: Swift.Int {
+    get
+  }
+}
+public enum FingerType : Swift.Int {
+  case index
+  case middle
+  case ring
+  case little
+  case thumb
+  case leftthumb
+  case rightthumb
+  case none
+  public var fingerTypeString: Swift.String {
+    get
+  }
+  public init?(rawValue: Swift.Int)
+  public typealias RawValue = Swift.Int
+  public var rawValue: Swift.Int {
+    get
+  }
+}
+public enum FingerScanResult : Swift.Int {
+  case successEnroll
+  case verifySuccess
+  case verifyFailure
+  case captureSuccess
+  case none
+  public var resultString: Swift.String {
+    get
+  }
+  public var resultColor: UIKit.UIColor {
+    get
+  }
+  public init?(rawValue: Swift.Int)
+  public typealias RawValue = Swift.Int
+  public var rawValue: Swift.Int {
+    get
+  }
+}
+public enum QualityMode {
+  case ENROLLMENT
+  case VERIFICATION
+  public static func == (a: Identy.QualityMode, b: Identy.QualityMode) -> Swift.Bool
+  public func hash(into hasher: inout Swift.Hasher)
+  public var hashValue: Swift.Int {
+    get
+  }
+}
+public enum ScanStatus : Swift.Int {
+  case searchingLeftFourFingers
+  case searchingRightFourFingers
+  case searchingLeftThumb
+  case searchingRightThumb
+  case searchingLeftMissingFingers
+  case serachingRightMissingFingers
+  case searchingTwoThumbs
+  case spoof
+  case hold
+  case hold0
+  case hold1
+  case hold2
+  case hold3
+  case hold4
+  case hold5
+  case capturing
+  case captured
+  case insideGuide
+  case stableMsg
+  case moveclose
+  case moveFar
+  public var statusString: Swift.String {
+    get
+  }
+  public init?(rawValue: Swift.Int)
+  public typealias RawValue = Swift.Int
+  public var rawValue: Swift.Int {
+    get
+  }
+}
+public enum AppMode : Swift.Int {
+  case demo
+  case commercial
+  public var appModeName: Swift.String {
+    get
+  }
+  public init?(rawValue: Swift.Int)
+  public typealias RawValue = Swift.Int
+  public var rawValue: Swift.Int {
+    get
+  }
+}
+public enum AppUI : Swift.Int {
+  case scanningBar
+  case boxes
+  case image
+  public var appUIName: Swift.String {
+    get
+  }
+  public init?(rawValue: Swift.Int)
+  public typealias RawValue = Swift.Int
+  public var rawValue: Swift.Int {
+    get
+  }
+}
+public enum WSQCompressionType : Swift.Int {
+  case WSQ_5_1
+  case WSQ_10_1
+  case WSQ_15_1
+  public var compressionName: Swift.String {
+    get
+  }
+  public init?(rawValue: Swift.Int)
+  public typealias RawValue = Swift.Int
+  public var rawValue: Swift.Int {
+    get
+  }
+}
+public enum base64encoding : Swift.Int {
+  case Default
+  case NO_CLOSE
+  case NO_PADDING
+  case NO_WRAP
+  case URL_SAFE
+  public var base64Value: Swift.Int {
+    get
+  }
+  public init?(rawValue: Swift.Int)
+  public typealias RawValue = Swift.Int
+  public var rawValue: Swift.Int {
+    get
+  }
+}
+extension Foundation.FileManager {
+  public func zipItem(at sourceURL: Foundation.URL, to destinationURL: Foundation.URL, shouldKeepParent: Swift.Bool = true, compressionMethod: Identy.CompressionMethod = .none, progress: Foundation.Progress? = nil) throws
+  public func unzipItem(at sourceURL: Foundation.URL, to destinationURL: Foundation.URL, skipCRC32: Swift.Bool = false, progress: Foundation.Progress? = nil, preferredEncoding: Swift.String.Encoding? = nil) throws
+}
+extension Foundation.URL {
+  public func isContained(in parentDirectoryURL: Foundation.URL) -> Swift.Bool
+}
+public class IdentyCustomEncryption {
+  public var encrypt: ((_ data: Foundation.NSData?) -> Foundation.NSData)?
+  public var decrypt: ((_ data: Foundation.NSData?) -> Foundation.NSData)?
+  public init()
+  @objc deinit
+}
+@_hasMissingDesignatedInitializers public class FingerAttempt {
+  public func getScore() -> [Identy.FingerType : Swift.Int]?
+  public func getSpoofScore() -> CoreFoundation.CGFloat
+  public func getqScore() -> Swift.Int
+  public func getCaptureTime() -> Swift.Double
+  public func getProcessingTime() -> Swift.Double
+  public func getMatchingTime() -> Swift.Double
+  public func getIsAuthSuccess() -> Swift.Bool
+  public func getData() -> Swift.String?
+  public func getError() -> Identy.IdentyError?
+  public func getNumOfFrames() -> Swift.Int
+  public func getNumOfPassedFrames() -> Swift.Int
+  public func getisSpoof() -> Swift.Bool
+  @objc deinit
+}
+public protocol enrollSuccess {
+  func moveToViewController(viewControl: UIKit.UIViewController?, completionHandler: @escaping (_ status: Swift.Bool, _ responseModel: Identy.IdentyResponse?, _ errorMessage: Swift.String?) -> Swift.Void)
+  func showResponse(completionHandler: @escaping (_ status: Swift.Bool, _ responseModel: Identy.IdentyResponse?, _ errorMessage: Swift.String?) -> Swift.Void)
+}
+public class IdentyFramework {
+  public var uiSelect: Identy.AppUI
+  public var plainSolidColor: UIKit.UIColor?
+  public var boxesColor: UIKit.UIColor?
+  public var boxes_transparent: UIKit.UIColor?
+  public var boxes_transparent_innerborder: UIKit.UIColor?
+  public var startColor: UIKit.UIColor?
+  public var middleColor: UIKit.UIColor?
+  public var endColor: UIKit.UIColor?
+  public var scanningBarColor: UIKit.UIColor!
+  public var setBase64EncodingFlag: Swift.Int
+  public var handScanTypeArray: [Identy.HandScanType]
+  public var setSelectedFingers: [Identy.selectedFingerType]
+  public var wsqCompression: Identy.WSQCompressionType
+  public var isNeedShowTraining: Swift.Bool
+  public var setBoxImage: UIKit.UIImage?
+  public var backImage: UIKit.UIImage!
+  public var isLicenseCheck: Swift.Bool
+  public var isAntiSpoofCheck: Swift.Bool
+  public var isDemo: Swift.Bool
+  public var isBoxes: Swift.Bool
+  public var setHandChangeImage: UIKit.UIImage?
+  public var gif4FData: Foundation.Data?
+  public var gifThumbData: Foundation.Data?
+  public var introScreenStartColor: UIKit.UIColor!
+  public var introScreenMiddleColor: UIKit.UIColor!
+  public var introScreenEndColor: UIKit.UIColor!
+  public var setMatcherConfidence: Identy.Confidence!
+  public var displayResult: Swift.Bool
+  public var setWidthHeight: (width: Swift.Int, height: Swift.Int)
+  public var encryptionKey: Swift.String?
+  public var customQualityViewController: UIKit.UIViewController!
+  public var customResultViewController: UIKit.UIViewController!
+  public var customIntroViewController: UIKit.UIViewController!
+  public var customThumbIntroViewController: UIKit.UIViewController!
+  public var isCustomQualityScreen: Swift.Bool
+  public var isCustomResultScreen: Swift.Bool
+  public var isCustomIntroScreen: Swift.Bool
+  public var isCustomThumbIntroScreen: Swift.Bool
+  public var moveToCamera: (() -> Swift.Void)?
+  public var moveBack: (() -> Swift.Void)?
+  public var closeAction: (() -> Swift.Void)?
+  public var captureResult: (() -> Swift.String)?
+  public var retakeAction: (() -> Swift.Void)?
+  public var allowHandChange: Swift.Bool
+  public var isLogEnabled: Swift.Bool
+  public var isInitialize: Swift.Bool
+  public var enableMoveNextDialog: Swift.Bool
+  public var isAssisted: Swift.Bool!
+  public var isShowGuide: Swift.Bool
+  public var left4fGuide: UIKit.UIImage!
+  public var right4fGuide: UIKit.UIImage!
+  public var thumbGuide: UIKit.UIImage!
+  public var leftSingleFingerGuide: UIKit.UIImage!
+  public var rightSingleFingerGuide: UIKit.UIImage!
+  public var isFlash: Swift.Bool
+  public typealias Identy_UserManager = Identy.IdentyUserManager
+  public typealias Identy_User = Identy.IdentyUser
+  public var timeout: Swift.Double
+  public var attempts: Swift.UInt
+  public var enableGImage: Swift.Bool
+  public var textColor: UIKit.UIColor?
+  public var headerTextColor: UIKit.UIColor?
+  public var alertTextColor: UIKit.UIColor?
+  public var alertButtonTextColor: UIKit.UIColor?
+  public var backButtonAlert: UIKit.UIAlertController?
+  public var timeoutAlert: UIKit.UIAlertController?
+  public var spoofAlert: UIKit.UIAlertController?
+  public var recognitionAlert: UIKit.UIAlertController?
+  public var disableDisplayTransactionAlerts: Swift.Bool
+  public var disableDisplayBackButtonAlert: Swift.Bool
+  public init(with licensePath: Swift.String?, localizablePath: Swift.String?, table: Swift.String?)
+  public init(with licenseData: Foundation.Data?, localizablePath: Swift.String?, table: Swift.String?)
+  public func getVersion() -> Swift.String
+  public func setQualityMode(mode: Identy.QualityMode)
+  public func enroll(viewcontrol: UIKit.UIViewController?, user: Identy.IdentyUser?, onSuccess success: @escaping (_ responseModel: Identy.IdentyResponse?, _ transactionID: [Swift.String]?, _ noOfAttempts: Swift.Int) -> Swift.Void, onFailure failure: @escaping (_ error: Identy.IdentyError?, _ responseModel: Identy.IdentyResponse?, _ transactionID: [Swift.String]?, _ noOfAttempts: Swift.Int) -> Swift.Void, onAttempts attempts: @escaping (_ responseAttempts: [Identy.FingerAttempt]?) -> Swift.Void)
+  public func enroll(viewcontrol: UIKit.UIViewController?, onSuccess success: @escaping (_ responseModel: Identy.IdentyResponse?, _ transactionID: [Swift.String]?, _ noOfAttempts: Swift.Int) -> Swift.Void, onFailure failure: @escaping (_ error: Identy.IdentyError?, _ responseModel: Identy.IdentyResponse?, _ transactionID: [Swift.String]?, _ noOfAttempts: Swift.Int) -> Swift.Void, onAttempts attempts: @escaping (_ responseAttempts: [Identy.FingerAttempt]?) -> Swift.Void)
+  public func verify(viewcontrol: UIKit.UIViewController?, user: Identy.IdentyUser?, onSuccess success: @escaping (_ responseModel: Identy.IdentyResponse?, _ transactionID: [Swift.String]?, _ noOfAttempts: Swift.Int) -> Swift.Void, onFailure failure: @escaping (_ error: Identy.IdentyError?, _ responseModel: Identy.IdentyResponse?, _ transactionID: [Swift.String]?, _ noOfAttempts: Swift.Int) -> Swift.Void, onAttempts attempts: @escaping (_ responseAttempts: [Identy.FingerAttempt]?) -> Swift.Void)
+  public func verify(viewcontrol: UIKit.UIViewController?, onSuccess success: @escaping (_ responseModel: Identy.IdentyResponse?, _ transactionID: [Swift.String]?, _ noOfAttempts: Swift.Int) -> Swift.Void, onFailure failure: @escaping (_ error: Identy.IdentyError?, _ responseModel: Identy.IdentyResponse?, _ transactionID: [Swift.String]?, _ noOfAttempts: Swift.Int) -> Swift.Void, onAttempts attempts: @escaping (_ responseAttempts: [Identy.FingerAttempt]?) -> Swift.Void)
+  public func capture(viewcontrol: UIKit.UIViewController?, onSuccess success: @escaping (_ responseModel: Identy.IdentyResponse?, _ transactionID: [Swift.String]?, _ noOfAttempts: Swift.Int) -> Swift.Void, onFailure failure: @escaping (_ error: Identy.IdentyError?, _ responseModel: Identy.IdentyResponse?, _ transactionID: [Swift.String]?, _ noOfAttempts: Swift.Int) -> Swift.Void, onAttempts attempts: @escaping (_ responseAttempts: [Identy.FingerAttempt]?) -> Swift.Void)
+  public func enrollWithTemplates(viewcontrol: UIKit.UIViewController?, template: Identy.AppTemplateFormat, fingerDataDict: [[Swift.String] : Swift.String], onSuccess success: @escaping (_ responseModel: Identy.IdentyResponse?, _ transactionID: [Swift.String]?) -> Swift.Void, onFailure failure: @escaping (_ error: Identy.IdentyError?, _ transactionID: [Swift.String]?) -> Swift.Void)
+  public func verifyWithTemplates(viewcontrol: UIKit.UIViewController?, template: Identy.AppTemplateFormat, fingerDataDict: [[Swift.String] : Swift.String], onSuccess success: @escaping (_ responseModel: Identy.IdentyResponse?, _ transactionID: [Swift.String]?, _ noOfAttempts: Swift.Int) -> Swift.Void, onFailure failure: @escaping (_ error: Identy.IdentyError?, _ responseModel: Identy.IdentyResponse?, _ transactionID: [Swift.String]?, _ noOfAttempts: Swift.Int) -> Swift.Void, onAttempts attempts: @escaping (_ responseAttempts: [Identy.FingerAttempt]?) -> Swift.Void)
+  public func verifyWithTemplatesData(viewcontrol: UIKit.UIViewController?, template: Identy.AppTemplateFormat, fingerDataDict: [[Swift.String] : Swift.String], onSuccess success: @escaping (_ responseModel: Identy.IdentyResponse?, _ transactionID: [Swift.String]?, _ noOfAttempts: Swift.Int) -> Swift.Void, onFailure failure: @escaping (_ error: Identy.IdentyError?, _ responseModel: Identy.IdentyResponse?, _ transactionID: [Swift.String]?, _ noOfAttempts: Swift.Int) -> Swift.Void, onAttempts attempts: @escaping (_ responseAttempts: [Identy.FingerAttempt]?) -> Swift.Void)
+  public func setInlineOptions(opt: Identy.InlineGuideOptions)
+  public func setAsSecMode(_ asSecMode: Identy.FingerAS)
+  public func getLicenseExpiryDate() -> Foundation.Date?
+  public func setHandScanTypeArray(values: Swift.Array<Swift.Int>)
+  public func setRequiredTemplates(templates: Swift.Dictionary<Identy.AppTemplateFormat, Swift.Dictionary<Identy.FingerType, [Identy.TemplateSize]>>)
+  public func customEncryption(customEncrypt: Identy.IdentyCustomEncryption?)
+  public func removeEnrollment(viewcontrol: UIKit.UIViewController, user: Identy.IdentyFramework.Identy_User, onSuccess success: @escaping (_ responseModel: Identy.IdentyResponse?) -> Swift.Void, onFailure failure: @escaping (_ error: Identy.IdentyError?) -> Swift.Void)
+  public func removeEnrollment(viewcontrol: UIKit.UIViewController, onSuccess success: @escaping (_ responseModel: Identy.IdentyResponse?) -> Swift.Void, onFailure failure: @escaping (_ error: Identy.IdentyError?) -> Swift.Void)
+  public func matchWithTemplate(viewcontrol: UIKit.UIViewController, probeTemplateType: Identy.AppTemplateFormat, probeTemplates: (hand: Swift.String, finger: Swift.String, data: Foundation.Data), candidateTemplateType: Identy.AppTemplateFormat, candidateTemplates: (hand: Swift.String, finger: Swift.String, data: Foundation.Data), onSuccess success: @escaping (_ responseModel: Identy.IdentyResponse?, _ transactionID: [Swift.String]?) -> Swift.Void, onFailure failure: @escaping (_ error: Identy.IdentyError?, _ transactionID: [Swift.String]?) -> Swift.Void)
+  public func checkWidthHeight() -> Swift.Bool
+  public func setStatusUpdater(_ status: Identy.FingerStatusUpdater)
+  @objc deinit
+}
+public class InlineGuideOptions {
+  public init(guideTime: Swift.Double, delayTime: Swift.Double)
+  @objc deinit
+}
+extension UIKit.UIImageView {
+  @_Concurrency.MainActor(unsafe) public func loadGif(data: Foundation.Data, bundle: Foundation.Bundle)
+  @available(iOS 9.0, *)
+  @_Concurrency.MainActor(unsafe) public func loadGif(asset: Swift.String)
+}
+extension UIKit.UIImage {
+  public class func gif(data: Foundation.Data) -> UIKit.UIImage?
+  public class func gif(url: Swift.String) -> UIKit.UIImage?
+  public class func gif(name: Swift.String, bundle: Foundation.Bundle) -> UIKit.UIImage?
+  @available(iOS 9.0, *)
+  public class func gif(asset: Swift.String) -> UIKit.UIImage?
+}
+extension Identy.Archive {
+  final public var data: Foundation.Data? {
+    get
+  }
+}
+public struct Entry : Swift.Equatable {
+  public enum EntryType : Swift.Int {
+    case file
+    case directory
+    case symlink
+    public init?(rawValue: Swift.Int)
+    public typealias RawValue = Swift.Int
+    public var rawValue: Swift.Int {
+      get
+    }
+  }
+  public func path(using encoding: Swift.String.Encoding) -> Swift.String
+  public var path: Swift.String {
+    get
+  }
+  public var fileAttributes: [Foundation.FileAttributeKey : Any] {
+    get
+  }
+  public var checksum: Identy.CRC32 {
+    get
+  }
+  public var type: Identy.Entry.EntryType {
+    get
+  }
+  public var compressedSize: Swift.Int {
+    get
+  }
+  public var uncompressedSize: Swift.Int {
+    get
+  }
+  public static func == (lhs: Identy.Entry, rhs: Identy.Entry) -> Swift.Bool
+}
+public class IdentyUserManager {
+  public class var getInstance: Identy.IdentyUserManager {
+    get
+  }
+  public init()
+  public func getUsers() -> [Identy.IdentyUser?]
+  public func createUser(_ user: Identy.IdentyUser?, completionhandler: @escaping (_ responseDict: Identy.IdentyResponse?) -> Swift.Void)
+  public func deleteUser(_ user: Identy.IdentyUser?, completionhandler: @escaping (_ responseDict: Identy.IdentyResponse?) -> Swift.Void)
+  public func updateUser(_ existingUser: Identy.IdentyUser?, _ updateToUser: Identy.IdentyUser?, completionhandler: @escaping (_ responseDict: Identy.IdentyResponse?) -> Swift.Void)
+  @objc deinit
+}
+public class OS_Logger {
+  public init(bundle: Foundation.Bundle)
+  public enum OS_Type : Swift.Int {
+    case debug, error, info, defaultType
+    public init?(rawValue: Swift.Int)
+    public typealias RawValue = Swift.Int
+    public var rawValue: Swift.Int {
+      get
+    }
+  }
+  public enum OS_Category : Swift.Int {
+    case app, ui, network, database
+    public init?(rawValue: Swift.Int)
+    public typealias RawValue = Swift.Int
+    public var rawValue: Swift.Int {
+      get
+    }
+  }
+  public enum AccessLevel : Swift.Int {
+    case publicAccess, privateAccess
+    public init?(rawValue: Swift.Int)
+    public typealias RawValue = Swift.Int
+    public var rawValue: Swift.Int {
+      get
+    }
+  }
+  open func log(category: Identy.OS_Logger.OS_Category, message: Swift.String, access: Identy.OS_Logger.AccessLevel, type: Identy.OS_Logger.OS_Type)
+  @objc deinit
+}
+extension Identy.CompressionMethod : Swift.Equatable {}
+extension Identy.CompressionMethod : Swift.Hashable {}
+extension Identy.CompressionMethod : Swift.RawRepresentable {}
+extension Identy.Archive.ArchiveError : Swift.Equatable {}
+extension Identy.Archive.ArchiveError : Swift.Hashable {}
+extension Identy.Archive.AccessMode : Swift.Equatable {}
+extension Identy.Archive.AccessMode : Swift.Hashable {}
+extension Identy.Archive.AccessMode : Swift.RawRepresentable {}
+extension Identy.IdentyError : Swift.Equatable {}
+extension Identy.IdentyError : Swift.Hashable {}
+extension Identy.AppTemplateFormat : Swift.Equatable {}
+extension Identy.AppTemplateFormat : Swift.Hashable {}
+extension Identy.AppTemplateFormat : Swift.RawRepresentable {}
+extension Identy.FingerAS : Swift.Equatable {}
+extension Identy.FingerAS : Swift.Hashable {}
+extension Identy.FingerAS : Swift.RawRepresentable {}
+extension Identy.CaptureStatus : Swift.Equatable {}
+extension Identy.CaptureStatus : Swift.Hashable {}
+extension Identy.Confidence : Swift.Equatable {}
+extension Identy.Confidence : Swift.Hashable {}
+extension Identy.Confidence : Swift.RawRepresentable {}
+extension Identy.TemplateSize : Swift.Equatable {}
+extension Identy.TemplateSize : Swift.Hashable {}
+extension Identy.TemplateSize : Swift.RawRepresentable {}
+extension Identy.HandType : Swift.Equatable {}
+extension Identy.HandType : Swift.Hashable {}
+extension Identy.HandType : Swift.RawRepresentable {}
+extension Identy.selectedFingerType : Swift.Equatable {}
+extension Identy.selectedFingerType : Swift.Hashable {}
+extension Identy.selectedFingerType : Swift.RawRepresentable {}
+extension Identy.HandScanType : Swift.Equatable {}
+extension Identy.HandScanType : Swift.Hashable {}
+extension Identy.HandScanType : Swift.RawRepresentable {}
+extension Identy.FingerType : Swift.Equatable {}
+extension Identy.FingerType : Swift.Hashable {}
+extension Identy.FingerType : Swift.RawRepresentable {}
+extension Identy.FingerScanResult : Swift.Equatable {}
+extension Identy.FingerScanResult : Swift.Hashable {}
+extension Identy.FingerScanResult : Swift.RawRepresentable {}
+extension Identy.QualityMode : Swift.Equatable {}
+extension Identy.QualityMode : Swift.Hashable {}
+extension Identy.ScanStatus : Swift.Equatable {}
+extension Identy.ScanStatus : Swift.Hashable {}
+extension Identy.ScanStatus : Swift.RawRepresentable {}
+extension Identy.AppMode : Swift.Equatable {}
+extension Identy.AppMode : Swift.Hashable {}
+extension Identy.AppMode : Swift.RawRepresentable {}
+extension Identy.AppUI : Swift.Equatable {}
+extension Identy.AppUI : Swift.Hashable {}
+extension Identy.AppUI : Swift.RawRepresentable {}
+extension Identy.WSQCompressionType : Swift.Equatable {}
+extension Identy.WSQCompressionType : Swift.Hashable {}
+extension Identy.WSQCompressionType : Swift.RawRepresentable {}
+extension Identy.base64encoding : Swift.Equatable {}
+extension Identy.base64encoding : Swift.Hashable {}
+extension Identy.base64encoding : Swift.RawRepresentable {}
+extension Identy.Entry.EntryType : Swift.Equatable {}
+extension Identy.Entry.EntryType : Swift.Hashable {}
+extension Identy.Entry.EntryType : Swift.RawRepresentable {}
+extension Identy.OS_Logger.OS_Type : Swift.Equatable {}
+extension Identy.OS_Logger.OS_Type : Swift.Hashable {}
+extension Identy.OS_Logger.OS_Type : Swift.RawRepresentable {}
+extension Identy.OS_Logger.OS_Category : Swift.Equatable {}
+extension Identy.OS_Logger.OS_Category : Swift.Hashable {}
+extension Identy.OS_Logger.OS_Category : Swift.RawRepresentable {}
+extension Identy.OS_Logger.AccessLevel : Swift.Equatable {}
+extension Identy.OS_Logger.AccessLevel : Swift.Hashable {}
+extension Identy.OS_Logger.AccessLevel : Swift.RawRepresentable {}

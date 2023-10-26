@@ -1,0 +1,139 @@
+// swift-interface-format-version: 1.0
+// swift-compiler-version: Apple Swift version 5.3.2 (swiftlang-1200.0.45 clang-1200.0.32.28)
+// swift-module-flags: -target arm64-apple-ios12.4 -enable-objc-interop -enable-library-evolution -swift-version 5 -enforce-exclusivity=checked -Onone -module-name PS_Notification
+import PS_Core
+@_exported import PS_Notification
+import Swift
+public enum enumTypeRead : Swift.Int {
+  case noRead
+  case read
+  case all
+  public typealias RawValue = Swift.Int
+  public init?(rawValue: Swift.Int)
+  public var rawValue: Swift.Int {
+    get
+  }
+}
+public enum enumTypeInbox : Swift.Int {
+  case event
+  case messagePush
+  case survey
+  case requiredToken
+  case requiredFaceToken
+  case notificationFree
+  public typealias RawValue = Swift.Int
+  public init?(rawValue: Swift.Int)
+  public var rawValue: Swift.Int {
+    get
+  }
+}
+public class PSUpdateMessageResponse : PS_Core.PSBaseResponseModel {
+  public var codeAnswer: Swift.String
+  public var msg: Swift.String
+  public var idSendMessage: Swift.Int
+  required public init(from decoder: Swift.Decoder) throws
+  @objc deinit
+  override public init()
+}
+@_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers public class PSUpdateMessageRequest : PS_Core.PSBaseRequestModel {
+  public var userModificator: Swift.String
+  public var curp: Swift.String
+  public var idSendMessage: Swift.String
+  public var idAnswer: Swift.Int
+  public var otp: Swift.String
+  public var password: Swift.String?
+  public var typeApp: Swift.String
+  public var descriptionApp: Swift.String
+  override public func encode(to encoder: Swift.Encoder) throws
+  @objc deinit
+}
+@_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers public class PSNotificationsDetailRequest : PS_Core.PSBaseRequestModel {
+  public var id: Swift.String
+  public var typeInbox: Swift.String
+  override public func encode(to encoder: Swift.Encoder) throws
+  @objc deinit
+}
+public class PSDeeplinkResponse : PS_Core.PSBaseResponseModel {
+  public var navKey: Swift.String
+  public var subNavKey: Swift.String
+  public var method: Swift.String
+  public var ukey: Swift.String
+  public var ius: Swift.String
+  public var notificacion: Swift.String
+  public var url: Swift.String
+  required public init(from decoder: Swift.Decoder) throws
+  @objc deinit
+  override public init()
+}
+public class PSInboxDetailResponse : PS_Core.PSBaseResponseModel {
+  public var typeInbox: Swift.Int
+  public var title: Swift.String
+  public var dateSend: Swift.String
+  public var numEventStatus: Swift.String
+  public var idMessage: Swift.Int
+  public var messageNotification: Swift.String
+  public var curp: Swift.String
+  public var deployment: Swift.String
+  public var dateValidity: Swift.String
+  public var typeProcess: Swift.String
+  public var answers: [PS_Notification.PSAnswersResponse]
+  public var selectedAnswer: Swift.Int
+  required public init(from decoder: Swift.Decoder) throws
+  @objc deinit
+  override public init()
+}
+@_inheritsConvenienceInitializers open class PSNotificationViewModel : PS_Core.PSBaseViewModel {
+  public var onSuccessGetNotifications: ((PS_Notification.PSNotificationsResponse) -> ())?
+  public var onSuccessGetNotificationDetail: ((PS_Notification.PSNotificationsDetailResponse) -> ())?
+  public var onSuccessUpdateNotification: ((PS_Notification.PSUpdateMessageResponse) -> ())?
+  public func performGetNotifications(curp: Swift.String, read: PS_Notification.enumTypeRead)
+  public func performGetNotificationDetail<T>(id: T, type: PS_Notification.enumTypeInbox)
+  public func performUpdateNotification(updateMessage: PS_Notification.PSUpdateMessageParameters, updateMessageMore: PS_Notification.PSUpdateMessageMoreParameters)
+  @objc deinit
+  override public init()
+}
+public class PSNotificationsDetailResponse : PS_Core.PSBaseResponseModel {
+  public var inbox: PS_Notification.PSInboxDetailResponse?
+  required public init(from decoder: Swift.Decoder) throws
+  @objc deinit
+  override public init()
+}
+@_hasMissingDesignatedInitializers public class PSInboxResponse : Swift.Codable {
+  public var typeInbox: Swift.Int
+  public var title: Swift.String
+  public var dateSend: Swift.String
+  public var numEventStatus: Swift.String
+  public var idMessage: Swift.Int
+  public var message: Swift.String
+  public var curp: Swift.String
+  public var fechaVigence: Swift.String
+  public var typeProcess: Swift.String
+  public var currentDate: Swift.String
+  public var selectedAnswer: Swift.Int
+  public var isReadMessage: Swift.Bool
+  public var deeplink: PS_Notification.PSDeeplinkResponse?
+  required public init(from decoder: Swift.Decoder) throws
+  @objc deinit
+  public func encode(to encoder: Swift.Encoder) throws
+}
+public class PSAnswersResponse : PS_Core.PSBaseResponseModel {
+  public var idAnswer: Swift.Int
+  public var description: Swift.String
+  required public init(from decoder: Swift.Decoder) throws
+  @objc deinit
+  override public init()
+}
+public struct PSUpdateMessageParameters {
+  public init(userModificator: Swift.String = "PantallasWebApp2", curp: Swift.String, idSendMessage: Swift.String, idAnswer: Swift.Int)
+}
+public struct PSUpdateMessageMoreParameters {
+  public init(otp: Swift.String = "PantallasWebApp2", password: Swift.String? = nil, typeApp: PS_Core.enumOriginAPP, descriptionApp: Swift.String)
+}
+public class PSNotificationsResponse : PS_Core.PSBaseResponseModel {
+  public var mark: Swift.String
+  public var resultOperation: Swift.String
+  public var inbox: [PS_Notification.PSInboxResponse]
+  required public init(from decoder: Swift.Decoder) throws
+  @objc deinit
+  override public init()
+}

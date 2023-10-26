@@ -1,0 +1,6 @@
+framework module DaonIDCaptureSDK {
+  umbrella header "DaonIDCaptureSDK.h"
+
+  export *
+  module * { export * }
+}

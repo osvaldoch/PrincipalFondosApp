@@ -1,0 +1,1359 @@
+// swift-interface-format-version: 1.0
+// swift-compiler-version: Apple Swift version 5.8 (swiftlang-5.8.0.124.2 clang-1403.0.22.11.100)
+// swift-module-flags: -target arm64-apple-ios11.4 -enable-objc-interop -enable-library-evolution -swift-version 5 -enforce-exclusivity=checked -Onone -module-name PS_Facial_Services
+// swift-module-flags-ignorable: -enable-bare-slash-regex
+import Foundation
+@_exported import PS_Facial_Services
+import Swift
+import UIKit
+import _Concurrency
+import _StringProcessing
+@_inheritsConvenienceInitializers open class PSFSUpdateAuthenticationResponse : PS_Facial_Services.PSFSCodableBaseResponse {
+  public var href: Swift.String
+  public var id: Swift.String
+  public var complete: Swift.Bool
+  public var authenticationRequestId: Swift.String
+  public var description: Swift.String
+  public var verificationResult: Swift.String
+  public var expiration: Swift.String
+  public var availableRetries: Swift.Int
+  public var totalRetriesAllowed: Swift.Int
+  public var processed: Swift.String
+  public var created: Swift.String
+  public var type: Swift.String
+  public var fidoChallenge: Swift.String
+  public var fidoAuthenticationRequest: Swift.String
+  public var fidoAuthenticationResponse: Swift.String
+  public var fidoResponseCode: Swift.Int
+  public var fidoResponseMsg: Swift.String
+  public var status: Swift.String
+  public var deviceStatus: Swift.String
+  public var captureDataResponses: [PS_Facial_Services.PSFSUpdateAuthenticationCaptureDataResponse]?
+  public var registration: PS_Facial_Services.PSFSHrefEntityModel?
+  public var policy: PS_Facial_Services.PSFSHrefEntityModel?
+  public var application: PS_Facial_Services.PSFSHrefEntityModel?
+  public var user: PS_Facial_Services.PSFSUpdateAuthenticationUserResponse?
+  public var tenant: PS_Facial_Services.PSFSHrefEntityModel?
+  required public init(from decoder: any Swift.Decoder) throws
+  override public init()
+  @objc deinit
+}
+@_inheritsConvenienceInitializers open class PSFSUpdateAuthenticationUserResponse : PS_Facial_Services.PSFSCodableBaseResponse {
+  public var href: Swift.String
+  public var userId: Swift.String
+  required public init(from decoder: any Swift.Decoder) throws
+  override public init()
+  @objc deinit
+}
+@_inheritsConvenienceInitializers open class PSFSUpdateAuthenticationCaptureDataResponse : PS_Facial_Services.PSFSCodableBaseResponse {
+  public var fidoResponse: Swift.String
+  public var sequence: Swift.Int
+  public var authenticatorAttestationId: Swift.String
+  required public init(from decoder: any Swift.Decoder) throws
+  override public init()
+  @objc deinit
+}
+public class Face : Swift.Codable {
+  public var id: Swift.String?
+  public var subtype: Swift.String?
+  public var captured: Foundation.Date?
+  public var created: Foundation.Date?
+  public var clientMetrics: PS_Facial_Services.FaceMetrics?
+  public var serverMetrics: PS_Facial_Services.FaceMetrics?
+  public var readOnly: Swift.Bool
+  public var sensitiveData: PS_Facial_Services.FaceImageData?
+  public var document: PS_Facial_Services.Document?
+  public var livenessVideo: PS_Facial_Services.LivenessVideo?
+  public var evaluationResult: PS_Facial_Services.EvaluationResult?
+  public var allowedPermissions: Swift.String?
+  public var href: Swift.String?
+  required public init(from decoder: any Swift.Decoder) throws
+  @objc deinit
+  public func encode(to encoder: any Swift.Encoder) throws
+}
+@objc @_inheritsConvenienceInitializers public class PSFSImageResult : ObjectiveC.NSObject {
+  public var fmr: Swift.Float?
+  public var result: Swift.String?
+  public var score: Swift.Float?
+  public var threshold: Swift.Float?
+  @objc override dynamic public init()
+  @objc deinit
+}
+public struct PSFSDocumentCatalog {
+  public var documentos: [PS_Facial_Services.PSFSDocumentCatalog.Document]
+  public init(documentos: [PS_Facial_Services.PSFSDocumentCatalog.Document])
+  public struct Document {
+    public enum DocuementType : Swift.String {
+      case ine
+      case matrículaConsular
+      case pasaporte
+      case fm2
+      public init?(rawValue: Swift.String)
+      public typealias RawValue = Swift.String
+      public var rawValue: Swift.String {
+        get
+      }
+    }
+    public var type: PS_Facial_Services.PSFSDocumentCatalog.Document.DocuementType
+    public var documentos: [Swift.String]
+    public init(type: PS_Facial_Services.PSFSDocumentCatalog.Document.DocuementType, documentos: [Swift.String])
+  }
+}
+@_inheritsConvenienceInitializers public class PSFSNullRequest : PS_Facial_Services.PSEncodableBaseRequest {
+  override public init(from decoder: any Swift.Decoder) throws
+  override public init()
+  @objc deinit
+}
+@_inheritsConvenienceInitializers open class PSFSCreateAuthenticationResponse : PS_Facial_Services.PSFSCodableBaseResponse {
+  public var href: Swift.String
+  public var id: Swift.String
+  public var authenticationRequestId: Swift.String
+  public var description: Swift.String
+  public var expiration: Swift.String
+  public var availableRetries: Swift.Int
+  public var totalRetriesAllowed: Swift.Int
+  public var created: Swift.String
+  public var type: Swift.String
+  public var fidoChallenge: Swift.String
+  public var fidoAuthenticationRequest: Swift.String
+  public var fidoAuthenticationResponse: Swift.String?
+  public var status: Swift.String
+  public var policy: PS_Facial_Services.PSFSHrefEntityModel?
+  public var application: PS_Facial_Services.PSFSHrefEntityModel?
+  public var applicationHref: Swift.String
+  public var user: PS_Facial_Services.PSFSHrefEntityModel?
+  public var tenant: PS_Facial_Services.PSFSHrefEntityModel?
+  public var userId: Swift.String
+  required public init(from decoder: any Swift.Decoder) throws
+  override public init()
+  @objc deinit
+}
+public class FaceMetrics : Swift.Codable {
+  public var qualityScore: Swift.Double
+  public var livenessScore: Swift.Double
+  public var allowedPermissions: Swift.String?
+  public var href: Swift.String?
+  required public init(from decoder: any Swift.Decoder) throws
+  @objc deinit
+  public func encode(to encoder: any Swift.Encoder) throws
+}
+open class PSFSCodableBaseResponse : Swift.Decodable {
+  required public init(from decoder: any Swift.Decoder) throws
+  public init()
+  @objc deinit
+}
+public class Policy : Swift.Codable {
+  public var id: Swift.String?
+  required public init(from decoder: any Swift.Decoder) throws
+  @objc deinit
+  public func encode(to encoder: any Swift.Encoder) throws
+}
+public class PSFSDocumentRequest : PS_Facial_Services.PSEncodableBaseRequest {
+  final public let captureType: Swift.String
+  final public let captured: Swift.String
+  final public let clientCapture: PS_Facial_Services.ClientCapture
+  public init(captureType: Swift.String, captured: Swift.String, clientCapture: PS_Facial_Services.ClientCapture)
+  override public func encode(to encoder: any Swift.Encoder) throws
+  @objc deinit
+}
+public struct ClientCapture : Swift.Codable {
+  public let images: [PS_Facial_Services.Image]
+  public init(images: [PS_Facial_Services.Image])
+  public func encode(to encoder: any Swift.Encoder) throws
+  public init(from decoder: any Swift.Decoder) throws
+}
+public struct Image : Swift.Codable {
+  public let captured: Swift.String
+  public let sensitiveData: PS_Facial_Services.SensitiveData
+  public let subtype: Swift.String
+  public let type: Swift.String
+  public init(captured: Swift.String, sensitiveData: PS_Facial_Services.SensitiveData, subtype: Swift.String, type: Swift.String)
+  public func encode(to encoder: any Swift.Encoder) throws
+  public init(from decoder: any Swift.Decoder) throws
+}
+public struct SensitiveData : Swift.Codable {
+  public let imageFormat: Swift.String
+  public let value: Swift.String
+  public init(imageFormat: Swift.String, value: Swift.String)
+  public func encode(to encoder: any Swift.Encoder) throws
+  public init(from decoder: any Swift.Decoder) throws
+}
+public class EvaluationResults : Swift.Codable {
+  public var items: [PS_Facial_Services.EvaluationResult]?
+  public var allowedPermissions: Swift.String?
+  public var href: Swift.String?
+  required public init(from decoder: any Swift.Decoder) throws
+  @objc deinit
+  public func encode(to encoder: any Swift.Encoder) throws
+}
+@_hasMissingDesignatedInitializers public class ServerOperationResult<T> : Swift.Codable where T : Swift.Decodable, T : Swift.Encodable {
+  public var error: PS_Facial_Services.CustomError?
+  public var response: T?
+  @objc deinit
+  public func encode(to encoder: any Swift.Encoder) throws
+  required public init(from decoder: any Swift.Decoder) throws
+}
+extension PS_Facial_Services.RegisterByURLServiceUtil {
+  public static func enrollUserWithDocs(psEnrollWithDocsRequest: PS_Facial_Services.PSEnrollWithDocsRequest, completion: @escaping (Foundation.NSError?) -> ())
+}
+open class PSFSAuthenticatorsResponse : PS_Facial_Services.PSFSCodableBaseResponse {
+  public var httpStatus: Swift.Int?
+  public var message: Swift.String?
+  public var developerMessage: Swift.String?
+  public var code: Swift.String?
+  public var items: [PS_Facial_Services.Authenticator]?
+  required public init(from decoder: any Swift.Decoder) throws
+  @objc deinit
+}
+@_hasMissingDesignatedInitializers public class PSFSEvaluationUtil {
+  public static let checkLivenessProofVSSelfieSubtype: Swift.String
+  public struct PSDocumentsEvaluation {
+  }
+  public static func getImageResultFromEvaluationResponse(response: PS_Facial_Services.PSFSCreateEvaluationResponse?) -> PS_Facial_Services.PSFSImageResult?
+  public static func validateEvaluationResponse(response: PS_Facial_Services.PSFSCreateEvaluationResponse?, selectedDocumentType: Swift.String) -> (any Swift.Error)?
+  @objc deinit
+}
+@_hasMissingDesignatedInitializers public class RegisterByURLServiceUtil {
+  public static func logout(curp: Swift.String, completion: @escaping (Foundation.NSError?) -> ())
+  public static func login(curp: Swift.String, encryptedPassword: Swift.String, completion: @escaping (_ token: Swift.String?, Foundation.NSError?) -> ())
+  @objc deinit
+}
+public class Evaluation : Swift.Codable {
+  public var id: Swift.String?
+  public var created: Foundation.Date?
+  public var evaluationPolicy: PS_Facial_Services.Policy?
+  public var results: PS_Facial_Services.EvaluationResults?
+  public var allowedPermissions: Swift.String?
+  public var href: Swift.String?
+  required public init(from decoder: any Swift.Decoder) throws
+  @objc deinit
+  public func encode(to encoder: any Swift.Encoder) throws
+}
+public class PSEncodableBaseRequest : Swift.Encodable {
+  public init(from decoder: any Swift.Decoder) throws
+  public init()
+  @objc deinit
+  public func encode(to encoder: any Swift.Encoder) throws
+}
+@_inheritsConvenienceInitializers public class IDCheck : PS_Facial_Services.BaseModel {
+  public var referenceId: Swift.String?
+  public var status: Swift.String?
+  public var documents: PS_Facial_Services.Href?
+  public var faces: PS_Facial_Services.Href?
+  public var evaluation: PS_Facial_Services.Href?
+  public var challenges: PS_Facial_Services.Href?
+  public var videos: PS_Facial_Services.Href?
+  required public init(from decoder: any Swift.Decoder) throws
+  @objc deinit
+}
+public class RulesResultItem : Swift.Codable {
+  required public init(from decoder: any Swift.Decoder) throws
+  @objc deinit
+  public func encode(to encoder: any Swift.Encoder) throws
+}
+extension Foundation.Date {
+  public func toString(format: Swift.String) -> Swift.String
+}
+public class PSFSCreateDocumentRequest : PS_Facial_Services.PSEncodableBaseRequest {
+  public var captured: Swift.String
+  public var clientCapture: PS_Facial_Services.PSFSCreateDocumentClientCaptureRequest?
+  override public func encode(to encoder: any Swift.Encoder) throws
+  public init(captured: Foundation.Date, processedImageBase64: Swift.String)
+  public init(captured: Foundation.Date, images: [PS_Facial_Services.PSFSSDocumentImage])
+  @objc deinit
+}
+public class PSFSCreateDocumentClientCaptureRequest : PS_Facial_Services.PSEncodableBaseRequest {
+  public var processedImage: PS_Facial_Services.PSFSCreateDocumentProcessedImageRequest?
+  public var unprocessedImage: PS_Facial_Services.PSFSCreateDocumentProcessedImageRequest?
+  public var ocrData: PS_Facial_Services.PSFSOCRRequest?
+  public var images: [PS_Facial_Services.PSFSSDocumentImage]?
+  public init(imageFormat: Swift.String, value: Swift.String)
+  public init(imageFormat: Swift.String, images: [PS_Facial_Services.PSFSSDocumentImage])
+  @objc deinit
+}
+public class PSFSSDocumentImage : Swift.Encodable {
+  public var sensitiveData: PS_Facial_Services.PSFSCreateDocumentSensitiveDataImageRequest?
+  public var type: Swift.String?
+  public init(psfssDocumentImage: PS_Facial_Services.PSFSSDocumentImage)
+  public init(imageFormat: Swift.String, value: Swift.String, type: Swift.String)
+  public func encode(to encoder: any Swift.Encoder) throws
+  @objc deinit
+}
+public class PSFSCreateDocumentProcessedImageRequest : PS_Facial_Services.PSEncodableBaseRequest {
+  public var sensitiveData: PS_Facial_Services.PSFSCreateDocumentSensitiveDataImageRequest?
+  public init(imageFormat: Swift.String, value: Swift.String)
+  override public func encode(to encoder: any Swift.Encoder) throws
+  @objc deinit
+}
+public class PSFSCreateDocumentSensitiveDataImageRequest : Swift.Encodable {
+  public var imageFormat: Swift.String
+  public var value: Swift.String
+  public init(imageFormat: Swift.String, value: Swift.String)
+  public func encode(to encoder: any Swift.Encoder) throws
+  @objc deinit
+}
+public class PSFSOCRRequest : PS_Facial_Services.PSEncodableBaseRequest {
+  public var sensitiveData: [Swift.String : Any]?
+  public init(ocrData: [Swift.String : Any])
+  @objc deinit
+}
+@_hasMissingDesignatedInitializers open class PSServerConstants {
+  public static let serverDateFormat: Swift.String
+  public struct PSServerConfig {
+    public static var domain: Swift.String
+    public static var url: Swift.String
+  }
+  public enum ContentType : Swift.String {
+    case json
+    case mp4
+    public init?(rawValue: Swift.String)
+    public typealias RawValue = Swift.String
+    public var rawValue: Swift.String {
+      get
+    }
+  }
+  public enum ContextURL : Swift.String {
+    case users
+    case authenticationRequests
+    case registrationChallenges
+    public init?(rawValue: Swift.String)
+    public typealias RawValue = Swift.String
+    public var rawValue: Swift.String {
+      get
+    }
+  }
+  public struct CreateURL {
+    public init(url: Foundation.URL)
+  }
+  public struct DocumentsConfig {
+    public static var documentImageQuality: Swift.Float
+    public static var JPG: Swift.String
+  }
+  @objc deinit
+}
+public class PSFSCreateAuthenticationRequest : PS_Facial_Services.PSEncodableBaseRequest {
+  public var userId: Swift.String?
+  public var description: Swift.String
+  public var type: Swift.String
+  public var policyId: Swift.String
+  public var applicationId: Swift.String
+  override public func encode(to encoder: any Swift.Encoder) throws
+  public init(userId: Swift.String, applicationId: Swift.String, policyId: Swift.String, description: Swift.String, type: Swift.String)
+  @objc deinit
+}
+public class Edc : Swift.Codable {
+  required public init(from decoder: any Swift.Decoder) throws
+  @objc deinit
+  public func encode(to encoder: any Swift.Encoder) throws
+}
+public class FaceImageData : Swift.Codable {
+  public var imageFormat: Swift.String?
+  public var value: Swift.String?
+  public var allowedPermissions: Swift.String?
+  public var href: Swift.String?
+  required public init(from decoder: any Swift.Decoder) throws
+  @objc deinit
+  public func encode(to encoder: any Swift.Encoder) throws
+}
+public class AuthenticationRequest : Swift.Codable {
+  public var id: Swift.String?
+  public var desc: Swift.String?
+  public var created: Swift.String?
+  public var processed: Swift.String?
+  public var expiration: Swift.String?
+  public var transactionDescription: Swift.String?
+  public var status: Swift.String?
+  public var fidoAuthenticationRequest: Swift.String?
+  public var fidoAuthenticationResponse: Swift.String?
+  public var fidoResponseCode: Swift.Int
+  public var fidoResponseMsg: Swift.String?
+  public var userId: Swift.String?
+  public var user: PS_Facial_Services.Href?
+  public var transactionContentType: Swift.String?
+  public var textTransactionContent: Swift.String?
+  public var imageTransactionContent: Swift.String?
+  public init()
+  required public init(from decoder: any Swift.Decoder) throws
+  @objc deinit
+  public func encode(to encoder: any Swift.Encoder) throws
+}
+@_inheritsConvenienceInitializers open class PSFSCreateRegistrationChallengeResponse : PS_Facial_Services.PSFSCodableBaseResponse {
+  public var id: Swift.String
+  public var fidoRegistrationRequest: Swift.String
+  public var fidoRegistrationResponse: Swift.String
+  public var fidoResponseCode: Swift.Int
+  public var fidoResponseMsg: Swift.String
+  public var registrationId: Swift.String
+  public var registration: PS_Facial_Services.PSFSCreateRegistrationChallengeRegistrationResponse?
+  public var userId: Swift.String
+  public var applicationId: Swift.String
+  public var tenantId: Swift.String
+  required public init(from decoder: any Swift.Decoder) throws
+  override public init()
+  @objc deinit
+}
+@_inheritsConvenienceInitializers open class PSFSCreateRegistrationChallengeRegistrationResponse : PS_Facial_Services.PSFSCodableBaseResponse {
+  required public init(from decoder: any Swift.Decoder) throws
+  override public init()
+  @objc deinit
+}
+@_hasMissingDesignatedInitializers public class LivenessVideoMetrics : Swift.Codable {
+  public var livenessScore: Swift.Double
+  public var qualityScore: Swift.Double
+  public var allowedPermissions: Swift.String?
+  public var href: Swift.String?
+  required public init(from decoder: any Swift.Decoder) throws
+  @objc deinit
+  public func encode(to encoder: any Swift.Encoder) throws
+}
+open class PSFacialServiceViewModel {
+  public static var servicesDelegate: (any PS_Facial_Services.PSFSFacialServicesDelegate)?
+  public init()
+  public var showLoading: (() -> ())?
+  public var hideLoading: (() -> ())?
+  public var onFormatError: ((_ message: Swift.String) -> ())?
+  public var onServiceError: ((_ error: any Swift.Error) -> ())?
+  public var onSuccessCreateRegistrationChallengeResponse: ((_ response: PS_Facial_Services.PSFSCreateRegistrationChallengeResponse) -> ())?
+  public var onSuccessUploadBiometricDataToRegistrationChallenge: ((_ response: PS_Facial_Services.PSFSUpdateRegistrationChallengeResponse) -> ())?
+  public var onSuccessCreateIDCheckWithLivenessPolicy: ((_ response: PS_Facial_Services.PSFSCreateIdCheckResponse) -> ())?
+  public var onSuccessAddDocumentToTheIdCheck: ((_ response: PS_Facial_Services.PSFSCreateDocumentResponse) -> ())?
+  public var onSuccessGetLivenessChallengesResponse: ((_ response: PS_Facial_Services.PSFSGetLivenessChallengesResponse, _ jsonString: Swift.String?) -> ())?
+  public var onSuccessCreateEvaluation: ((_ response: PS_Facial_Services.PSFSCreateEvaluationResponse, _ jsonStr: Swift.String?) -> ())?
+  public var onSuccessGetCheckAllDocuments: ((_ response: PS_Facial_Services.PSFSGetAllDocumentsResponse) -> ())?
+  public var onSuccessSearchUser: ((_ response: PS_Facial_Services.PSFSGetUserResponse) -> ())?
+  public var onSuccessDeleteUserResponse: ((_ response: PS_Facial_Services.PSFSDeleteUserResponse) -> ())?
+  public var onSuccessAuthenticationRegister: ((_ response: PS_Facial_Services.PSFSCreateAuthenticationResponse) -> ())?
+  public var onSuccessUpdateAuthenticationRegister: ((_ response: PS_Facial_Services.PSFSUpdateAuthenticationResponse) -> ())?
+  public var onSuccessSendLogsFacialResponse: ((_ response: PS_Facial_Services.PSFSNullResponse?) -> ())?
+  public var onSuccessAddFaceLivenessResponse: ((_ response: PS_Facial_Services.PSFSCreateFaceLivenessResponse) -> ())?
+  public var onSuccessGetFaceLivenessResponse: ((_ response: PS_Facial_Services.PSFSGetFaceLivenessResponse) -> ())?
+  public var onSuccessGetAuthenticators: ((_ response: PS_Facial_Services.PSFSAuthenticatorsResponse) -> ())?
+  public func genericvalidCurpFormat(curp: Swift.String) -> Swift.Bool
+  @objc deinit
+}
+extension PS_Facial_Services.PSFacialServiceViewModel {
+  public func perfomSearchUser(userId: Swift.String)
+  public func performAuthenticationRegister(userId: Swift.String, applicationId: Swift.String, policyId: Swift.String, description: Swift.String, type: Swift.String)
+  public func performUpdateAuthenticationRegister(fidoAuthenticationResponse: Swift.String, authenticationRequestId: Swift.String)
+  public func perfomGetAuthenticators(userId: Swift.String)
+}
+extension PS_Facial_Services.PSFacialServiceViewModel {
+  public func performAddFaceLiveness(userId: Swift.String, idCheck: Swift.String, subtype: Swift.String, capture: Foundation.Date, imageBase64: Swift.String)
+}
+extension PS_Facial_Services.PSFacialServiceViewModel {
+  public func performGetFaceLiveness(userId: Swift.String, idCheck: Swift.String)
+}
+extension PS_Facial_Services.PSFacialServiceViewModel {
+  public func performCreateRegistrationChallenge(applicationId: Swift.String, policyId: Swift.String, userId: Swift.String, firstName: Swift.String, lastName: Swift.String)
+  public func performUploadBiometricDataToRegistrationChallenge(id: Swift.String, status: Swift.String, fidoRegistrationResponse: Swift.String)
+  public func performCreateIDCheckWithLivenessPolicy(userID: Swift.String, livenessPolicyName: Swift.String, guid: Swift.String)
+  public func perfomAddDocumentToTheIdCheck(userId: Swift.String, idcheckid: Swift.String, capture: Foundation.Date, processedImageBase64: Swift.String?, images: [PS_Facial_Services.PSFSSDocumentImage]?)
+  public func perfomrAddTwoSidedDocumentToIdCheck(userId: Swift.String, idCheckId: Swift.String, psfsDocumentRequest: PS_Facial_Services.PSFSDocumentRequest)
+  public func performGetVideoChallenger(userId: Swift.String, idcheckid: Swift.String)
+  public func perfomCreateEvaluation(userId: Swift.String, idcheckid: Swift.String, evaluationPolicyName: Swift.String)
+  public func perfomCheckAllProcessedDocs(userId: Swift.String, idcheckid: Swift.String)
+}
+public protocol PSFSFacialServicesDelegate {
+  func configureServices()
+  func getUserIdx() -> Swift.String
+  func getIdChekcs() -> Swift.String
+  func getEncyptedText(text: Swift.String) -> Swift.String
+}
+extension Dispatch.DispatchQueue {
+  public static func psfsMainAsync(_ complete: @escaping () -> Swift.Void)
+  public static func psfsMainAsyncAfterTime(_ time: Foundation.TimeInterval, _ complete: @escaping () -> Swift.Void)
+}
+open class PSFSMetadataEntityModel : Swift.Decodable {
+  public var limit: Swift.Int
+  public var page: Swift.Int
+  public var totalCount: Swift.Int
+  required public init(from decoder: any Swift.Decoder) throws
+  @objc deinit
+}
+extension PS_Facial_Services.RegisterByURLServiceUtil {
+  public static func verifyUserWithSelfie(psVerfifyUserWithSelfieRequest: PS_Facial_Services.PSVerifyUserWithSelfieRequest, completion: @escaping (Foundation.NSError?) -> ())
+}
+public class PSEnrollWithDocsRequest {
+  public class EnrollWithDocsInput : PS_Facial_Services.PSEncodableBaseRequest {
+    public var curp: Swift.String
+    public var nombre: Swift.String
+    public var apellidoPaterno: Swift.String
+    public var apellidoMaterno: Swift.String
+    public var cveAfore: Swift.String
+    public var cveImagen: [Swift.String]
+    public var enrolar: Swift.String
+    public var operacion: Swift.String
+    override public func encode(to encoder: any Swift.Encoder) throws
+    override public init()
+    @objc deinit
+  }
+  public class Files {
+    public init(fileName: Swift.String, imageData: Foundation.Data)
+    @objc deinit
+  }
+  public var token: Swift.String?
+  public var input: PS_Facial_Services.PSEnrollWithDocsRequest.EnrollWithDocsInput
+  public var files: [PS_Facial_Services.PSEnrollWithDocsRequest.Files]
+  public init(token: Swift.String?, input: PS_Facial_Services.PSEnrollWithDocsRequest.EnrollWithDocsInput, files: [PS_Facial_Services.PSEnrollWithDocsRequest.Files])
+  public init()
+  @objc deinit
+}
+@_inheritsConvenienceInitializers open class PSEnrollWithDocsResponse : PS_Facial_Services.PSURLBaseResponse {
+  required public init(from decoder: any Swift.Decoder) throws
+  @objc deinit
+}
+public class PSFSSendLogsFacialRequest : PS_Facial_Services.PSEncodableBaseRequest {
+  override public func encode(to encoder: any Swift.Encoder) throws
+  public init(curp: Swift.String, idLog: Swift.String, statusLog: Swift.String, responseLog: Swift.String, operatingSystem: Swift.String, typeProcess: Swift.String)
+  @objc deinit
+}
+@_hasMissingDesignatedInitializers public class PSFSConfigManager {
+  @_hasMissingDesignatedInitializers public class Config {
+    public func withDaonServerUrl(daonServerUrl: Swift.String) -> PS_Facial_Services.PSFSConfigManager.Config
+    public func withUser(daonUser: Swift.String) -> PS_Facial_Services.PSFSConfigManager.Config
+    public func withPassword(daonPassword: Swift.String) -> PS_Facial_Services.PSFSConfigManager.Config
+    public func withRegisterByUrlHostName(registerByUrlHostName: Swift.String) -> PS_Facial_Services.PSFSConfigManager.Config
+    @_hasMissingDesignatedInitializers public class DocumentCatalogConfig {
+      public func withDocumentCatalog(documentCatalog: PS_Facial_Services.PSFSDocumentCatalog) -> PS_Facial_Services.PSFSConfigManager.Config
+      @objc deinit
+    }
+    public var documentCatalogConfig: PS_Facial_Services.PSFSConfigManager.Config.DocumentCatalogConfig?
+    public func build()
+    @objc deinit
+  }
+  public static let shared: PS_Facial_Services.PSFSConfigManager
+  public func setup() -> PS_Facial_Services.PSFSConfigManager.Config
+  @objc deinit
+}
+@_inheritsConvenienceInitializers open class PSVerifyWithSelfieResponse : PS_Facial_Services.PSURLBaseResponse {
+  required public init(from decoder: any Swift.Decoder) throws
+  @objc deinit
+}
+public class PSFSUpdateRegistrationChallengeResponse : PS_Facial_Services.PSFSCodableBaseResponse {
+  public var id: Swift.String
+  public var fidoRegistrationRequest: Swift.String
+  public var fidoRegistrationResponse: Swift.String
+  public var fidoResponseCode: Swift.Int
+  public var fidoResponseMsg: Swift.String
+  public var registrationId: Swift.String
+  public var userId: Swift.String
+  public var registration: PS_Facial_Services.PSFSUpdateRegistrationChallengeRegistrationResponse?
+  required public init(from decoder: any Swift.Decoder) throws
+  @objc deinit
+}
+open class PSFSUpdateRegistrationChallengeRegistrationResponse : Swift.Decodable {
+  required public init(from decoder: any Swift.Decoder) throws
+  @objc deinit
+}
+public class PageMetadata : Swift.Codable {
+  public var limit: Swift.Int?
+  public var page: Swift.Int?
+  public var pageCount: Swift.Int?
+  public var totalCount: Swift.Int?
+  required public init(from decoder: any Swift.Decoder) throws
+  @objc deinit
+  public func encode(to encoder: any Swift.Encoder) throws
+}
+public class PSFSGetAllDocumentsResponse : PS_Facial_Services.PSFSCodableBaseResponse {
+  public var href: Swift.String
+  public var metadata: PS_Facial_Services.PSFSGetAllDocumentsMetadataResponse?
+  public var items: [PS_Facial_Services.PSFSGetDocumentResponse]?
+  required public init(from decoder: any Swift.Decoder) throws
+  @objc deinit
+}
+open class PSFSGetAllDocumentsMetadataResponse : Swift.Decodable {
+  public var page: Swift.Int
+  public var limit: Swift.Int
+  public var pageCount: Swift.Int
+  public var totalCount: Swift.Int
+  required public init(from decoder: any Swift.Decoder) throws
+  @objc deinit
+}
+open class PSFSDeleteUserResponse : PS_Facial_Services.PSFSCodableBaseResponse {
+  public var archived: Swift.String
+  public var face: PS_Facial_Services.PSFSDeleteUserFaceResponse?
+  required public init(from decoder: any Swift.Decoder) throws
+  @objc deinit
+}
+open class PSFSDeleteUserFaceResponse : PS_Facial_Services.PSFSCodableBaseResponse {
+  public var sensitiveData: PS_Facial_Services.PSFSHrefEntityModel?
+  required public init(from decoder: any Swift.Decoder) throws
+  @objc deinit
+}
+public class PSVerifyUserWithSelfieRequest {
+  public class VerifyWithSelfieInput : PS_Facial_Services.PSEncodableBaseRequest {
+    public var curp: Swift.String
+    public var cveAfore: Swift.String
+    public var cveImagen: [Swift.String]
+    public var enrolar: Swift.String
+    public var operacion: Swift.String
+    override public func encode(to encoder: any Swift.Encoder) throws
+    override public init()
+    @objc deinit
+  }
+  public class Files {
+    public init(fileName: Swift.String, imageData: Foundation.Data)
+    @objc deinit
+  }
+  public var token: Swift.String?
+  public var input: PS_Facial_Services.PSVerifyUserWithSelfieRequest.VerifyWithSelfieInput
+  public var files: [PS_Facial_Services.PSVerifyUserWithSelfieRequest.Files]
+  public init(token: Swift.String?, input: PS_Facial_Services.PSVerifyUserWithSelfieRequest.VerifyWithSelfieInput, files: [PS_Facial_Services.PSVerifyUserWithSelfieRequest.Files])
+  public init()
+  @objc deinit
+}
+@objc @_inheritsConvenienceInitializers public class PSFSDocumentsUtil : ObjectiveC.NSObject {
+  public static func evaluateDocumentStatus(documentResponse: PS_Facial_Services.PSFSGetAllDocumentsResponse, completion: @escaping (_ isProcessing: Swift.Bool, (any Swift.Error)?) -> (Swift.Void))
+  @objc override dynamic public init()
+  @objc deinit
+}
+public class CustomError : Swift.Codable {
+  public var code: Swift.Int?
+  public var message: Swift.String?
+  required public init(from decoder: any Swift.Decoder) throws
+  @objc deinit
+  public func encode(to encoder: any Swift.Encoder) throws
+}
+public class BaseModel : Swift.Codable {
+  public var href: Swift.String?
+  public var id: Swift.String?
+  public var created: Foundation.Date?
+  required public init(from decoder: any Swift.Decoder) throws
+  @objc deinit
+  public func encode(to encoder: any Swift.Encoder) throws
+}
+@_inheritsConvenienceInitializers public class PSFSNullResponse : PS_Facial_Services.PSFSCodableBaseResponse {
+  required public init(from decoder: any Swift.Decoder) throws
+  override public init()
+  @objc deinit
+}
+open class PSURLBaseResponse : Swift.Decodable {
+  public var curp: Swift.String?
+  public var resultadoOperacion: Swift.String
+  public var diagnosticoOperacion: Swift.String
+  required public init(from decoder: any Swift.Decoder) throws
+  @objc deinit
+}
+public class DocumentsResponse : Swift.Codable {
+  public var href: Swift.String?
+  public var items: [PS_Facial_Services.Document]?
+  required public init(from decoder: any Swift.Decoder) throws
+  @objc deinit
+  public func encode(to encoder: any Swift.Encoder) throws
+}
+public class Authenticator : Swift.Codable {
+  public var authenticatorAttestationId: Swift.String
+  required public init(from decoder: any Swift.Decoder) throws
+  @objc deinit
+  public func encode(to encoder: any Swift.Encoder) throws
+}
+public class Registration : Swift.Codable {
+  public var href: Swift.String?
+  public var user: PS_Facial_Services.Href?
+  required public init(from decoder: any Swift.Decoder) throws
+  @objc deinit
+  public func encode(to encoder: any Swift.Encoder) throws
+}
+@_hasMissingDesignatedInitializers public class PSConfigService {
+  public static let shared: PS_Facial_Services.PSConfigService
+  public func initialize(url: Swift.String, key: Swift.String)
+  @objc deinit
+}
+public class RulesResults : Swift.Codable {
+  public var items: [PS_Facial_Services.RulesResultItem]?
+  required public init(from decoder: any Swift.Decoder) throws
+  @objc deinit
+  public func encode(to encoder: any Swift.Encoder) throws
+}
+public class PageOfLivenessChallenges : Swift.Codable {
+  public var metadata: PS_Facial_Services.PageMetadata?
+  public var paging: PS_Facial_Services.PagePaging?
+  public var items: [PS_Facial_Services.LivenessChallenge]?
+  public var allowedPermissions: Swift.String?
+  public var href: Swift.String?
+  required public init(from decoder: any Swift.Decoder) throws
+  @objc deinit
+  public func encode(to encoder: any Swift.Encoder) throws
+}
+public struct PSParametersInfoVideo {
+  public init(subtype: Swift.String, captured: Foundation.Date, videoFormat: Swift.String, digestBase64: Swift.String, digestAlgorithm: Swift.String)
+}
+public struct PSParametersChallengeVideo {
+  public init(idChallenge: Swift.String, start: Swift.UInt64, completed: Swift.UInt64)
+}
+open class PSFSGetUserResponse : PS_Facial_Services.PSFSCodableBaseResponse {
+  public var metadata: PS_Facial_Services.PSFSMetadataEntityModel?
+  public var paging: PS_Facial_Services.PSFSPagingEntityModel?
+  public var href: Swift.String
+  public var items: [PS_Facial_Services.PSFSCreateUserResponse]?
+  required public init(from decoder: any Swift.Decoder) throws
+  @objc deinit
+}
+public class PSFSGetFaceLivenessResponse : PS_Facial_Services.PSFSCodableBaseResponse {
+  public var href: Swift.String
+  public var metadata: PS_Facial_Services.PSFSGetFaceLivenessMetadataResponse?
+  public var items: [PS_Facial_Services.PSFSGetFaceLivenessItemsResponse]?
+  required public init(from decoder: any Swift.Decoder) throws
+  @objc deinit
+}
+public class PSFSGetFaceLivenessMetadataResponse : Swift.Decodable {
+  public var limit: Swift.Int
+  public var page: Swift.Int
+  public var pageCount: Swift.Int
+  public var totalCount: Swift.Int
+  required public init(from decoder: any Swift.Decoder) throws
+  @objc deinit
+}
+open class PSFSGetFaceLivenessItemsResponse : Swift.Decodable {
+  public var href: Swift.String
+  public var id: Swift.String
+  public var created: Swift.String
+  public var subtype: Swift.String
+  public var captured: Swift.String
+  public var sensitiveData: PS_Facial_Services.PSFSGetFaceLivenessSensitiveDataResponse?
+  public var clientMetrics: PS_Facial_Services.PSFSHrefEntityModel?
+  public var readOnly: Swift.Bool
+  public var evaluationResult: PS_Facial_Services.PSFSHrefEntityModel?
+  required public init(from decoder: any Swift.Decoder) throws
+  @objc deinit
+}
+open class PSFSGetFaceLivenessSensitiveDataResponse : Swift.Decodable {
+  public var href: Swift.String
+  public var imageFormat: Swift.String
+  required public init(from decoder: any Swift.Decoder) throws
+  @objc deinit
+}
+public class ClientLivenessCaptureInfo : Swift.Codable {
+  public var livenessChallenge: PS_Facial_Services.LivenessChallenge?
+  public var videoFilename: Swift.String?
+  public var videoDurationMs: Swift.Int
+  public var retryCount: Swift.Int
+  public var capturedTime: Foundation.Date?
+  public var format: Swift.String?
+  public var success: Swift.Bool
+  public var digestAlgorithm: Swift.String?
+  public var digest: Foundation.Data?
+  public init()
+  @objc deinit
+  public func encode(to encoder: any Swift.Encoder) throws
+  required public init(from decoder: any Swift.Decoder) throws
+}
+open class PSFSPagingEntityModel : Swift.Decodable {
+  public var first: Swift.Int
+  public var previous: Swift.Int
+  public var next: Swift.Int
+  public var last: Swift.Int
+  required public init(from decoder: any Swift.Decoder) throws
+  @objc deinit
+}
+public class VideoChallenge : Swift.Codable {
+  public var challenge: PS_Facial_Services.LivenessChallenge?
+  public var start: Swift.UInt64
+  public var completed: Swift.UInt64
+  public init()
+  required public init(from decoder: any Swift.Decoder) throws
+  @objc deinit
+  public func encode(to encoder: any Swift.Encoder) throws
+}
+@_inheritsConvenienceInitializers open class PSFSCreateIdCheckResponse : PS_Facial_Services.PSFSCodableBaseResponse {
+  public var href: Swift.String
+  public var id: Swift.String
+  public var created: Swift.String
+  public var referenceId: Swift.String
+  public var status: Swift.String
+  public var documents: PS_Facial_Services.PSFSHrefEntityModel?
+  public var faces: PS_Facial_Services.PSFSHrefEntityModel?
+  public var evaluation: PS_Facial_Services.PSFSHrefEntityModel?
+  public var challenges: PS_Facial_Services.PSFSHrefEntityModel?
+  public var videos: PS_Facial_Services.PSFSHrefEntityModel?
+  required public init(from decoder: any Swift.Decoder) throws
+  override public init()
+  @objc deinit
+}
+public class PSFSGetDocumentResponse : Swift.Decodable {
+  public var id: Swift.String
+  public var created: Swift.String
+  public var captured: Swift.String
+  public var type: Swift.String
+  public var classification: Swift.String
+  public var issuer: Swift.String
+  public var issued: Swift.String
+  public var expiry: Swift.String
+  public var clientCapture: PS_Facial_Services.PSFSHrefEntityModel?
+  public var serverProcessed: PS_Facial_Services.PSFSHrefEntityModel?
+  public var processingStatus: Swift.String
+  public var submitted: Swift.String
+  public var completed: Swift.String
+  public var timeToProcess: Swift.Int
+  public var elapsedTime: Swift.Int
+  public var retryCount: Swift.Int
+  public var allowedSensitiveDataPermissions: Swift.String
+  required public init(from decoder: any Swift.Decoder) throws
+  @objc deinit
+}
+@_hasMissingDesignatedInitializers public class PSFSUserUtil {
+  public static func canDeleteUser(userId: Swift.String, completion: @escaping (_ userFound: Swift.Bool, _ canDelete: Swift.Bool?, (any Swift.Error)?) -> (Swift.Void))
+  public static func searchUserAndDelete(userId: Swift.String, completion: @escaping (_ userFound: Swift.Bool, _ userDeleted: Swift.Bool, (any Swift.Error)?) -> (Swift.Void))
+  @objc deinit
+}
+public class EvaluationResult : Swift.Codable {
+  public var type: Swift.String?
+  public var result: Swift.String?
+  public var claimFace: PS_Facial_Services.Face?
+  required public init(from decoder: any Swift.Decoder) throws
+  @objc deinit
+  public func encode(to encoder: any Swift.Encoder) throws
+}
+public class PSFSCreateEvaluationResponse : PS_Facial_Services.PSFSCodableBaseResponse {
+  public var href: Swift.String
+  public var id: Swift.String
+  public var created: Swift.String
+  public var evaluationPolicy: PS_Facial_Services.PSFSCreateEvaluationPolicyResponse?
+  public var results: PS_Facial_Services.PSFSCreateEvaluationResultsClaimResponse?
+  required public init(from decoder: any Swift.Decoder) throws
+  @objc deinit
+}
+open class PSFSCreateEvaluationPolicyResponse : Swift.Decodable {
+  public var href: Swift.String
+  public var id: Swift.String
+  public var created: Swift.String
+  public var type: Swift.String
+  public var status: Swift.String
+  public var name: Swift.String
+  public var description: Swift.String
+  public var policy: PS_Facial_Services.PSFSCreateEvaluationPolicyPolicyResponse?
+  public var tenant: PS_Facial_Services.PSFSHrefEntityModel?
+  required public init(from decoder: any Swift.Decoder) throws
+  @objc deinit
+}
+open class PSFSCreateEvaluationPolicyPolicyResponse : Swift.Decodable {
+  public var faceEvaluation: PS_Facial_Services.PSFSCreateEvaluationPolicyFaceEvaluationResponse?
+  public var rulesEvaluation: PS_Facial_Services.PSFSCreateEvaluationPolicyRulesEvaluationResponse?
+  public var faceWatchListEvaluation: PS_Facial_Services.PSFSCreateEvaluationPolicyFaceWatchListEvaluationResponse?
+  required public init(from decoder: any Swift.Decoder) throws
+  @objc deinit
+}
+open class PSFSCreateEvaluationPolicyFaceEvaluationResponse : Swift.Decodable {
+  public var matchAll: Swift.Bool
+  required public init(from decoder: any Swift.Decoder) throws
+  @objc deinit
+}
+open class PSFSCreateEvaluationPolicyRulesEvaluationResponse : Swift.Decodable {
+  public var name: Swift.String
+  public var rulesLocationType: Swift.String
+  public var ruleIdAtLocation: Swift.String
+  public var format: Swift.String
+  public var rulesContent: Swift.String
+  required public init(from decoder: any Swift.Decoder) throws
+  @objc deinit
+}
+open class PSFSCreateEvaluationPolicyFaceWatchListEvaluationResponse : Swift.Decodable {
+  public var watchlists: [PS_Facial_Services.PSFSHrefEntityModel]?
+  required public init(from decoder: any Swift.Decoder) throws
+  @objc deinit
+}
+open class PSFSCreateEvaluationResultsClaimResponse : Swift.Decodable {
+  public var href: Swift.String
+  public var items: [PS_Facial_Services.PSFSCreateEvaluationResultsItemsClaimResponse]?
+  public var allowedPermissions: Swift.String?
+  required public init(from decoder: any Swift.Decoder) throws
+  @objc deinit
+}
+open class PSFSCreateEvaluationResultsItemsResponse : Swift.Decodable {
+  public var href: Swift.String
+  public var id: Swift.String
+  public var created: Swift.String
+  public var type: Swift.String
+  public var result: Swift.String
+  public var score: Swift.Double
+  public var threshold: Swift.Double
+  public var fmr: Swift.Double
+  public var evaluationPolicy: PS_Facial_Services.PSFSHrefEntityModel?
+  public var claimFace: PS_Facial_Services.PSFSCreateEvaluationResultsClaimFaceResponse?
+  required public init(from decoder: any Swift.Decoder) throws
+  @objc deinit
+}
+open class PSFSCreateEvaluationResultsItemsClaimResponse : Swift.Decodable {
+  public var href: Swift.String
+  public var id: Swift.String
+  public var created: Swift.String
+  public var type: Swift.String
+  public var result: Swift.String
+  public var failureReason: Swift.String
+  public var score: Swift.Float
+  public var threshold: Swift.Float
+  public var fmr: Swift.Float
+  public var evaluationPolicy: PS_Facial_Services.PSFSHrefEntityModel?
+  public var claimFace: PS_Facial_Services.PSFSCreateEvaluationResultsClaimFaceResponse?
+  public var challengeVideo: PS_Facial_Services.PSFSCreateEvaluationResultsFaceLivenessVideoResponse?
+  public var challengeType: Swift.String
+  public var challenge: PS_Facial_Services.PSFSGetLivenessChallengesItemsResponse?
+  public var rulesResults: PS_Facial_Services.PSFSCreateEvaluationResultsRulesResultsResponse?
+  public var edc: PS_Facial_Services.PSFSCreateEvaluationResultsRulesResultsEDCResponse?
+  required public init(from decoder: any Swift.Decoder) throws
+  @objc deinit
+}
+public class PSFSCreateEvaluationResultsClaimFaceResponse : Swift.Decodable {
+  public var href: Swift.String
+  public var id: Swift.String
+  public var subtype: Swift.String
+  public var clientMetrics: PS_Facial_Services.PSFSCreateEvaluationResultsFaceMetricsResponse?
+  public var serverMetrics: PS_Facial_Services.PSFSCreateEvaluationResultsFaceMetricsResponse?
+  public var readOnly: Swift.Bool
+  public var sensitiveData: PS_Facial_Services.PSFSCreateEvaluationResultsFaceImageDataResponse?
+  public var document: PS_Facial_Services.PSFSCreateEvaluationResultsFaceDocumentResponse?
+  public var livenessVideo: PS_Facial_Services.PSFSCreateEvaluationResultsFaceLivenessVideoResponse?
+  public var evaluationResult: PS_Facial_Services.PSFSCreateEvaluationResultsFaceEvaluationResultResponse?
+  public var allowedPermissions: Swift.String
+  required public init(from decoder: any Swift.Decoder) throws
+  @objc deinit
+}
+public class PSFSCreateEvaluationResultsFaceMetricsResponse : Swift.Decodable {
+  public var qualityScore: Swift.Double
+  public var livenessScore: Swift.Double
+  public var allowedPermissions: Swift.String
+  public var href: Swift.String
+  required public init(from decoder: any Swift.Decoder) throws
+  @objc deinit
+}
+open class PSFSCreateEvaluationResultsFaceImageDataResponse : Swift.Decodable {
+  public var imageFormat: Swift.String
+  public var value: Swift.String
+  public var allowedPermissions: Swift.String
+  public var href: Swift.String
+  required public init(from decoder: any Swift.Decoder) throws
+  @objc deinit
+}
+public class PSFSCreateEvaluationResultsFaceDocumentResponse : Swift.Decodable {
+  public var href: Swift.String
+  public var id: Swift.String
+  public var type: Swift.String
+  public var clientCapture: PS_Facial_Services.PSFSHrefEntityModel?
+  public var serverProcessed: PS_Facial_Services.PSFSHrefEntityModel?
+  public var processingStatus: Swift.String
+  public var classification: Swift.String
+  required public init(from decoder: any Swift.Decoder) throws
+  @objc deinit
+}
+open class PSFSCreateEvaluationResultsFaceLivenessVideoResponse : Swift.Decodable {
+  public var id: Swift.String
+  public var subtype: Swift.String
+  public var clientMetrics: PS_Facial_Services.PSFSCreateEvaluationResultsFaceMetricsResponse?
+  public var serverMetrics: PS_Facial_Services.PSFSCreateEvaluationResultsFaceMetricsResponse?
+  public var videoFormat: Swift.String
+  public var challenges: [PS_Facial_Services.PSFSCreateEvaluationResultsFaceVideoChallengeResponse]?
+  public var sensitiveDataPresent: Swift.Bool
+  public var processingStatus: Swift.String
+  public var timeToProcess: Swift.Int
+  public var elapsedTime: Swift.Int
+  public var retryCount: Swift.Int
+  public var digest: Swift.String
+  public var digestAlgorithm: Swift.String
+  public var allowedPermissions: Swift.String
+  public var href: Swift.String
+  public var code: Swift.String
+  required public init(from decoder: any Swift.Decoder) throws
+  @objc deinit
+}
+public class PSFSCreateEvaluationResultsFaceVideoChallengeResponse : Swift.Decodable {
+  public var challenge: PS_Facial_Services.PSFSGetLivenessChallengesItemsResponse?
+  public var start: Swift.Int
+  public var completed: Swift.Int
+  required public init(from decoder: any Swift.Decoder) throws
+  @objc deinit
+}
+public class PSFSCreateEvaluationResultsFaceEvaluationResultResponse : Swift.Decodable {
+  public var id: Swift.String
+  public var type: Swift.String
+  public var result: Swift.String
+  public var failureReason: Swift.String
+  public var score: Swift.Float
+  public var threshold: Swift.Float
+  public var evaluationPolicy: PS_Facial_Services.PSFSCreateEvaluationResultsFaceEvaluationPlicyResponse?
+  public var allowedPersmissions: Swift.String
+  public var href: Swift.String
+  public var fmr: Swift.Float
+  public var claimFace: PS_Facial_Services.PSFSCreateEvaluationResultsClaimFaceResponse?
+  public var challengeVideo: PS_Facial_Services.PSFSCreateEvaluationResultsFaceLivenessVideoResponse?
+  public var challengeType: Swift.String
+  public var challenge: PS_Facial_Services.PSFSGetLivenessChallengesItemsResponse?
+  public var rulesResults: PS_Facial_Services.PSFSCreateEvaluationResultsRulesResultsResponse?
+  public var edc: PS_Facial_Services.PSFSCreateEvaluationResultsRulesResultsEDCResponse?
+  public var edcValues: Swift.Dictionary<Swift.String, Swift.String>?
+  required public init(from decoder: any Swift.Decoder) throws
+  @objc deinit
+}
+public class PSFSCreateEvaluationResultsFaceEvaluationPlicyResponse : Swift.Decodable {
+  public var name: Swift.String
+  public var desc: Swift.String
+  public var type: Swift.String
+  public var status: Swift.String
+  public var allowedPermissions: Swift.String
+  public var href: Swift.String
+  required public init(from decoder: any Swift.Decoder) throws
+  @objc deinit
+}
+open class PSFSCreateEvaluationResultsRulesResultsResponse : Swift.Decodable {
+  public var items: [PS_Facial_Services.PSFSCreateEvaluationResultsRulesResultsItemResponse]?
+  required public init(from decoder: any Swift.Decoder) throws
+  @objc deinit
+}
+open class PSFSCreateEvaluationResultsRulesResultsItemResponse : Swift.Decodable {
+  public var message: Swift.String
+  public var name: Swift.String
+  public var result: Swift.String
+  public var category: Swift.String
+  required public init(from decoder: any Swift.Decoder) throws
+  @objc deinit
+}
+open class PSFSCreateEvaluationResultsRulesResultsEDCResponse : Swift.Decodable {
+  public var id: Swift.String
+  public var name: Swift.String
+  required public init(from decoder: any Swift.Decoder) throws
+  @objc deinit
+}
+open class PSFSHrefEntityModel : Swift.Decodable {
+  public var href: Swift.String
+  public init(href: Swift.String)
+  required public init(from decoder: any Swift.Decoder) throws
+  @objc deinit
+}
+public class PagePaging : Swift.Codable {
+  public var first: Swift.String?
+  public var previous: Swift.String?
+  public var next: Swift.String?
+  public var last: Swift.String?
+  required public init(from decoder: any Swift.Decoder) throws
+  @objc deinit
+  public func encode(to encoder: any Swift.Encoder) throws
+}
+public class PSFSCreateDocumentResponse : PS_Facial_Services.PSFSCodableBaseResponse {
+  public var href: Swift.String
+  public var id: Swift.String
+  public var created: Swift.String
+  public var captured: Swift.String
+  public var clientCapture: PS_Facial_Services.PSFSHrefEntityModel?
+  public var serverProcessed: PS_Facial_Services.PSFSHrefEntityModel?
+  public var allowedSensitiveDataPermissions: Swift.String
+  required public init(from decoder: any Swift.Decoder) throws
+  @objc deinit
+}
+public class Href : Swift.Codable {
+  public var url: Swift.String
+  required public init(from decoder: any Swift.Decoder) throws
+  @objc deinit
+  public func encode(to encoder: any Swift.Encoder) throws
+}
+extension Swift.String {
+  public func validIsEmpty() -> Swift.Bool
+  public func regexCURP() -> Swift.Bool
+}
+public class LivenessVideo : Swift.Codable {
+  public var id: Swift.String?
+  public var subtype: Swift.String?
+  public var captured: Foundation.Date?
+  public var created: Foundation.Date?
+  public var clientMetrics: PS_Facial_Services.LivenessVideoMetrics?
+  public var serverMetrics: PS_Facial_Services.LivenessVideoMetrics?
+  public var videoFormat: Swift.String?
+  public var challenges: [PS_Facial_Services.VideoChallenge]?
+  public var sensitiveDataPresent: Swift.Bool
+  public var processingStatus: Swift.String?
+  public var processingErrors: PS_Facial_Services.LivenessVideoProcessingErrors?
+  public var submitted: Foundation.Date?
+  public var completed: Foundation.Date?
+  public var timeToProcess: Swift.UInt64
+  public var elapsedTime: Swift.UInt64
+  public var retryCount: Swift.UInt64
+  public var sensitiveData: PS_Facial_Services.VideoData?
+  public var digest: Swift.String?
+  public var digestAlgorithm: Swift.String?
+  public var allowedPermissions: Swift.String?
+  public var href: Swift.String?
+  public var code: Swift.String?
+  public init()
+  required public init(from decoder: any Swift.Decoder) throws
+  public func isProcessing() -> Swift.Bool
+  @objc deinit
+  public func encode(to encoder: any Swift.Encoder) throws
+}
+public class AdditionalConfig : Swift.Codable {
+  public var hmdDistanceCutoffEnabled: Swift.Bool
+  public var challengeAlias: Swift.String?
+  public var hmdDistanceCutoff: Swift.Int
+  public var globalFaceQualityScore: Swift.Double
+  required public init(from decoder: any Swift.Decoder) throws
+  @objc deinit
+  public func encode(to encoder: any Swift.Encoder) throws
+}
+public class PSFSUpdateAuthenticationRequest : PS_Facial_Services.PSEncodableBaseRequest {
+  public var authenticationRequestId: Swift.String
+  public var fidoAuthenticationResponse: Swift.String
+  override public func encode(to encoder: any Swift.Encoder) throws
+  public init(fidoAuthenticationResponse: Swift.String, authenticationRequestId: Swift.String)
+  @objc deinit
+}
+@_hasMissingDesignatedInitializers public class StringUtils {
+  public class func parseDateString(_ date: Swift.String) throws -> Foundation.Date
+  public class func getStringAfterFinalSlash(_ string: Swift.String) -> Swift.String?
+  @objc deinit
+}
+@_inheritsConvenienceInitializers open class PSFSCreateUserResponse : PS_Facial_Services.PSFSBaseUserResponse {
+  public var email: Swift.String?
+  public var firstName: Swift.String?
+  public var lastName: Swift.String?
+  public var middleName: Swift.String?
+  public var suffix: Swift.String?
+  public var primaryPhone: Swift.String?
+  required public init(from decoder: any Swift.Decoder) throws
+  @objc deinit
+}
+public enum AppErrorCodes : Foundation.LocalizedError {
+  case none
+  case invalidApplicationState
+  case cannotBuildUrl
+  case getRequestNoResponse
+  case getRequestCannotDecode
+  case getRequestInvalidResponse
+  case postRequestCannotDecode
+  case postRequestNoResponse
+  case postRequestInvalidResponse
+  case postBytesError
+  case documentPayloadCreationError
+  case videoPayloadCreationError
+  case createRegistrationChallengeServerError
+  case updateRegistrationChallengeCantDecode
+  case updateRegistrationChallengeCantCreate
+  case updateRegistrationChallengeServerError
+  case createAuthenticationRequestDecodeError
+  case createAuthenticationRequestError
+  case updateAuthenticationRequestDecodeError
+  case updateAuthenticationRequestCreationError
+  case updateAuthenticationRequestServerError
+  case deleteError
+  case fidoRegistrationServerError
+  case fidoAuthenticationServerError
+  case livenessSpoofDetected
+  case failedToCreateVideoDigest
+  case livenessVideoCaptureTimeout
+  case livenessNoChallenges
+  case livenessNoChallengesJsonAvailable
+  case livenessCouldNotDecodeChallengesJson
+  case livenessCouldNotStartCamera
+  case couldNotStartDocumentCapture
+  case preEvaluateTimedOut
+  public var errorDescription: Swift.String? {
+    get
+  }
+  public static func == (a: PS_Facial_Services.AppErrorCodes, b: PS_Facial_Services.AppErrorCodes) -> Swift.Bool
+  public func hash(into hasher: inout Swift.Hasher)
+  public var hashValue: Swift.Int {
+    get
+  }
+}
+@_inheritsConvenienceInitializers public class Document : PS_Facial_Services.BaseModel {
+  public var captured: Foundation.Date?
+  public var clientCapture: PS_Facial_Services.Href?
+  public var serverProcessed: PS_Facial_Services.Href?
+  public var processingStatus: Swift.String?
+  public var classification: Swift.String?
+  required public init(from decoder: any Swift.Decoder) throws
+  public func isProcessing() -> Swift.Bool
+  @objc deinit
+}
+public class PSFSCreateRegistrationChallengeRequest : PS_Facial_Services.PSEncodableBaseRequest {
+  public var policy: PS_Facial_Services.PSFSCreateRegistrationChallengePolicyRequest?
+  public var registration: PS_Facial_Services.PSFSCreateRegistrationChallengeRegistrationRequest?
+  public var serverData: Swift.String
+  override public func encode(to encoder: any Swift.Encoder) throws
+  public init(applicationId: Swift.String, policyId: Swift.String, userId: Swift.String, firstName: Swift.String, lastName: Swift.String)
+  @objc deinit
+}
+public class PSFSCreateRegistrationChallengePolicyRequest : PS_Facial_Services.PSEncodableBaseRequest {
+  public var application: PS_Facial_Services.PSFSApplicationRequest
+  public var policyId: Swift.String
+  public init(applicationId: Swift.String, policyId: Swift.String)
+  @objc deinit
+}
+public class PSFSApplicationRequest : PS_Facial_Services.PSEncodableBaseRequest {
+  public var applicationId: Swift.String
+  public init(applicationId: Swift.String)
+  @objc deinit
+}
+public class PSFSUserRequest : PS_Facial_Services.PSEncodableBaseRequest {
+  public var userId: Swift.String
+  public var firstName: Swift.String
+  public var lastName: Swift.String
+  public var primaryPhone: Swift.String
+  public init(userId: Swift.String, firstName: Swift.String, lastName: Swift.String, primaryPhone: Swift.String)
+  @objc deinit
+}
+public class PSFSCreateRegistrationChallengeRegistrationRequest : PS_Facial_Services.PSEncodableBaseRequest {
+  public var application: PS_Facial_Services.PSFSApplicationRequest
+  public var user: PS_Facial_Services.PSFSUserRequest
+  public var registrationId: Swift.String
+  public init(applicationId: Swift.String, registrationId: Swift.String, userId: Swift.String, firstName: Swift.String, lastName: Swift.String)
+  @objc deinit
+}
+public class VideoData : Swift.Codable {
+  public var format: Swift.String?
+  public var value: Swift.String?
+  public var allowedPermissions: Swift.String?
+  public var href: Swift.String?
+  public var mediaHref: Swift.String?
+  required public init(from decoder: any Swift.Decoder) throws
+  @objc deinit
+  public func encode(to encoder: any Swift.Encoder) throws
+}
+public class PSFSCreateFaceLivenessRequest : PS_Facial_Services.PSEncodableBaseRequest {
+  public var subtype: Swift.String
+  public var captured: Swift.String
+  public var sensitiveData: PS_Facial_Services.PSFSCreateFaceLivenessSensitiveDataRequest?
+  override public func encode(to encoder: any Swift.Encoder) throws
+  public init(subtype: Swift.String, captured: Foundation.Date, imageBase64: Swift.String)
+  @objc deinit
+}
+public class PSFSCreateFaceLivenessSensitiveDataRequest : Swift.Encodable {
+  public var imageFormat: Swift.String
+  public var value: Swift.String
+  public func encode(to encoder: any Swift.Encoder) throws
+  public init(imageFormat: Swift.String, value: Swift.String)
+  @objc deinit
+}
+public class PSFSGetLivenessChallengesResponse : PS_Facial_Services.PSFSCodableBaseResponse {
+  public var href: Swift.String
+  public var metadata: PS_Facial_Services.PSFSGetLivenessChallengesMetadataResponse?
+  public var paging: PS_Facial_Services.PSFSGetLivenessChallengesPagingResponse?
+  public var items: [PS_Facial_Services.PSFSGetLivenessChallengesItemsResponse]?
+  required public init(from decoder: any Swift.Decoder) throws
+  @objc deinit
+}
+open class PSFSGetLivenessChallengesMetadataResponse : Swift.Decodable {
+  public var page: Swift.Int
+  public var limit: Swift.Int
+  public var pageCount: Swift.Int
+  public var totalCount: Swift.Int
+  required public init(from decoder: any Swift.Decoder) throws
+  @objc deinit
+}
+public class PSFSGetLivenessChallengesPagingResponse : Swift.Decodable {
+  public init()
+  @objc deinit
+  required public init(from decoder: any Swift.Decoder) throws
+}
+public class PSFSGetLivenessChallengesItemsResponse : Swift.Decodable {
+  public var href: Swift.String
+  public var id: Swift.String
+  public var created: Swift.String
+  public var type: Swift.String
+  public var index: Swift.Int
+  public var timeout: Swift.Int
+  public var maxRetries: Swift.Int
+  public var detectionThreshold: Swift.Double
+  public var additionalConfig: PS_Facial_Services.PSFSGetLivenessChallengesAdditionalConfigResponse?
+  public var next: Swift.String
+  public var policy: PS_Facial_Services.PSFSHrefEntityModel?
+  required public init(from decoder: any Swift.Decoder) throws
+  @objc deinit
+}
+open class PSFSGetLivenessChallengesAdditionalConfigResponse : Swift.Decodable {
+  public var hmdDistanceCutoffEnabled: Swift.Bool
+  public var challengeAlias: Swift.String
+  public var hmdDistanceCutoff: Swift.Int
+  required public init(from decoder: any Swift.Decoder) throws
+  @objc deinit
+}
+open class PSFSBaseUserResponse : Swift.Decodable {
+  public var href: Swift.String
+  public var id: Swift.String
+  public var userId: Swift.String
+  public var created: Swift.String
+  public var updated: Swift.String
+  public var pinEnrolled: Swift.Bool
+  public var faceEnrolled: Swift.Bool
+  public var voiceEnrolled: Swift.Bool
+  public var keystrokesEnrolled: Swift.Bool
+  public var failedVerificationCount: Swift.Int
+  public var accountUnlockedCount: Swift.Int
+  public var status: Swift.String
+  public var tenant: PS_Facial_Services.PSFSHrefEntityModel?
+  public var applications: PS_Facial_Services.PSFSHrefEntityModel?
+  public var registrations: PS_Facial_Services.PSFSHrefEntityModel?
+  public var authenticators: PS_Facial_Services.PSFSHrefEntityModel?
+  public var authenticationRequests: PS_Facial_Services.PSFSHrefEntityModel?
+  public var sponsorships: PS_Facial_Services.PSFSHrefEntityModel?
+  public var registrationChallenges: PS_Facial_Services.PSFSHrefEntityModel?
+  public var enrollments: PS_Facial_Services.PSFSHrefEntityModel?
+  public var samples: PS_Facial_Services.PSFSHrefEntityModel?
+  required public init(from decoder: any Swift.Decoder) throws
+  @objc deinit
+}
+open class PSFSCreateFaceLivenessResponse : PS_Facial_Services.PSFSCodableBaseResponse {
+  public var href: Swift.String
+  public var id: Swift.String
+  public var created: Swift.String
+  public var subtype: Swift.String
+  public var captured: Swift.String
+  public var sensitiveData: PS_Facial_Services.PSFSHrefEntityModel?
+  public var clientMetrics: PS_Facial_Services.PSFSHrefEntityModel?
+  public var readOnly: Swift.Bool
+  required public init(from decoder: any Swift.Decoder) throws
+  @objc deinit
+}
+public class PSFSCreateIdCheckRequest : PS_Facial_Services.PSEncodableBaseRequest {
+  public var referenceId: Swift.String
+  override public func encode(to encoder: any Swift.Encoder) throws
+  public init(referenceId: Swift.String)
+  @objc deinit
+}
+public class PSFSUpdateRegistrationChallengeRequest : PS_Facial_Services.PSEncodableBaseRequest {
+  public var id: Swift.String
+  public var status: Swift.String
+  public var fidoRegistrationResponse: Swift.String
+  override public func encode(to encoder: any Swift.Encoder) throws
+  public init(id: Swift.String, status: Swift.String, fidoRegistrationResponse: Swift.String)
+  @objc deinit
+}
+public class LivenessChallenge : Swift.Codable {
+  public var id: Swift.String?
+  public var created: Foundation.Date?
+  public var index: Swift.Int?
+  public var type: Swift.String?
+  public var timeout: Swift.Int
+  public var maxRetries: Swift.Int
+  public var detectionThreshold: Foundation.Decimal?
+  public var additionalConfig: PS_Facial_Services.AdditionalConfig?
+  public var allowedPermissions: Swift.String?
+  public var href: Swift.String?
+  public var next: Swift.String?
+  required public init(from decoder: any Swift.Decoder) throws
+  @objc deinit
+  public func encode(to encoder: any Swift.Encoder) throws
+}
+open class PSFSBadRequestResponse : PS_Facial_Services.PSFSCodableBaseResponse {
+  public var httpStatus: Swift.Int?
+  public var message: Swift.String?
+  public var developerMessage: Swift.String?
+  public var code: Swift.Int
+  required public init(from decoder: any Swift.Decoder) throws
+  @objc deinit
+}
+@_hasMissingDesignatedInitializers public class LivenessVideoProcessingErrors : Swift.Codable {
+  public var items: [PS_Facial_Services.CustomError]?
+  public var allowedPermissions: Swift.String?
+  public var href: Swift.String?
+  required public init(from decoder: any Swift.Decoder) throws
+  @objc deinit
+  public func encode(to encoder: any Swift.Encoder) throws
+}
+extension PS_Facial_Services.PSFSDocumentCatalog.Document.DocuementType : Swift.Equatable {}
+extension PS_Facial_Services.PSFSDocumentCatalog.Document.DocuementType : Swift.Hashable {}
+extension PS_Facial_Services.PSFSDocumentCatalog.Document.DocuementType : Swift.RawRepresentable {}
+extension PS_Facial_Services.PSServerConstants.ContentType : Swift.Equatable {}
+extension PS_Facial_Services.PSServerConstants.ContentType : Swift.Hashable {}
+extension PS_Facial_Services.PSServerConstants.ContentType : Swift.RawRepresentable {}
+extension PS_Facial_Services.PSServerConstants.ContextURL : Swift.Equatable {}
+extension PS_Facial_Services.PSServerConstants.ContextURL : Swift.Hashable {}
+extension PS_Facial_Services.PSServerConstants.ContextURL : Swift.RawRepresentable {}
+extension PS_Facial_Services.AppErrorCodes : Swift.Equatable {}
+extension PS_Facial_Services.AppErrorCodes : Swift.Hashable {}

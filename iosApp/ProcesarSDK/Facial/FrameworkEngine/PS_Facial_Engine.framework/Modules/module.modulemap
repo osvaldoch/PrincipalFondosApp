@@ -1,0 +1,11 @@
+framework module PS_Facial_Engine {
+  umbrella header "PS_Facial_Engine.h"
+
+  export *
+  module * { export * }
+}
+
+module PS_Facial_Engine.Swift {
+  header "PS_Facial_Engine-Swift.h"
+  requires objc
+}

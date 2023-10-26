@@ -1,0 +1,11 @@
+framework module PS_Core {
+  umbrella header "PS_Core.h"
+
+  export *
+  module * { export * }
+}
+
+module PS_Core.Swift {
+  header "PS_Core-Swift.h"
+  requires objc
+}
