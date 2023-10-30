@@ -1,6 +1,21 @@
+/*
 plugins {
     alias(libs.plugins.androidApplication)
     alias(libs.plugins.kotlinAndroid)
+
+    //kotlin("android")
+
+    id("kotlin-kapt")
+
+}
+*/
+
+plugins {
+    id("com.android.application")
+    kotlin("android")
+
+    id("kotlin-kapt")
+
 }
 
 android {
@@ -17,7 +32,9 @@ android {
         compose = true
     }
     composeOptions {
-        kotlinCompilerExtensionVersion = libs.versions.compose.compiler.get()
+        //kotlinCompilerExtensionVersion = libs.versions.compose.compiler.get()
+        kotlinCompilerExtensionVersion = "1.4.0"
+
     }
     packaging {
         resources {
@@ -30,14 +47,17 @@ android {
         }
     }
     compileOptions {
-        sourceCompatibility = JavaVersion.VERSION_1_8
-        targetCompatibility = JavaVersion.VERSION_1_8
+        sourceCompatibility = JavaVersion.VERSION_17
+        targetCompatibility = JavaVersion.VERSION_17
     }
     kotlinOptions {
-        jvmTarget = "1.8"
+        //jvmTarget = "1.8"
+        jvmTarget = "17"
+
     }
 }
 
+/*
 dependencies {
     implementation(projects.shared)
     implementation(libs.compose.ui)
@@ -45,4 +65,43 @@ dependencies {
     implementation(libs.compose.material3)
     implementation(libs.androidx.activity.compose)
     debugImplementation(libs.compose.ui.tooling)
+}*/
+
+dependencies {
+    implementation(project(":shared"))
+    implementation("androidx.compose.ui:ui:1.4.3")
+    implementation("androidx.compose.ui:ui-tooling:1.4.3")
+    implementation("androidx.compose.ui:ui-tooling-preview:1.4.3")
+    implementation("androidx.compose.foundation:foundation:1.4.3")
+    implementation("androidx.compose.material:material:1.4.3")
+    implementation("androidx.activity:activity-compose:1.7.1")
+    implementation(libs.compose.material3)
+
+    implementation("org.jetbrains.kotlinx:atomicfu:0.20.2")
+
+
+    implementation(libs.dagger)
+    kapt(libs.google.dagger.compiler)
+
+    implementation(
+        fileTree(
+            mapOf(
+                "dir" to "libs",
+                "include" to listOf("*.aar", "*.jar")
+            )
+        )
+    )
+
+
+    //Retrofit
+    implementation("com.squareup.retrofit2:retrofit:2.9.0")
+    implementation("com.squareup.retrofit2:converter-gson:2.9.0")
+    implementation("com.squareup.retrofit2:adapter-rxjava2:2.9.0")
+    implementation("com.squareup.okhttp3:logging-interceptor:4.9.0")
+
+    implementation("io.reactivex.rxjava2:rxandroid:2.1.1")
+
+    // Rx
+
+
 }

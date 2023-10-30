@@ -1,20 +1,22 @@
+/*
 plugins {
     alias(libs.plugins.kotlinMultiplatform)
     alias(libs.plugins.kotlinCocoapods)
     alias(libs.plugins.androidLibrary)
+    id("org.jetbrains.compose")
+
+}
+*/
+
+plugins {
+    kotlin("multiplatform")
+    kotlin("native.cocoapods")
+    id("com.android.library")
+    id("org.jetbrains.compose")
 }
 
-@OptIn(org.jetbrains.kotlin.gradle.ExperimentalKotlinGradlePluginApi::class)
 kotlin {
-    targetHierarchy.default()
-
-    androidTarget {
-        compilations.all {
-            kotlinOptions {
-                jvmTarget = "1.8"
-            }
-        }
-    }
+    android()
     iosX64()
     iosArm64()
     iosSimulatorArm64()
@@ -28,12 +30,27 @@ kotlin {
         framework {
             baseName = "shared"
         }
+        //extraSpecAttributes["resources"] = "['src/commonMain/resources/**', 'src/iosMain/resources/**']"
+
     }
     
     sourceSets {
         val commonMain by getting {
             dependencies {
-                //put your multiplatform dependencies here
+                implementation(compose.runtime)
+                implementation(compose.foundation)
+                implementation(compose.material)
+                @OptIn(org.jetbrains.compose.ExperimentalComposeLibrary::class)
+                implementation(compose.components.resources)
+                implementation("org.jetbrains.kotlinx:atomicfu:0.17.3") // 手动添加
+
+            }
+        }
+        val androidMain by getting {
+            dependencies {
+                api("androidx.activity:activity-compose:1.6.1")
+                api("androidx.appcompat:appcompat:1.6.1")
+                api("androidx.core:core-ktx:1.9.0")
             }
         }
         val commonTest by getting {
@@ -45,9 +62,22 @@ kotlin {
 }
 
 android {
+    compileSdk = (findProperty("android.compileSdk") as String).toInt()
     namespace = "com.example.principalfondosapp"
-    compileSdk = 34
+
+    sourceSets["main"].manifest.srcFile("src/androidMain/AndroidManifest.xml")
+    sourceSets["main"].res.srcDirs("src/androidMain/res")
+    sourceSets["main"].resources.srcDirs("src/commonMain/resources")
+
     defaultConfig {
-        minSdk = 24
+        minSdk = (findProperty("android.minSdk") as String).toInt()
+        targetSdk = (findProperty("android.targetSdk") as String).toInt()
+    }
+    compileOptions {
+        sourceCompatibility = JavaVersion.VERSION_11
+        targetCompatibility = JavaVersion.VERSION_11
+    }
+    kotlin {
+        jvmToolchain(11)
     }
 }
