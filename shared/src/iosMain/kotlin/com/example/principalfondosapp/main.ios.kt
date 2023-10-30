@@ -1,4 +1,4 @@
-package com.principal.fondos
+package com.example.principalfondosapp
 
 import androidx.compose.ui.window.ComposeUIViewController
 

@@ -9,7 +9,7 @@ PODS:
   - KeychainSwift (19.0.0)
   - lottie-ios (3.2.3)
   - ObjectMapper (3.5.3)
-  - shared (1.0)
+  - shared (1.0.0)
 
 DEPENDENCIES:
   - Alamofire (= 4.8.1)
@@ -44,8 +44,8 @@ SPEC CHECKSUMS:
   KeychainSwift: a06190cf933ad46b1e0abc3d77d29c06331715c7
   lottie-ios: c058aeafa76daa4cf64d773554bccc8385d0150e
   ObjectMapper: 97111c97e054a6ee25917662106689f0b4127b37
-  shared: 2d3b24a8fe27b7d9e65b8d075a9672fbc6a1aa10
+  shared: 5a943f721a346307aa14f7da2d5ae14270a854a7
 
-PODFILE CHECKSUM: c9c39929ba8c6f8bb9f9f22fef80b5780e0b7d79
+PODFILE CHECKSUM: f50813b96367cb6109b30bda7485d79f92c65b79
 
 COCOAPODS: 1.14.2

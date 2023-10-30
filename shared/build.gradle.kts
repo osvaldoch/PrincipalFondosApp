@@ -1,13 +1,3 @@
-/*
-plugins {
-    alias(libs.plugins.kotlinMultiplatform)
-    alias(libs.plugins.kotlinCocoapods)
-    alias(libs.plugins.androidLibrary)
-    id("org.jetbrains.compose")
-
-}
-*/
-
 plugins {
     kotlin("multiplatform")
     kotlin("native.cocoapods")
@@ -22,18 +12,18 @@ kotlin {
     iosSimulatorArm64()
 
     cocoapods {
+        version = "1.0.0"
         summary = "Some description for the Shared Module"
         homepage = "Link to the Shared Module homepage"
-        version = "1.0"
-        ios.deploymentTarget = "14.1"
+        ios.deploymentTarget = "16.1"
         podfile = project.file("../iosApp/Podfile")
         framework {
             baseName = "shared"
+            isStatic = true
         }
-        //extraSpecAttributes["resources"] = "['src/commonMain/resources/**', 'src/iosMain/resources/**']"
-
+        extraSpecAttributes["resources"] = "['src/commonMain/resources/**', 'src/iosMain/resources/**']"
     }
-    
+
     sourceSets {
         val commonMain by getting {
             dependencies {
@@ -53,10 +43,14 @@ kotlin {
                 api("androidx.core:core-ktx:1.9.0")
             }
         }
-        val commonTest by getting {
-            dependencies {
-                implementation(libs.kotlin.test)
-            }
+        val iosX64Main by getting
+        val iosArm64Main by getting
+        val iosSimulatorArm64Main by getting
+        val iosMain by creating {
+            dependsOn(commonMain)
+            iosX64Main.dependsOn(this)
+            iosArm64Main.dependsOn(this)
+            iosSimulatorArm64Main.dependsOn(this)
         }
     }
 }

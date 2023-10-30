@@ -1,15 +1,3 @@
-/*
-plugins {
-    alias(libs.plugins.androidApplication)
-    alias(libs.plugins.kotlinAndroid)
-
-    //kotlin("android")
-
-    id("kotlin-kapt")
-
-}
-*/
-
 plugins {
     id("com.android.application")
     kotlin("android")
@@ -23,7 +11,7 @@ android {
     compileSdk = 34
     defaultConfig {
         applicationId = "com.example.principalfondosapp.android"
-        minSdk = 24
+        minSdk = 26
         targetSdk = 34
         versionCode = 1
         versionName = "1.0"
@@ -36,7 +24,7 @@ android {
         kotlinCompilerExtensionVersion = "1.4.0"
 
     }
-    packaging {
+    packagingOptions {
         resources {
             excludes += "/META-INF/{AL2.0,LGPL2.1}"
         }
@@ -56,16 +44,6 @@ android {
 
     }
 }
-
-/*
-dependencies {
-    implementation(projects.shared)
-    implementation(libs.compose.ui)
-    implementation(libs.compose.ui.tooling.preview)
-    implementation(libs.compose.material3)
-    implementation(libs.androidx.activity.compose)
-    debugImplementation(libs.compose.ui.tooling)
-}*/
 
 dependencies {
     implementation(project(":shared"))
@@ -104,4 +82,15 @@ dependencies {
     // Rx
 
 
+}
+
+buildscript {
+    dependencies {
+        // Use the same version in the error
+        classpath("org.jetbrains.kotlinx:atomicfu-gradle-plugin:0.17.3")
+    }
+}
+
+allprojects {
+    apply(plugin = "kotlinx-atomicfu")
 }

@@ -1,5 +1,5 @@
 [versions]
-agp = "8.2.0-rc01"
+agp = "8.2.0-beta06"
 dagger = "2.46.1"
 daggerCompiler = "2.46.1"
 kotlin = "1.9.10"
@@ -7,7 +7,6 @@ compose = "1.5.1"
 compose-compiler = "1.5.3"
 compose-material3 = "1.1.2"
 androidx-activityCompose = "1.7.2"
-foundationAndroid = "1.5.4"
 
 [libraries]
 dagger = { module = "com.google.dagger:dagger", version.ref = "dagger" }
@@ -19,7 +18,6 @@ compose-ui-tooling = { module = "androidx.compose.ui:ui-tooling", version.ref = 
 compose-ui-tooling-preview = { module = "androidx.compose.ui:ui-tooling-preview", version.ref = "compose" }
 compose-foundation = { module = "androidx.compose.foundation:foundation", version.ref = "compose" }
 compose-material3 = { module = "androidx.compose.material3:material3", version.ref = "compose-material3" }
-androidx-foundation-android = { group = "androidx.compose.foundation", name = "foundation-android", version.ref = "foundationAndroid" }
 
 [plugins]
 androidApplication = { id = "com.android.application", version.ref = "agp" }
@@ -28,4 +26,3 @@ kotlinAndroid = { id = "org.jetbrains.kotlin.android", version.ref = "kotlin" }
 kotlinKapt = { id = "kotlin-kapt", version.ref = "kotlin" }
 kotlinMultiplatform = { id = "org.jetbrains.kotlin.multiplatform", version.ref = "kotlin" }
 kotlinCocoapods = { id = "org.jetbrains.kotlin.native.cocoapods", version.ref = "kotlin" }
-compose = { id = "org.jetbrains.compose", version.ref = "compose" }
