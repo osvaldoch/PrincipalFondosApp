@@ -1,3 +1,4 @@
+#if RELEASE
 import DaonAuthenticatorFace
 import DaonAuthenticatorSDK
 import DaonCryptoSDK
@@ -217,5 +218,4 @@ extension PSDKLiveness3DManager: FidoAuthenticationTaskDelegate {
     }
 
 }
-
-
+#endif

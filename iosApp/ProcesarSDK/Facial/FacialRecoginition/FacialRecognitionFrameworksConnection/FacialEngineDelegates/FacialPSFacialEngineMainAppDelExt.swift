@@ -1,3 +1,4 @@
+#if RELEASE
 import PS_Facial_Engine
 
 extension FacialSDKManager: PSFacialEngineMainAppDelegate {
@@ -49,3 +50,4 @@ extension FacialSDKManager: PSFacialEngineMainAppDelegate {
         PSFacialEngine.getInstance().psfeProcesarFlow.handleOnReviewError(error)
     }
 }
+#endif

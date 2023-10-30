@@ -1,3 +1,4 @@
+#if RELEASE
 import UIKit
 import DaonFIDOSDK
 import PS_Facial_Engine
@@ -261,3 +262,4 @@ class FidoRegistrationTask: NSObject, IXUAFDelegate
         return collectorInfo
     }
 }
+#endif

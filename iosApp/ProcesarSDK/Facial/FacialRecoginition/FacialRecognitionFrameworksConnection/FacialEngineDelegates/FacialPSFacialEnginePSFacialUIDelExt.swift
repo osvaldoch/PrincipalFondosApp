@@ -1,3 +1,4 @@
+#if RELEASE
 import PS_FacialUI
 import DaonDocument
 import PS_Facial_Engine
@@ -142,3 +143,4 @@ extension FacialSDKManager: PSFacialEnginePSFacialUIDelegate {
     }
     
 }
+#endif

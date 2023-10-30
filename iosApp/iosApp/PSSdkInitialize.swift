@@ -7,12 +7,14 @@
 //
 
 import Foundation
+import shared
+
+#if RELEASE
 import PS_Core
 import PS_Auto_Transfer
 import PS_Core
 import PS_BaseExternal
 import PS_Facial_Services
-import shared
 
 public class PSSdkInitialize: PSCoreDelegate {
     
@@ -187,5 +189,4 @@ internal struct Constans {
     }
     
 }
-
-
+#endif

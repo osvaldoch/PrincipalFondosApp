@@ -1,3 +1,4 @@
+#if RELEASE
 import Foundation
 import PS_Facial_Engine
 
@@ -66,3 +67,4 @@ class PSDaonSdk: NSObject {
         return documentsLicense ?? ""
     }
 }
+#endif

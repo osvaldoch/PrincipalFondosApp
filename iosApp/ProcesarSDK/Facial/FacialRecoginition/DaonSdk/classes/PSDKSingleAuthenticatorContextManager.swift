@@ -1,3 +1,4 @@
+#if RELEASE
 import Foundation
 import DaonAuthenticatorSDK
 
@@ -15,3 +16,4 @@ public class PSDKSingleAuthenticatorContextManager: NSObject{
         }
     }
 }
+#endif

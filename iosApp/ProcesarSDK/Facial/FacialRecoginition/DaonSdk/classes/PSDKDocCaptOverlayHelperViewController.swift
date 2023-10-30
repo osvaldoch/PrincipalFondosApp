@@ -1,3 +1,4 @@
+#if RELEASE
 import UIKit
 import DaonDocument
 import PS_FacialUI
@@ -138,4 +139,4 @@ class PSDKDocCaptOverlayHelperViewController: UIViewController, DMDSCustomScanDe
     }
     
 }
-
+#endif

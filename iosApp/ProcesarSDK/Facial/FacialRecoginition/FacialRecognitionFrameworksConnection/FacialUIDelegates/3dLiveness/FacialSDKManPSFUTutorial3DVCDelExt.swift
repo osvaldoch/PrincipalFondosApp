@@ -1,3 +1,4 @@
+#if RELEASE
 import PS_FacialUI
 import PS_Facial_Engine
 extension FacialSDKManager: PSFUTutorial3DVCDelegate{
@@ -6,3 +7,4 @@ extension FacialSDKManager: PSFUTutorial3DVCDelegate{
     }
     
 }
+#endif

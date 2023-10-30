@@ -1,3 +1,4 @@
+#if RELEASE
 import UIKit
 import DaonDocument
 
@@ -61,3 +62,4 @@ import DaonDocument
         return copy
     }
 }
+#endif

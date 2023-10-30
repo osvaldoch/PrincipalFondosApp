@@ -1,3 +1,4 @@
+#if RELEASE
 import DaonAuthenticatorFace
 import Foundation
 import UIKit
@@ -114,5 +115,4 @@ extension FacialSDKManager: PSDaonSdkDelegate{
   
     
 }
-
-
+#endif

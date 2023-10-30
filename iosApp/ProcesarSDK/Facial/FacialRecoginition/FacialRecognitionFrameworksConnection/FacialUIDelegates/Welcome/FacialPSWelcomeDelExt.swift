@@ -1,3 +1,4 @@
+#if RELEASE
 import Foundation
 import PS_FacialUI
 import PS_Facial_Engine
@@ -31,3 +32,4 @@ extension FacialSDKManager: PSWelcomeVCDelegate {
     }
    
 }
+#endif

@@ -1,4 +1,4 @@
-
+#if RELEASE
 import Foundation
 import DaonDocument
 import PS_Facial_Engine
@@ -105,4 +105,4 @@ class PSDKCaptureManager:NSObject {
 
  
 }
-
+#endif

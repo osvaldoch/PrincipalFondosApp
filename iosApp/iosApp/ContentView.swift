@@ -2,8 +2,11 @@ import SwiftUI
 import shared
 
 struct ContentView: View {
-	let greet = Greeting().greet()
-    //let sdk = PSSdkInitialize()
+    let greet = Greeting().greet()
+#if RELEASE
+    let sdk = PSSdkInitialize()
+#endif
+
     init() {
        // sdk.setupCore()
     }

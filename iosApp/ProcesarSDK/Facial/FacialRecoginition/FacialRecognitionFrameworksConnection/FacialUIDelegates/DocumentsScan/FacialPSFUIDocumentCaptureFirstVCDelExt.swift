@@ -1,3 +1,4 @@
+#if RELEASE
 import PS_FacialUI
 import PS_Facial_Engine
 extension FacialSDKManager: PSFUIDocumentCaptureFirstVCDelegate {
@@ -10,3 +11,4 @@ extension FacialSDKManager: PSFUIDocumentCaptureFirstVCDelegate {
         PSFacialEngine.getInstance().documentsFlow.handleBackBtnOfFirstView()
     }
 }
+#endif

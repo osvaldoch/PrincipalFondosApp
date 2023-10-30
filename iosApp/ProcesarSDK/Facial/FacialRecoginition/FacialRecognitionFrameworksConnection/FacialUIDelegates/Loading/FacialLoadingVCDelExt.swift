@@ -1,3 +1,4 @@
+#if RELEASE
 import Foundation
 import UIKit
 import PS_FacialUI
@@ -13,3 +14,4 @@ extension FacialSDKManager : PSLoadingVCDelegate{
         print("WillDisappearLoading")
     }
 }
+#endif

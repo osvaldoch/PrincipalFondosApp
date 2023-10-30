@@ -1,3 +1,4 @@
+#if RELEASE
 import UIKit
 import DaonAuthenticatorFace
 public protocol PSDaonSdkDelegate{
@@ -28,3 +29,4 @@ public protocol PSDaonSdkDelegate{
     func show3DViewControllerForAuth()
     func getDasErrorsDict(errorCode:String)->String?
 }
+#endif

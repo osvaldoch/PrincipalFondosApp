@@ -1,4 +1,4 @@
-
+#if RELEASE
 import Foundation
 import PS_Facial_Engine
 import PS_Facial_Services
@@ -473,3 +473,4 @@ extension String {
     }
     
 }
+#endif

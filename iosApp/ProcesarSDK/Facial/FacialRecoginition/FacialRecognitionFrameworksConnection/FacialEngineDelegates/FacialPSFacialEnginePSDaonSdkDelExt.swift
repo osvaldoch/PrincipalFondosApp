@@ -1,3 +1,4 @@
+#if RELEASE
 import DaonDocument
 import AVFoundation
 import PS_Facial_Engine
@@ -154,3 +155,4 @@ extension FacialSDKManager: PSFacialEngineDaonSDKDelegate {
     }
     
 }
+#endif

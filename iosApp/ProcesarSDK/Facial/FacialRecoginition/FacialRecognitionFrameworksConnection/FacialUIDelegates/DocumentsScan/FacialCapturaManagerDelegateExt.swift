@@ -1,4 +1,4 @@
-
+#if RELEASE
 import Foundation
 import UIKit
 import DaonDocument
@@ -34,4 +34,4 @@ extension FacialSDKManager : CaptureManagerDelegate {
         PSDKCaptureManager.instance.manager!.restartScanning()
     }
 }
-
+#endif

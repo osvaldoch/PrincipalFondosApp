@@ -1,3 +1,4 @@
+#if RELEASE
 //
 //  MyCustomFlow.swift
 //  FacialEngineSample
@@ -800,3 +801,4 @@ class MyCustomFlowManager: PSFEProcesarFlowManager {
     }
     
 }
+#endif

@@ -1,3 +1,4 @@
+#if RELEASE
 import UIKit
 import DaonFIDOSDK
 import PS_Facial_Engine
@@ -130,3 +131,4 @@ class Fido: DaonFIDO
         
     }
 }
+#endif

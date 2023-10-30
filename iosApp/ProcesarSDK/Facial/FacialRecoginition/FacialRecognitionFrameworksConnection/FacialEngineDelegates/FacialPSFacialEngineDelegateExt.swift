@@ -1,3 +1,4 @@
+#if RELEASE
 import Foundation
 import UIKit
 import PS_FacialUI
@@ -42,3 +43,4 @@ extension FacialSDKManager: PSFacialEngineDelegate {
 
     }
 }
+#endif

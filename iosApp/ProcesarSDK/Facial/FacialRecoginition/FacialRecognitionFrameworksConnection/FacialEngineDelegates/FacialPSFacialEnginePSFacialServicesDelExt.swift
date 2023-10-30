@@ -1,3 +1,4 @@
+#if RELEASE
 import PS_Facial_Services
 import PS_Facial_Engine
 extension FacialSDKManager: PSFacialEnginePSFacialServicesDelegate {
@@ -345,3 +346,4 @@ extension FacialSDKManager: PSFacialEnginePSFacialServicesDelegate {
     }
     
 }
+#endif

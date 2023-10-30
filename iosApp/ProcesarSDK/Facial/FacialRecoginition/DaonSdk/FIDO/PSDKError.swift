@@ -1,3 +1,4 @@
+#if RELEASE
 import Foundation
 
 open class PSDKError {
@@ -61,3 +62,4 @@ open class PSDKError {
     
    
 }
+#endif

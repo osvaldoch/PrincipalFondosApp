@@ -1,3 +1,4 @@
+#if RELEASE
 import PS_Facial_Services
 import PS_Facial_Engine
 import PS_Core
@@ -36,3 +37,4 @@ extension FacialSDKManager: PSFSFacialServicesDelegate {
     
 
 }
+#endif

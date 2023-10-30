@@ -1,3 +1,4 @@
+#if RELEASE
 import Foundation
 import UIKit
 import PS_Facial_Engine
@@ -16,3 +17,4 @@ extension FacialSDKManager: PSFacialEngineCaptureManagerDelegate {
         FacialSDKManager.instance.documentCaptureOverlayDelegate?.documentScanned(image: image)
     }
 }
+#endif

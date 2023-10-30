@@ -1,3 +1,4 @@
+#if RELEASE
 import UIKit
 import DaonFIDOSDK
 import PS_Facial_Services
@@ -152,3 +153,4 @@ class FidoAuthenticationTask: NSObject, IXUAFDelegate
         return collectorInfo
     }
 }
+#endif

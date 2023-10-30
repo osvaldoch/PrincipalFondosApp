@@ -1,3 +1,4 @@
+#if RELEASE
 import Foundation
 import PS_FacialUI
 
@@ -33,9 +34,5 @@ public class PSDKCapturedDocumentManager: NSObject {
         PSDKCapturedDocumentManager.instance.manager.back = nil
     }
 
-    
-    
 }
-
-
-
+#endif

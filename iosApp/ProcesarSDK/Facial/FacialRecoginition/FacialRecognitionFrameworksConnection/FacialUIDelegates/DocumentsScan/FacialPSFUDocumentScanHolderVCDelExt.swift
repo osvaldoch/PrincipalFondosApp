@@ -1,3 +1,4 @@
+#if RELEASE
 import Foundation
 import UIKit
 import PS_Facial_Engine
@@ -56,4 +57,4 @@ extension FacialSDKManager: PSFUDocumentScanHolderVCDelegate {
         PSFacialEngine.getInstance().documentsFlow.handleCancelScann(transitionDirection: .toLeft)
     }
 }
-
+#endif

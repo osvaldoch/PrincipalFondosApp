@@ -1,3 +1,4 @@
+#if RELEASE
 import PS_FacialUI
 import UIKit
 import PS_Facial_Engine
@@ -45,3 +46,4 @@ extension FacialSDKManager: PSFUDocumentCaptureOverlayVCDelegate{
     }
 
 }
+#endif

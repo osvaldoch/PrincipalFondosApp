@@ -1,3 +1,4 @@
+#if RELEASE
 import PS_FacialUI
 import UIKit
 import Foundation
@@ -53,3 +54,4 @@ extension FacialSDKManager: ReviewVCDelegate {
     }
 
 }
+#endif

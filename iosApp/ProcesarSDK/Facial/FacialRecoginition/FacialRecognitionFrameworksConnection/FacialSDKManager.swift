@@ -1,3 +1,4 @@
+#if RELEASE
 import UIKit
 import PS_FacialUI
 import PS_Facial_Services
@@ -163,3 +164,4 @@ extension FacialSDKManager: PSFUTimerVCDelegate {
         PSFacialEngine.getInstance().psfeProcesarFlow.handleOnTimerCanceled()
     }
 }
+#endif

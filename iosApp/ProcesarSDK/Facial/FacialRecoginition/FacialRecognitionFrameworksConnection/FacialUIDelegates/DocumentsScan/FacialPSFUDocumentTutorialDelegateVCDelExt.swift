@@ -1,3 +1,4 @@
+#if RELEASE
 import PS_FacialUI
 import PS_Facial_Engine
 extension FacialSDKManager: PSFUDocumentTutorialVCDelegate{
@@ -8,3 +9,4 @@ extension FacialSDKManager: PSFUDocumentTutorialVCDelegate{
         PSFacialEngine.getInstance().documentsFlow.handleContinueBtnOfFirstView(transitionDirection: .toLeft)
     }
 }
+#endif
