@@ -36,10 +36,6 @@ struct ComposeView: UIViewControllerRepresentable,
     func makeUIViewController(context: Context) -> UIViewController {
         Main_iosKt.MainViewController()
     }
-
-    func facial(view: UIViewController) {
-
-    }
     
     func updateUIViewController(_ uiViewController: UIViewController, context: Context) {
         PSFacialEngine.getInstance().psfeProcesarFlow = MyCustomFlowManager()
