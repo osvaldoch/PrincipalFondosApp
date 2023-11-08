@@ -16,7 +16,6 @@ import shared
 
 public class PSSdkInitialize: PSCoreDelegate {
 
-
    let modelTraspasos = PSAutoTransferViewModel()
    let baseManager = PSBaseService()
    let catalog = PSCatalogViewModel()
